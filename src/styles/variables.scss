@@ -1,0 +1,20 @@
+/* Variables */
+
+// Base color
+
+
+
+$--theme-color:#3498db;
+
+$--font-size:14px;
+
+$--border:1px solid #e6e6e6;
+
+// The :export directive is the magic sauce for webpack
+// https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
+:export {
+  menuBg: $--menu-bg;
+  menuText: $--menu-text;
+  menuActiveText: $--menu-active-text;
+  firstMenuActiveText: $--first-menu-active-text;
+}

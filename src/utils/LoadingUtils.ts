@@ -4,7 +4,7 @@ import { ElLoading, type LoadingOptions } from 'element-plus'
 class LoadingUtils {
   static loadingInstance: any = null
 
-  static show(options: LoadingOptions) {
+  static show(options?: LoadingOptions) {
     const defalutOptions: LoadingOptions = {
       lock: true,
       text: 'Loading',

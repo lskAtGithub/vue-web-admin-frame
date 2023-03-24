@@ -1,8 +1,10 @@
 import axios from 'axios'
 import LoadingUtils from '@/utils/LoadingUtils'
 
+console.log(import.meta)
+
 const instance = axios.create({
-  baseURL: 'https://api.example.com',
+  baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 30000,
   withCredentials: true // send cookies when cross-domain requests
 })
@@ -20,9 +22,11 @@ instance.interceptors.request.use((config) => {
 
 // 添加响应拦截器
 instance.interceptors.response.use((response) => {
+  LoadingUtils.hide()
   return response
 },
 (error) => {
+  LoadingUtils.hide()
   return Promise.reject(error)
 })
 

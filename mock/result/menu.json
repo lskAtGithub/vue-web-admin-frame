@@ -1,0 +1,30 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "id": "1",
+      "title": "首页",
+      "redirect": "/home/homePage",
+      "children": [
+        {
+          "id": "11",
+          "path": "/home/homePage",
+          "title": "首页"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "页面管理",
+      "redirect": "/manage/table",
+      "children": [
+        {
+          "id": "22",
+          "path": "/manage/table",
+          "title": "表格页"
+        }
+      ]
+    }
+  ],
+  "meg": "success"
+}

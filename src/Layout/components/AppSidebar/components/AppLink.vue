@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter();
 const props = defineProps(['to'])
 
-const handleTo = () => {
+function handleTo() {
   router.push({
     path: props.to
   })

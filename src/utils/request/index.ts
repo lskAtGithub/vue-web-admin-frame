@@ -1,8 +1,6 @@
 import axios from 'axios'
 import LoadingUtils from '@/utils/LoadingUtils'
 
-console.log(import.meta)
-
 const instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 30000,

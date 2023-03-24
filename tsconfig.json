@@ -7,7 +7,7 @@
       "@/*": ["./src/*"]
     }
   },
-
+  "preserveValueImports": false,
   "references": [
     {
       "path": "./tsconfig.node.json"

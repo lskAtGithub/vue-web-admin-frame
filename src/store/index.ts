@@ -1,10 +1,4 @@
-import { defineStore } from 'pinia'
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 
-export const useStore = defineStore('main', {
-  state: () => {
-    return {
-      couter: 0,
-      name: 'admin manage'
-    }
-  },
-})
+export default pinia;

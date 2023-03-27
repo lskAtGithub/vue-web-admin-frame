@@ -16,6 +16,11 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/login',
+    title: '登录',
+    component: () => import('@/views/login/index.vue')
+  },
   table
 ]
 

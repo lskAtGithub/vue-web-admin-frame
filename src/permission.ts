@@ -26,7 +26,6 @@ router.beforeEach(async (to: any, from: any, next: any) => {
       NProgress.done()
     } else {
       // 确定用户是否已通过getInfo获得其权限角色
-
       if (user.HAS_USERINFO()) {
         next()
       } else {
@@ -43,7 +42,6 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         }
       }
     }
-    next()
   } else {
     /* has no token */
     if (whiteList.indexOf(to.path) !== -1) {

@@ -21,7 +21,7 @@ instance.interceptors.request.use((config) => {
 // 添加响应拦截器
 instance.interceptors.response.use((response) => {
   LoadingUtils.hide()
-  return response
+  return response.data
 },
 (error) => {
   LoadingUtils.hide()

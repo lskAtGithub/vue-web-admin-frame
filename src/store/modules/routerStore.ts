@@ -9,8 +9,8 @@ export const routerStore = defineStore('routerStore', {
   },
   actions: {
     async SET_ROUTES() {
-      const data = await getMenu()
-      console.log(data);
+      const data:any = await getMenu()
+      this.routes = data
     },
     RESET_ROUTES() {
       this.$reset()

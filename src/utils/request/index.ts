@@ -1,5 +1,6 @@
 import axios from 'axios'
 import LoadingUtils from '@/utils/LoadingUtils'
+import { ElMessage } from 'element-plus'
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -14,18 +15,22 @@ instance.interceptors.request.use((config) => {
   config.headers['x-token'] = 'token'
   return config
 },
-(error) => {
-  return Promise.reject(error)
-})
+  (error) => {
+    return Promise.reject(error)
+  })
 
 // 添加响应拦截器
 instance.interceptors.response.use((response) => {
   LoadingUtils.hide()
-  return response.data
+  if (response.data.code === 200) {
+    return response.data
+  } else {
+    ElMessage.error(response.data.msg)
+  }
 },
-(error) => {
-  LoadingUtils.hide()
-  return Promise.reject(error)
-})
+  (error) => {
+    LoadingUtils.hide()
+    return Promise.reject(error)
+  })
 
 export default instance

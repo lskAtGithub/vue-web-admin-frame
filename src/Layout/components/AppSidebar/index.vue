@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { routerStore } from '@/store/modules/routerStore';
 import AppLink from './components/AppLink.vue';
+import type { settings } from 'nprogress';
 
 const routeStore = routerStore()
 const route = useRoute()
@@ -19,12 +20,18 @@ const currentOpenMenu = (): string => {
     <div v-for="item in routes" :key="item.redirect">
       <el-menu-item v-if="item.children && item.children.length === 1" :index="item.children[0].path">
         <template #title>
+          <el-icon>
+            <component :is="item.children[0].meta?.icon" />
+          </el-icon>
           <app-link :to="item.children[0].path"> {{ item.children[0].title }} </app-link>
         </template>
       </el-menu-item>
 
       <el-sub-menu v-else :index="item.path || item.redirect">
         <template #title>
+          <el-icon>
+            <component :is="item.meta?.icon" />
+          </el-icon>
           <span>{{ item.title }}</span>
         </template>
         <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">

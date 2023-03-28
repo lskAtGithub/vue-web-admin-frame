@@ -3,10 +3,12 @@
     "id": "2",
     "title": "页面管理",
     "redirect": "/manage/table",
+    "meta": { "icon": "Tickets" },
     "children": [
       {
         "id": "22",
         "path": "/manage/table/list",
+        "meta": { "icon": "Setting" },
         "title": "表格页"
       }
     ]

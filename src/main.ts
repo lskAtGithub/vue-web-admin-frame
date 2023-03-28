@@ -7,6 +7,7 @@ import 'element-plus/dist/index.css'
 import '../mock'
 import 'normalize.css/normalize.css'
 import './permission'
+import '@/styles/index.scss'
 
 const app = createApp(App)
 app.use(piniaStore)

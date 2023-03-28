@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Layout from '@/Layout/index.vue'
 
-import table from './modules/table'
+import pages from './modules/pages'
 
 export const constantRoutes = [
   {
@@ -26,7 +26,7 @@ export const constantRoutes = [
 ]
 
 const asyncRoutes: any = [
-  table
+  pages
 ]
 
 const router = createRouter({

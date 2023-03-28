@@ -12,19 +12,28 @@ const currentOpenMenu = (): string => {
   return route.fullPath
 }
 
-
 </script>
 
 <template>
   <el-menu :default-active="currentOpenMenu()" class="el-menu-vertical">
-    <el-sub-menu v-for="item in routes" :key="item.redirect" :index="item.redirect">
-      <template #title>
-        <span>{{ item.title }}</span>
-      </template>
-      <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">
-        <app-link :to="childItem.path"> {{ childItem.title }} </app-link>
+    <div v-for="item in routes" :key="item.redirect">
+      <el-menu-item v-if="item.children && item.children.length === 1" :index="item.children[0].path">
+        <template #title>
+          <app-link :to="item.children[0].path"> {{ item.children[0].title }} </app-link>
+        </template>
       </el-menu-item>
-    </el-sub-menu>
+
+      <el-sub-menu v-else :index="item.path || item.redirect">
+        <template #title>
+          <span>{{ item.title }}</span>
+        </template>
+        <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">
+          <app-link :to="childItem.path"> {{ childItem.title }} </app-link>
+        </el-menu-item>
+      </el-sub-menu>
+    </div>
+
+
   </el-menu>
 </template>
 

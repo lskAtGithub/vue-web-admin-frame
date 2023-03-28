@@ -3,7 +3,7 @@ import Layout from '@/Layout/index.vue'
 
 import table from './modules/table'
 
-const routes = [
+export const constantRoutes = [
   {
     path: '/',
     component: Layout,
@@ -12,6 +12,7 @@ const routes = [
     children: [
       {
         path: '/home/homePage',
+        title: '首页',
         component: () => import('@/views/Home/index.vue'),
       }
     ]
@@ -19,15 +20,18 @@ const routes = [
   {
     path: '/login',
     title: '登录',
+    hidden: true,
     component: () => import('@/views/login/index.vue')
-  },
+  }
+]
+
+const asyncRoutes: any = [
   table
 ]
 
 const router = createRouter({
-  // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
   history: createWebHistory(),
-  routes,
+  routes: constantRoutes.concat(asyncRoutes),
 })
 
 export default router

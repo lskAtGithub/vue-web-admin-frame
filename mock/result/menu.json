@@ -6,7 +6,7 @@
     "children": [
       {
         "id": "22",
-        "path": "/manage/table",
+        "path": "/manage/table/list",
         "title": "表格页"
       }
     ]

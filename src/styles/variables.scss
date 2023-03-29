@@ -2,7 +2,7 @@
 
 $--menu-width: 240px;
 
-$--theme-color:#3498db;
+$--theme-color:#fa541c;
 
 $--font-size:14px;
 
@@ -12,4 +12,5 @@ $--border:1px solid #e6e6e6;
 // https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
 :export {
   menuWidth: $--menu-width;
+  themeColor: $--theme-color;
 }

@@ -7,24 +7,29 @@ const routes = {
     {
       title: '表格页',
       path: '/manage/table/list',
-      component: () => import('@/views/tableManage/index.vue'),
+      component: () => import('@/views/pagesManage/index.vue'),
       children: [
         {
           title: '列表',
           path: '/manage/table/list',
-          component: () => import('@/views/tableManage/list/index.vue'),
+          component: () => import('@/views/pagesManage/list/index.vue'),
         },
         {
           title: '详情',
           path: '/manage/table/detail',
-          component: () => import('@/views/tableManage/details/index.vue'),
+          component: () => import('@/views/pagesManage/details/index.vue'),
         },
         {
           title: '新增',
           path: '/manage/table/add',
-          component: () => import('@/views/tableManage/add/index.vue'),
+          component: () => import('@/views/pagesManage/add/index.vue'),
         }
       ]
+    },
+    {
+      title: 'tab示例',
+      path: '/manage/tab/index',
+      component: () => import('@/views/tabManage/demo/index.vue'),
     }
   ]
 }

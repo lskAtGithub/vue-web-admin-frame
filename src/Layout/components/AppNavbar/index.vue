@@ -1,7 +1,13 @@
 <script lang="ts" setup>
 import PageTitleUtils from '@/utils/PageTitleUtils'
+import { systemStore } from '@/store/modules/systemStore'
 
 const title = PageTitleUtils.getPageTitle('');
+const systemInstans = systemStore();
+
+function handleTogleSide() {
+  systemInstans.changeCollapse()
+}
 </script>
 
 <template>
@@ -9,7 +15,7 @@ const title = PageTitleUtils.getPageTitle('');
     <div class="left-side">
       {{ title }}
     </div>
-    <div class="info-box">
+    <div class="info-box" @click="handleTogleSide">
       这里是个人信息区域
     </div>
   </div>
@@ -32,7 +38,8 @@ const title = PageTitleUtils.getPageTitle('');
     width: $--menu-width;
     border-right: 1px solid #dcdfe6;
   }
-  .info-box{
+
+  .info-box {
     flex: 1;
     padding: 0 18px;
     text-align: right;

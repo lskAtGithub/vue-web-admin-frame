@@ -9,12 +9,13 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/home/homePage',
     title: '首页',
+    meta: { icon: 'House' },
     children: [
       {
         path: '/home/homePage',
         title: '首页',
         meta: { icon: 'House' },
-        component: () => import('@/views/Home/index.vue'),
+        component: () => import('@/views/Home/index.vue')
       }
     ]
   },

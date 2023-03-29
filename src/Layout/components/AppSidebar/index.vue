@@ -10,8 +10,6 @@ const route = useRoute()
 const rouetrIntance = useRouter()
 const systemInstans = systemStore()
 
-const routes: any = computed(() => routeStore.routes.filter(item => !item.hidden))
-
 const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length === 1))
 const childRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length !== 1))
 

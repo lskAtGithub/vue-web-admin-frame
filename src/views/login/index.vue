@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getMenu } from '@/api/user'
+import { getMenu } from '@/api/user/index'
 import { onMounted } from 'vue'
 import { userStore } from '@/store/modules/userStore'
 import { useRouter } from 'vue-router'

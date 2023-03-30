@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './components/AppLink.vue';
+import type { IRoute } from './types';
 
 const routeStore = routerStore()
 const route = useRoute()
@@ -23,16 +24,6 @@ function handleFirstMenuPush(item: IRoute) {
   })
 }
 
-</script>
-
-<script lang="ts">
-interface IRoute {
-  path: string,
-  title: string,
-  redirect: string,
-  meta: any,
-  component: any
-}
 </script>
 
 <template>

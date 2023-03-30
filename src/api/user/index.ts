@@ -1,6 +1,6 @@
 import requert from '@/utils/request/index'
 
-import type { ILoginParam } from '@/Iparams/user'
+import type { ILoginParam } from './types'
 /**
  * @param 
  */

@@ -21,8 +21,8 @@ function handleTogleSide() {
       </svg>
       <div class="admin-title" :class="{ 'hide-title': systemInstans.isCollapse }">{{ title }}</div>
     </div>
-    <div class="info-box" @click="handleTogleSide">
-      <div class="scale-icon">
+    <div class="info-box">
+      <div class="scale-icon" @click="handleTogleSide">
         <el-icon v-show="!systemInstans.isCollapse">
           <Fold />
         </el-icon>
@@ -88,6 +88,7 @@ function handleTogleSide() {
 
     .scale-icon {
       cursor: pointer;
+      width: 32px;
     }
   }
 }

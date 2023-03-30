@@ -13,7 +13,8 @@ function handleTogleSide() {
 <template>
   <div class="header-topbar-box">
     <div class="left-side">
-      {{ title }}
+      <div> {{ icon }} </div>
+      <div>{{ title }}</div>
     </div>
     <div class="info-box" @click="handleTogleSide">
       这里是个人信息区域

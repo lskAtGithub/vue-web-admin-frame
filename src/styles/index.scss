@@ -1,34 +1,50 @@
 @import './element/index.scss';
+@import './variables.scss';
+
+@font-face {
+  font-family: "阿里巴巴普惠体 2.0 55 Regular";
+  font-weight: 400;
+  // src: url("//at.alicdn.com/wf/webfont/EpGzf1oLF0Z9/596kuY7axXmA.woff2") format("woff2"),
+  //   url("//at.alicdn.com/wf/webfont/EpGzf1oLF0Z9/pLJII7I9bsst.woff") format("woff");
+  src: url("../assets/font/alibaba.woff2"),
+    url("../assets/font/alibaba.woff");
+  font-display: swap;
+  font-size: $--font-size;
+}
 
 html {
   height: 100%;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 5px;
     height: 7px;
   }
+
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.2);
   }
+
   &::-webkit-scrollbar-track {
     border-radius: 0;
     background: rgba(0, 0, 0, 0.1);
   }
 }
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+  font-family: "阿里巴巴普惠体 2.0 55 Regular", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, Arial, sans-serif;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 a:focus,

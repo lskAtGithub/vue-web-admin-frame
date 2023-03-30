@@ -4,8 +4,6 @@
 @font-face {
   font-family: "阿里巴巴普惠体 2.0 55 Regular";
   font-weight: 400;
-  // src: url("//at.alicdn.com/wf/webfont/EpGzf1oLF0Z9/596kuY7axXmA.woff2") format("woff2"),
-  //   url("//at.alicdn.com/wf/webfont/EpGzf1oLF0Z9/pLJII7I9bsst.woff") format("woff");
   src: url("../assets/font/alibaba.woff2"),
     url("../assets/font/alibaba.woff");
   font-display: swap;
@@ -17,7 +15,7 @@ html {
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
     height: 7px;
   }
 
@@ -37,8 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: "阿里巴巴普惠体 2.0 55 Regular", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, Arial, sans-serif;
+  font-family: "阿里巴巴普惠体 2.0 55 Regular", 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
 *,

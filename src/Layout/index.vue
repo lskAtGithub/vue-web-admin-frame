@@ -9,12 +9,12 @@ const systemInstans = systemStore()
 </script>
 
 <template>
-  <app-navbar></app-navbar>
   <div class="main-box">
-    <div class="side-box" :class="{ 'is-collapse': !systemInstans.isCollapse }">
+    <div class="side-box" :class="{ 'is-collapse': systemInstans.isCollapse }">
       <app-sidebar />
     </div>
     <div class="app-content">
+      <app-navbar></app-navbar>
       <app-main></app-main>
     </div>
   </div>
@@ -30,9 +30,9 @@ const systemInstans = systemStore()
   .side-box {
     width: $--menu-width;
     flex-shrink: 0;
-    transition: all 0.5;
-    &.is-collapse{
-      width: 100%;
+
+    &.is-collapse {
+      width: 64px;
     }
   }
 

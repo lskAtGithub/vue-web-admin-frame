@@ -24,10 +24,10 @@ function handleTogleSide() {
     <div class="info-box">
       <div class="scale-icon" @click="handleTogleSide">
         <el-icon v-show="!systemInstans.isCollapse">
-          <Fold />
+          <Fold size="18px" />
         </el-icon>
         <el-icon v-show="systemInstans.isCollapse">
-          <Expand />
+          <Expand size="18px" />
         </el-icon>
       </div>
     </div>

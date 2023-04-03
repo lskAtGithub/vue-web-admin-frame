@@ -2,6 +2,11 @@ export interface IRoute {
   path: string,
   title: string,
   redirect: string,
-  meta: any,
+  meta: IRouteMeta,
   component: any
+}
+
+interface IRouteMeta {
+  icon: String,
+  activeMenu: String,
 }

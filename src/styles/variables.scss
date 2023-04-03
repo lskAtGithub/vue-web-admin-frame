@@ -2,6 +2,8 @@
 
 $--menu-width: 240px;
 
+$--collapse-width: 64px;
+
 $--theme-color:#fa541c;
 
 $--font-size:14px;
@@ -13,4 +15,5 @@ $--border:1px solid #e6e6e6;
 :export {
   menuWidth: $--menu-width;
   themeColor: $--theme-color;
+  collapseWidth: $--collapse-width;
 }

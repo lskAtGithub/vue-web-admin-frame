@@ -5,11 +5,13 @@ import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './components/AppLink.vue';
 import type { IRoute } from './types';
+import PageTitleUtils from '@/utils/PageTitleUtils'
 
 const routeStore = routerStore()
 const route = useRoute()
 const rouetrIntance = useRouter()
-const systemInstans = systemStore()
+const systemInstance = systemStore()
+const title = PageTitleUtils.getPageTitle('');
 
 const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length === 1))
 const childRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length !== 1))
@@ -18,7 +20,7 @@ const currentOpenMenu = (): string => {
   return route.fullPath
 }
 
-function handleFirstMenuPush(item: IRoute) {
+function handleFirstMenuRoute(item: IRoute) {
   rouetrIntance.push({
     path: item.path
   })
@@ -27,9 +29,10 @@ function handleFirstMenuPush(item: IRoute) {
 </script>
 
 <template>
-  <el-menu :collapse="systemInstans.isCollapse" :default-active="currentOpenMenu()" class="el-menu-vertical">
+  <el-menu :collapse="systemInstance.isCollapse" :default-active="currentOpenMenu()" class="el-menu-vertical">
+
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">
-      <el-icon @click="handleFirstMenuPush(item)">
+      <el-icon @click="handleFirstMenuRoute(item)">
         <component :is="item.meta?.icon" />
       </el-icon>
       <template #title>

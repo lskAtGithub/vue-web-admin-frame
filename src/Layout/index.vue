@@ -4,13 +4,13 @@ import AppNavbar from './components/AppNavbar/index.vue';
 import AppSidebar from './components/AppSidebar/index.vue'
 import { systemStore } from '@/store/modules/systemStore'
 
-const systemInstans = systemStore()
+const systemInstance = systemStore()
 
 </script>
 
 <template>
   <div class="main-box">
-    <div class="side-box" :class="{ 'is-collapse': systemInstans.isCollapse }">
+    <div class="side-box" :class="{ 'is-collapse': systemInstance.isCollapse }">
       <app-sidebar />
     </div>
     <div class="app-content">

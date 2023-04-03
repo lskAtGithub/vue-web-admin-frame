@@ -27,7 +27,7 @@ export const constantRoutes = [
   }
 ]
 
-const asyncRoutes: any = [
+export const asyncRoutes: any = [
   pages
 ]
 

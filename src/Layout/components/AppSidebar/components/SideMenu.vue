@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './AppLink.vue';
-import type { IRoute } from '../types';
+import type { IRoute } from '@/Types/Route';
 
 const routeStore = routerStore()
 const route = useRoute()
@@ -14,7 +14,10 @@ const systemInstance = systemStore()
 const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length === 1))
 const childRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length !== 1))
 
-const currentOpenMenu = (): string => {
+const currentOpenMenu = () => {
+  if (route.meta?.activeMenu) {
+    return route.meta?.activeMenu
+  }
   return route.fullPath
 }
 

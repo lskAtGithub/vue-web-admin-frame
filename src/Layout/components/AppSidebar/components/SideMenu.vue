@@ -5,7 +5,6 @@ import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './AppLink.vue';
 import type { IRoute } from '../types';
-import PageTitleUtils from '@/utils/PageTitleUtils'
 
 const routeStore = routerStore()
 const route = useRoute()

@@ -11,7 +11,6 @@ const routeStore = routerStore()
 const route = useRoute()
 const rouetrIntance = useRouter()
 const systemInstance = systemStore()
-const title = PageTitleUtils.getPageTitle('');
 
 const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length === 1))
 const childRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length !== 1))

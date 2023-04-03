@@ -9,6 +9,23 @@
 
 <style scoped lang="scss">
 .app-main {
-  padding: 20px 18px;
+  width: 100%;
+  height: calc(100vh - 50px);
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 </style>

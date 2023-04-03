@@ -25,6 +25,7 @@ const systemInstance = systemStore()
 
 .main-box {
   position: relative;
+  width: calc(100vw);
   height: calc(100vh - 51px);
 
   .side-box {
@@ -42,10 +43,13 @@ const systemInstance = systemStore()
   }
 
   .app-content {
-    width: 100%;
+    width: calc(100vw - $--menu-width);
     margin-left: $--menu-width;
     transition: margin-left 0.36s;
+    
+
     &.is-collapse {
+      width: calc(100vw - $--collapse-width);
       margin-left: $--collapse-width;
     }
   }

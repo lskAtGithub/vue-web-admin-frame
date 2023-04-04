@@ -6,7 +6,10 @@ import type { ILoginParam } from '@/api/user/types'
 export const userStore = defineStore('userStore', {
   state: () => {
     return {
-      userInfo: {},
+      userInfo: {
+        name: '',
+        phone: ''
+      },
       token: '',
     }
   },
@@ -28,10 +31,13 @@ export const userStore = defineStore('userStore', {
       return false
     },
     RESET_USERINFO() {
-      this.userInfo = {}
+      this.userInfo = {
+        name: '',
+        phone: ''
+      }
     },
     HAS_USERINFO(): boolean {
-      for (const key in this.userInfo) {
+      if (this.userInfo.name) {
         return true
       }
       return false

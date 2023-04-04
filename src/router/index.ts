@@ -8,20 +8,19 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/home/homePage',
-    title: '首页',
-    meta: { icon: 'House' },
+    meta: { title: '首页', icon: 'House' },
     children: [
       {
         path: '/home/homePage',
-        title: '首页',
-        meta: { icon: 'House' },
+
+        meta: { title: '首页', icon: 'House' },
         component: () => import('@/views/Home/index.vue')
       }
     ]
   },
   {
     path: '/login',
-    title: '登录',
+    meta: { title: '登录' },
     hidden: true,
     component: () => import('@/views/login/index.vue')
   }

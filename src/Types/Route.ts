@@ -1,6 +1,5 @@
 export interface IRoute {
   path: string,
-  title: string,
   redirect: string,
   meta: IRouteMeta,
   component: any
@@ -9,4 +8,6 @@ export interface IRoute {
 interface IRouteMeta {
   icon: String,
   activeMenu: String,
+  title: string,
+  noBreadCrumbs: Boolean
 }

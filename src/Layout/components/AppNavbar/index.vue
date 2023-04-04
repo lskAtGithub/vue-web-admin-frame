@@ -1,13 +1,17 @@
 <script lang="ts" setup>
 import ToggleSwitch from './components/ToggleSwitch.vue';
 import BreadCrumb from './components/BreadCrumb.vue';
+import Avatar from './components/Avatar.vue';
 
 </script>
 
 <template>
   <header class="topbar-box">
     <toggle-switch></toggle-switch>
-    <bread-crumb></bread-crumb>
+    <div class="bread-crumb-box">
+      <bread-crumb></bread-crumb>
+    </div>
+    <avatar></avatar>
   </header>
 </template> 
 
@@ -21,5 +25,9 @@ import BreadCrumb from './components/BreadCrumb.vue';
   margin-bottom: 1px;
   display: flex;
   align-items: center;
+
+  .bread-crumb-box{
+    flex: 1;
+  }
 }
 </style>

@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import type { IRoute } from '@/Types/Route';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-let list = computed(() => {
+const list = computed(() => {
   const { matched } = router.currentRoute.value;
   return matched.filter((item) => item.meta.title && !item.meta.noBreadCrumbs);
 });

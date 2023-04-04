@@ -36,7 +36,6 @@ function handleToHome() {
   width: $--menu-width;
   overflow: hidden;
   height: 50px;
-  border-right: 1px solid $--border-color;
   display: flex;
   align-items: center;
   cursor: pointer;

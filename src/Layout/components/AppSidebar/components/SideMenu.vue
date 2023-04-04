@@ -31,7 +31,7 @@ function handleFirstMenuRoute(item: IRoute) {
 </script>
 
 <template>
-  <el-menu :collapse="systemInstance.isCollapse" active-text-color="#ffd04b" background-color="#545c64" text-color="#fff"
+  <el-menu :collapse="systemInstance.isCollapse" background-color="#545c64" text-color="#fff"
     :default-active="currentOpenMenu()" class="el-menu-vertical">
     <logo></logo>
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">

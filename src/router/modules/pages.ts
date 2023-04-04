@@ -10,7 +10,6 @@ const routes = {
       component: () => import('@/views/pagesManage/index.vue'),
       children: [
         {
-
           meta: { title: '表格页', noBreadCrumbs: true },
           path: '/manage/table/list',
           component: () => import('@/views/pagesManage/list/index.vue'),

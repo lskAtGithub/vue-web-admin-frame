@@ -39,7 +39,7 @@ function handleFirstMenuRoute(item: IRoute) {
         <component :is="item.meta?.icon" />
       </el-icon>
       <template #title>
-        <app-link :to="item.children[0].path"> {{ item.children[0].title }} </app-link>
+        <app-link :to="item.children[0].path"> {{ item.children[0].meta.title }} </app-link>
       </template>
     </el-menu-item>
 
@@ -48,10 +48,10 @@ function handleFirstMenuRoute(item: IRoute) {
         <el-icon>
           <component :is="item.meta?.icon" />
         </el-icon>
-        <span>{{ item.title }}</span>
+        <span>{{ item.meta.title }}</span>
       </template>
       <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">
-        <app-link :to="childItem.path"> {{ childItem.title }} </app-link>
+        <app-link :to="childItem.path"> {{ childItem.meta.title }} </app-link>
       </el-menu-item>
     </el-sub-menu>
   </el-menu>

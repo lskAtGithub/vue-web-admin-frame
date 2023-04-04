@@ -38,20 +38,17 @@ const systemInstance = systemStore()
 
     &.is-collapse {
       width: $--collapse-width;
-      transition: width 0.36s;
     }
   }
 
   .app-content {
     width: calc(100vw - $--menu-width);
     margin-left: $--menu-width;
-    transition: margin-left 0.36s;
-    
+    transition: all 0.36s;
 
     &.is-collapse {
       width: calc(100vw - $--collapse-width);
       margin-left: $--collapse-width;
     }
   }
-}
-</style>
+}</style>

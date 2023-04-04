@@ -6,9 +6,9 @@ $--collapse-width: 64px;
 
 $--theme-color:#fa541c;
 
-$--font-size:14px;
+$--border-color: #e6e6e6;
 
-$--border:1px solid #e6e6e6;
+$--font-size:14px;
 
 // The :export directive is the magic sauce for webpack
 // https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
@@ -16,4 +16,5 @@ $--border:1px solid #e6e6e6;
   menuWidth: $--menu-width;
   themeColor: $--theme-color;
   collapseWidth: $--collapse-width;
+  borderColor: $--border-color;
 }

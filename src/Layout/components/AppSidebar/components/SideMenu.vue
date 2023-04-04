@@ -5,6 +5,7 @@ import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './AppLink.vue';
 import type { IRoute } from '@/Types/Route';
+import Logo from './Logo.vue';
 
 const routeStore = routerStore()
 const route = useRoute()
@@ -32,6 +33,7 @@ function handleFirstMenuRoute(item: IRoute) {
 <template>
   <el-menu :collapse="systemInstance.isCollapse" active-text-color="#ffd04b" background-color="#545c64" text-color="#fff"
     :default-active="currentOpenMenu()" class="el-menu-vertical">
+    <logo></logo>
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">
       <el-icon @click="handleFirstMenuRoute(item)">
         <component :is="item.meta?.icon" />

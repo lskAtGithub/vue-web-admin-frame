@@ -29,9 +29,9 @@ function handleTogleSide() {
 
 .header-topbar-box {
   background-color: #fff;
-  height: 50px;
+  height: 51px;
   line-height: 50px;
-  box-shadow: 0 0 1px #000;
+  border-bottom: 1px solid $--border-color;
   margin-bottom: 1px;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ function handleTogleSide() {
     align-items: center;
     overflow: hidden;
 
-    .el-menu-vertical{
+    .el-menu-vertical {
       width: 100%;
     }
 
@@ -54,6 +54,7 @@ function handleTogleSide() {
       height: 30px;
       flex-shrink: 0;
     }
+
     &.collapse {
       width: 64px;
     }

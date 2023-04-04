@@ -24,13 +24,13 @@ function handleTogleSide() {
 
 .scale-icon {
   cursor: pointer;
-  width: 50px;
+  width: 60px;
   height: 100%;
   font-size: 0;
   display: flex;
   align-items: center;
   padding-left: 20px;
-  padding-right: 10px;
+  margin-right: 10px;
 
   &:hover {
     background-color: #e6e6e6;

@@ -1,73 +1,25 @@
 <script lang="ts" setup>
-import { systemStore } from '@/store/modules/systemStore'
+import ToggleSwitch from './components/ToggleSwitch.vue';
+import BreadCrumb from './components/BreadCrumb.vue';
 
-const systemInstance = systemStore();
-
-function handleTogleSide() {
-  systemInstance.changeCollapse()
-}
 </script>
 
 <template>
-  <div class="header-topbar-box">
-
-    <div class="info-box">
-      <div class="scale-icon" @click="handleTogleSide">
-        <el-icon v-show="!systemInstance.isCollapse">
-          <Fold size="18px" />
-        </el-icon>
-        <el-icon v-show="systemInstance.isCollapse">
-          <Expand size="18px" />
-        </el-icon>
-      </div>
-    </div>
-  </div>
+  <header class="topbar-box">
+    <toggle-switch></toggle-switch>
+    <bread-crumb></bread-crumb>
+  </header>
 </template> 
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';
 
-.header-topbar-box {
+.topbar-box {
   background-color: #fff;
   height: 51px;
-  line-height: 50px;
   border-bottom: 1px solid $--border-color;
   margin-bottom: 1px;
   display: flex;
   align-items: center;
-
-  .left-side {
-    text-align: center;
-    width: $--menu-width;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-    .el-menu-vertical {
-      width: 100%;
-    }
-
-    .admin-icon {
-      fill: $--theme-color;
-      width: 64px;
-      height: 30px;
-      flex-shrink: 0;
-    }
-
-    &.collapse {
-      width: 64px;
-    }
-  }
-
-  .info-box {
-    flex: 1;
-    padding: 0 18px;
-
-    .scale-icon {
-      cursor: pointer;
-      width: 32px;
-    }
-  }
 }
 </style>

@@ -1,17 +1,17 @@
 [
   {
-    "title": "页面管理",
     "redirect": "/manage/table",
     "meta": {
-      "icon": "Tickets"
+      "icon": "Tickets",
+      "title": "页面管理"
     },
     "children": [
       {
         "path": "/manage/table/list",
-        "title": "表格页"
+        "meta": { "title": "表格页" }
       },
       {
-        "title": "tab示例",
+        "meta": { "title": "tab示例" },
         "path": "/manage/tab/index"
       }
     ]

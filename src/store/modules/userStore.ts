@@ -20,7 +20,7 @@ export const userStore = defineStore('userStore', {
       Cookies.set('token', res.data.token)
       return res
     },
-    async GET_USERINFO() {
+    async GET_USERINFO(): Promise<void> {
       const res = await getUserInfo()
       this.userInfo = res.data
     },
@@ -30,7 +30,7 @@ export const userStore = defineStore('userStore', {
       }
       return false
     },
-    RESET_USERINFO() {
+    RESET_USERINFO(): void {
       this.userInfo = {
         name: '',
         phone: ''
@@ -41,6 +41,13 @@ export const userStore = defineStore('userStore', {
         return true
       }
       return false
+    },
+    LOGOUT(): Promise<void> {
+      Cookies.remove('token')
+      this.token = ''
+      return new Promise((resolve) => {
+        resolve()
+      })
     }
   }
 })

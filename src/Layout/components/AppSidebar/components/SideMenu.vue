@@ -4,8 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { routerStore } from '@/store/modules/routerStore'
 import { systemStore } from '@/store/modules/systemStore'
 import AppLink from './AppLink.vue';
-import type { IRoute } from '@/Types/Route';
 import Logo from './Logo.vue';
+import type { RouteRecordRaw } from 'vue-router'
 
 const routeStore = routerStore()
 const route = useRoute()
@@ -22,7 +22,7 @@ const currentOpenMenu = () => {
   return route.fullPath
 }
 
-function handleFirstMenuRoute(item: IRoute) {
+function handleFirstMenuRoute(item: RouteRecordRaw) {
   rouetrIntance.push({
     path: item.path
   })

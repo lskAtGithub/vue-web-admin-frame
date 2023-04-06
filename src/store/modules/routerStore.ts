@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
 import { getMenu } from '@/api/user'
-import { constantRoutes, asyncRoutes } from '@/router/index'
-import FormatUtils from '@/utils/FormatUtils'
-import type { IRoute } from '@/Types/Route'
+import { constantRoutes } from '@/router/index'
 
 export const routerStore = defineStore('routerStore', {
   state: () => {
@@ -13,7 +11,6 @@ export const routerStore = defineStore('routerStore', {
   actions: {
     async SET_ROUTES() {
       const res: any = await getMenu()
-      const routes: any = constantRoutes.concat(asyncRoutes)
       this.routes = constantRoutes.concat(res.data)
     },
     RESET_ROUTES() {

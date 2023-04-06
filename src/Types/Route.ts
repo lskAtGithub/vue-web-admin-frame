@@ -3,6 +3,7 @@ export interface IRoute {
   path: string,
   redirect?: string, /* 重定向地址 */
   meta?: IRouteMeta,
+  children?: Array<IRoute>
 }
 
 interface IRouteMeta {

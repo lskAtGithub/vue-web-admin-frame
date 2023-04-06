@@ -8,7 +8,7 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/home/homePage',
-    meta: { title: '首页', icon: 'House' },
+    meta: { title: '首页', icon: 'House', noBreadCrumbs: true },
     children: [
       {
         path: '/home/homePage',

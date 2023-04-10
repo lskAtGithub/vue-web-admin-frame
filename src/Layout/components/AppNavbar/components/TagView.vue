@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { tabStore } from '@/store/modules/tabStore'
 import { useRoute, useRouter } from 'vue-router'
 import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
+import type { ITagItem } from '@/Types/TagView'
 
 const route = useRoute()
 const router = useRouter()
@@ -22,6 +23,10 @@ const isBack = computed(() => {
 
 const removeTab = (targetName: string) => {
   tabInstance.removeTabControl(targetName)
+  const endRoute = tabInstance.tabList[tabInstance.tabList.length - 1] as ITagItem
+  router.push({
+    path: endRoute.path
+  })
 }
 
 const handleClickItem = (targetName: string) => {

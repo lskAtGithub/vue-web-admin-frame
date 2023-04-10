@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import Container from '@/components/Container.vue';
 </script>
 
 <template>
-  修改密码
+  <container>
+    修改密码
+  </container>
 </template>
 
 <style scoped lang='scss'></style>

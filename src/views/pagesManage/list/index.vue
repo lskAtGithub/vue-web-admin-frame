@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 
-const router = useRouter();
+import { useRouter } from 'vue-router'
+import Container from '@/components/Container.vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  
+})
+const router = useRouter()
 const handleClick = () => {
   router.push('/manage/table/detail')
 }
@@ -51,7 +57,7 @@ const tableData = [
 </script>
 
 <template>
-  <div style="margin: 20px 30px;">
+  <container>
     <el-button type="primary" @click="handleAdd">Add</el-button>
 
     <el-table :data="tableData" border style="width: 100%">
@@ -68,7 +74,7 @@ const tableData = [
         </template>
       </el-table-column>
     </el-table>
-  </div>
+  </container>
 </template>
 
 <style scoped lang='scss'></style>

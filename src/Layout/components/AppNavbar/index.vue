@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import ToggleSwitch from './components/ToggleSwitch.vue';
-import BreadCrumb from './components/BreadCrumb.vue';
-import Avatar from './components/Avatar.vue';
+import ToggleSwitch from './components/ToggleSwitch.vue'
+import BreadCrumb from './components/BreadCrumb.vue'
+import Avatar from './components/Avatar.vue'
+import TabControl from './components/TabControl.vue'
 
 </script>
 
@@ -13,6 +14,7 @@ import Avatar from './components/Avatar.vue';
     </div>
     <avatar></avatar>
   </header>
+  <tab-control></tab-control>
 </template> 
 
 <style scoped lang="scss">
@@ -26,7 +28,7 @@ import Avatar from './components/Avatar.vue';
   display: flex;
   align-items: center;
 
-  .bread-crumb-box{
+  .bread-crumb-box {
     flex: 1;
   }
 }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import VerifyUtils from '@/utils/VerifyUtils';
+import VerifyUtils from '@/utils/VerifyUtils'
 
-const router = useRouter();
+const router = useRouter()
 const props = defineProps(['to'])
 
 function handleTo() {

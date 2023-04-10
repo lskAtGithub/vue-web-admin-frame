@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { systemStore } from '@/store/modules/systemStore'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
-const systemInstance = systemStore();
-const router = useRouter();
+const systemInstance = systemStore()
+const router = useRouter()
 
 function handleToHome() {
   router.push({

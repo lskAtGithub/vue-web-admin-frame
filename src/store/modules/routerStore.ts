@@ -9,11 +9,11 @@ export const routerStore = defineStore('routerStore', {
     }
   },
   actions: {
-    async SET_ROUTES() {
+    async setRoutes() {
       const res: any = await getMenu()
       this.routes = constantRoutes.concat(res.data)
     },
-    RESET_ROUTES() {
+    resetRoutes() {
       this.$reset()
     }
   }

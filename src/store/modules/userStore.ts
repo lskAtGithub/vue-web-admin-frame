@@ -14,35 +14,35 @@ export const userStore = defineStore('userStore', {
     }
   },
   actions: {
-    async LOGIN(ILoginParam: ILoginParam) {
+    async userLogin(ILoginParam: ILoginParam) {
       const res = await getToken(ILoginParam)
       this.token = res.data.token
       Cookies.set('token', res.data.token)
       return res
     },
-    async GET_USERINFO(): Promise<void> {
+    async getUserInfo(): Promise<void> {
       const res = await getUserInfo()
       this.userInfo = res.data
     },
-    HAS_TOKEN(): Boolean {
+    hasToken(): Boolean {
       if (this.token || Cookies.get('token')) {
         return true
       }
       return false
     },
-    RESET_USERINFO(): void {
+    resetUserInfo(): void {
       this.userInfo = {
         name: '',
         phone: ''
       }
     },
-    HAS_USERINFO(): boolean {
+    hasUserInfo(): boolean {
       if (this.userInfo.name) {
         return true
       }
       return false
     },
-    LOGOUT(): Promise<void> {
+    userLogout(): Promise<void> {
       Cookies.remove('token')
       this.token = ''
       return new Promise((resolve) => {

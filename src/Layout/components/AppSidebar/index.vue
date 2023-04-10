@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SideMenu from './components/SideMenu.vue';
+import SideMenu from './components/SideMenu.vue'
 </script>
 
 <template>

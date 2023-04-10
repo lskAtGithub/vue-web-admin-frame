@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import appMain from './components/AppMain/index.vue';
-import AppNavbar from './components/AppNavbar/index.vue';
+import appMain from './components/AppMain/index.vue'
+import AppNavbar from './components/AppNavbar/index.vue'
 import AppSidebar from './components/AppSidebar/index.vue'
 import { systemStore } from '@/store/modules/systemStore'
 
@@ -26,7 +26,7 @@ const systemInstance = systemStore()
 .main-box {
   position: relative;
   width: calc(100vw);
-  height: calc(100vh - 51px);
+  height: calc(100vh);
 
   .side-box {
     position: fixed;
@@ -43,6 +43,8 @@ const systemInstance = systemStore()
 
   .app-content {
     width: calc(100vw - $--menu-width);
+    height: 100%;
+    overflow: hidden;
     margin-left: $--menu-width;
     transition: all 0.36s;
 

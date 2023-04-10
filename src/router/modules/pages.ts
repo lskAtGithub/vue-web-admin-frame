@@ -16,12 +16,12 @@ const routes = {
         },
         {
           path: '/manage/table/detail',
-          meta: { activeMenu: '/manage/table/list', title: '详情' },
+          meta: { activeMenu: '/manage/table/list', title: '详情', noTagView: true },
           component: () => import('@/views/pagesManage/details/index.vue'),
         },
         {
           path: '/manage/table/add',
-          meta: { title: '新增', activeMenu: '/manage/table/list' },
+          meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: true },
           component: () => import('@/views/pagesManage/add/index.vue'),
         }
       ]

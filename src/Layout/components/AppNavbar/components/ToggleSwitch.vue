@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { systemStore } from '@/store/modules/systemStore'
 
-const systemInstance = systemStore();
+const systemInstance = systemStore()
 
 function handleTogleSide() {
   systemInstance.changeCollapse()

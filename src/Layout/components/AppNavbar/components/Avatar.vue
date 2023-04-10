@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { userStore } from '@/store/modules/userStore'
-import { ElMessage, ElMessageBox } from 'element-plus';
-import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-const user = userStore();
-
-const router = useRouter();
+const user = userStore()
+const router = useRouter()
 
 const userInfo = computed(() => user.userInfo)
 
 const onGotoUserInfo = () => {
-
+  router.push({
+    path: '/userInfo'
+  })
 }
 
 const onChangePwd = () => { }
@@ -27,7 +28,7 @@ const onLogout = () => {
     }
   )
     .then(() => {
-      user.LOGOUT().then(() => {
+      user.userLogout().then(() => {
         ElMessage.success("已退出登录")
         router.push({
           path: '/login'

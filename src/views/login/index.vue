@@ -4,7 +4,8 @@ import { onMounted } from 'vue'
 import { userStore } from '@/store/modules/userStore'
 import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
+
 const user = {
   account: 'admin',
   password: 'admin'
@@ -12,12 +13,12 @@ const user = {
 
 onMounted(() => {
   getMenu().then(res => {
-    console.log(res);
+    console.log(res)
   })
 })
 
 function handleLogin() {
-  userStore().LOGIN(user).then(()=>{
+  userStore().userLogin(user).then(()=>{
     router.push('/home/homePage')
   })
 }

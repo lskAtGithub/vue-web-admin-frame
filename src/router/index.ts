@@ -12,9 +12,20 @@ export const constantRoutes = [
     children: [
       {
         path: '/home/homePage',
-
         meta: { title: '首页', icon: 'House' },
         component: () => import('@/views/Home/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/userInfo',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/userInfo',
+        meta: { title: '个人中心' },
+        component: () => import('@/views/userInfo/index.vue')
       }
     ]
   },
@@ -23,7 +34,19 @@ export const constantRoutes = [
     meta: { title: '登录' },
     hidden: true,
     component: () => import('@/views/login/index.vue')
-  }
+  },
+  {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        meta: { noTagView: true },
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue')
+      }
+    ]
+  },
 ]
 
 export const asyncRoutes: any = [

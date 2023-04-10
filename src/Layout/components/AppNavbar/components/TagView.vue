@@ -12,7 +12,13 @@ const tabList = computed(() => tabInstance.tabList)
 const tabValue = computed(() => {
   return route.meta.noTagView ? route.meta.activeMenu : route.path
 })
-const isBack = computed(() => window.history.length > 1)
+const isBack = computed(() => {
+  const currentRoute = route.matched[route.matched.length - 1]
+  if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
+    return false
+  }
+  return true
+})
 
 const removeTab = (targetName: string) => {
   tabInstance.removeTabControl(targetName)
@@ -39,7 +45,7 @@ const handleRefresh = () => {
 
 <template>
   <div class="tab-control">
-    <el-button :icon="ArrowLeft" :disable="isBack" circle size="small" @click="handleGoBack" />
+    <el-button :icon="ArrowLeft" :disabled="isBack" circle size="small" @click="handleGoBack" />
     <el-button :icon="Refresh" circle size="small" @click="handleRefresh" />
     <div class="tab-box">
       <el-tabs v-model="tabValue" type="card" class="demo-tabs" @tab-change="handleClickItem" @tab-remove="removeTab">

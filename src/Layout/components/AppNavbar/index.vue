@@ -2,7 +2,7 @@
 import ToggleSwitch from './components/ToggleSwitch.vue'
 import BreadCrumb from './components/BreadCrumb.vue'
 import Avatar from './components/Avatar.vue'
-import TabControl from './components/TabControl.vue'
+import TagView from './components/TagView.vue'
 
 </script>
 
@@ -14,8 +14,8 @@ import TabControl from './components/TabControl.vue'
     </div>
     <avatar></avatar>
   </header>
-  <tab-control></tab-control>
-</template> 
+  <tag-view></tag-view>
+</template>
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

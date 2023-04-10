@@ -16,7 +16,6 @@ const routeStore = routerStore(pinia)
 
 const whiteList = ['/login'] // no redirect whitelist
 
-
 router.beforeEach(async (to: any, from: any, next: any) => {
   // start progress bar
   NProgress.start()
@@ -29,7 +28,13 @@ router.beforeEach(async (to: any, from: any, next: any) => {
     } else {
       // 确定用户是否已通过getInfo获得其权限角色
       if (user.hasUserInfo()) {
-        if (!to.meta?.noTagView) {
+        if (to.meta?.noTagView) {
+          const itme = to.matched.filter((item: any) => item.path === to.meta?.activeMenu)
+          tab.addTabControl({
+            title: itme[0]?.meta.title,
+            path: to.meta?.activeMenu
+          })
+        } else {
           tab.addTabControl({
             title: to.meta?.title,
             path: to.fullPath

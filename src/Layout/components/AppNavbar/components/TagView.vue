@@ -9,7 +9,9 @@ const router = useRouter()
 const tabInstance = tabStore()
 
 const tabList = computed(() => tabInstance.tabList)
-const tabValue = computed(() => route.meta.activeMenu || route.path)
+const tabValue = computed(() => {
+  return route.meta.noTagView ? route.meta.activeMenu : route.path
+})
 const isBack = computed(() => window.history.length > 1)
 
 const removeTab = (targetName: string) => {

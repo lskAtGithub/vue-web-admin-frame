@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 import Container from '@/components/Container.vue'
 
 onMounted(() => {
-  console.log(window.history.length)
 
 })
 

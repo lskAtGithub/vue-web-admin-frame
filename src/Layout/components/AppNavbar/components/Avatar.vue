@@ -15,7 +15,11 @@ const onGotoUserInfo = () => {
   })
 }
 
-const onChangePwd = () => { }
+const onChangePwd = () => {
+  router.push({
+    path: '/changePwd'
+  })
+}
 
 const onLogout = () => {
   ElMessageBox.confirm(

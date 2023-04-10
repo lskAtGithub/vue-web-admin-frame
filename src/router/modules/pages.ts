@@ -1,6 +1,8 @@
 import Layout from '@/Layout/index.vue'
+import type { IRoute } from '@/Types/Route'
 
-const routes = {
+const routes: IRoute = {
+  path: '/manage',
   meta: { title: '页面管理' },
   component: Layout,
   children: [

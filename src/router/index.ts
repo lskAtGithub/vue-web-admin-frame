@@ -8,7 +8,7 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/home/homePage',
-    meta: { title: '首页', icon: 'House', noBreadCrumbs: true },
+    meta: { icon: 'House', noBreadCrumbs: true },
     children: [
       {
         path: '/home/homePage',
@@ -25,7 +25,12 @@ export const constantRoutes = [
       {
         path: '/userInfo',
         meta: { title: '个人中心' },
-        component: () => import('@/views/userInfo/index.vue')
+        component: () => import('@/views/user/userInfo.vue')
+      },
+      {
+        path: '/changePwd',
+        meta: { title: '修改密码' },
+        component: () => import('@/views/user/changePwd.vue')
       }
     ]
   },

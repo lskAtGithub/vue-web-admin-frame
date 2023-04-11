@@ -9,7 +9,7 @@
   const router = useRouter()
   const tabInstance = tabStore()
 
-  const tabList = computed(() => tabInstance.tabList)
+  const tagViewList = computed(() => tabInstance.tagViewList)
   const tabValue = computed(() => {
     return route.meta.noTagView ? route.meta.activeMenu : route.path
   })
@@ -22,8 +22,8 @@
   })
 
   const removeTab = (targetName: string) => {
-    tabInstance.removeTabControl(targetName)
-    const endRoute = tabInstance.tabList[tabInstance.tabList.length - 1] as ITagItem
+    tabInstance.removeTagView(targetName)
+    const endRoute = tabInstance.tagViewList[tabInstance.tagViewList.length - 1] as ITagItem
     router.push({
       path: endRoute.path
     })
@@ -54,7 +54,7 @@
     <el-button :icon="Refresh" circle size="small" @click="handleRefresh" />
     <div class="tab-box">
       <el-tabs v-model="tabValue" type="card" class="demo-tabs" @tab-change="handleClickItem" @tab-remove="removeTab">
-        <el-tab-pane v-for="item in tabList" :closable="!item.defalut" :key="item.path" :label="item.title"
+        <el-tab-pane v-for="item in tagViewList" :closable="!item.defalut" :key="item.path" :label="item.title"
           :name="item.path">
         </el-tab-pane>
       </el-tabs>

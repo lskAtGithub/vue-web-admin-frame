@@ -18,24 +18,24 @@ const defalutTabList: Array<ITagItem> = [{
 export const tabStore = defineStore('tabStore', {
   state: () => {
     return {
-      tabList: defalutTabList
+      tagViewList: defalutTabList
     }
   },
   actions: {
-    addTabControl(item: ITagItem, index?: number) {
-      if (!hasIncludeTab(item, this.tabList)) {
+    addTagView(item: ITagItem, index?: number) {
+      if (!hasIncludeTab(item, this.tagViewList)) {
         if (index != undefined) {
-          this.tabList.splice(index, 0, item)
+          this.tagViewList.splice(index, 0, item)
         } else {
-          this.tabList.push(item)
+          this.tagViewList.push(item)
         }
       }
     },
-    removeTabControl(tabName: String) {
-      for (let index = 0; index < this.tabList.length; index++) {
-        const element = this.tabList[index]
+    removeTagView(tabName: String) {
+      for (let index = 0; index < this.tagViewList.length; index++) {
+        const element = this.tagViewList[index]
         if (element.path === tabName) {
-          this.tabList.splice(index, 1)
+          this.tagViewList.splice(index, 1)
           return
         }
       }

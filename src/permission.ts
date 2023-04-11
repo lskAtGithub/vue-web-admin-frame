@@ -29,12 +29,12 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
       if (user.hasUserInfo()) {
         if (to.meta?.noTagView) {
           const itme = to.matched.filter((item: any) => item.path === to.meta?.activeMenu)
-          tab.addTabControl({
+          tab.addTagView({
             title: itme[0]?.meta.title as string,
             path: to.meta?.activeMenu as string
           })
         } else {
-          tab.addTabControl({
+          tab.addTagView({
             title: to.meta?.title as string,
             path: to.fullPath
           })

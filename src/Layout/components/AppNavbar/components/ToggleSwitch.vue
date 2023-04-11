@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { systemStore } from '@/store/modules/systemStore'
+import { systemStore } from '@/store/modules/system'
 
 const systemInstance = systemStore()
 

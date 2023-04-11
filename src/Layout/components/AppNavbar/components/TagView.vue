@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue'
-  import { tabStore } from '@/store/modules/tabStore'
+  import { tabStore } from '@/store/modules/tagView'
   import { useRoute, useRouter } from 'vue-router'
   import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
   import type { ITagItem } from '@/Types/TagView'

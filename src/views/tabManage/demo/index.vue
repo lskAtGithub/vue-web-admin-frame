@@ -36,7 +36,7 @@ import {
   Location,
   Setting,
 } from '@element-plus/icons-vue'
-import { routerStore } from '@/store/modules/routerStore'
+import { routerStore } from '@/store/modules/router'
 
 const routeStore = routerStore()
 

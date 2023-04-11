@@ -2,10 +2,10 @@ import router from './router/index'
 import PageTitleUtils from '@/utils/PageTitleUtils'
 import pinia from '@/store/index'
 import { ElMessage } from 'element-plus'
-import { userStore } from '@/store/modules/userStore'
-import { routerStore } from '@/store/modules/routerStore'
-import { tabStore } from '@/store/modules/tabStore'
-import type { RouteRecordRaw } from 'vue-router'
+import { userStore } from '@/store/modules/user'
+import { routerStore } from '@/store/modules/router'
+import { tabStore } from '@/store/modules/tagView'
+import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -17,13 +17,11 @@ const routeStore = routerStore(pinia)
 
 const whiteList = ['/login'] // no redirect whitelist
 
-router.beforeEach(async (to: any, from: any, next: any) => {
-  // start progress bar
+router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   NProgress.start()
 
   if (user.hasToken()) {
     if (to.path === '/login') {
-      // if is logged in, redirect to the home page
       next({ path: '/' })
       NProgress.done()
     } else {
@@ -32,12 +30,12 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         if (to.meta?.noTagView) {
           const itme = to.matched.filter((item: any) => item.path === to.meta?.activeMenu)
           tab.addTabControl({
-            title: itme[0]?.meta.title,
-            path: to.meta?.activeMenu
+            title: itme[0]?.meta.title as string,
+            path: to.meta?.activeMenu as string
           })
         } else {
           tab.addTabControl({
-            title: to.meta?.title,
+            title: to.meta?.title as string,
             path: to.fullPath
           })
         }

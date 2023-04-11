@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { userStore } from '@/store/modules/userStore'
+import { userStore } from '@/store/modules/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'

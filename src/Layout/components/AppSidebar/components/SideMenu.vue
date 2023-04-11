@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { routerStore } from '@/store/modules/routerStore'
-import { systemStore } from '@/store/modules/systemStore'
+import { routerStore } from '@/store/modules/router'
+import { systemStore } from '@/store/modules/system'
 import AppLink from './AppLink.vue'
 import Logo from './Logo.vue'
 import type { RouteRecordRaw } from 'vue-router'

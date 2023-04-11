@@ -2,7 +2,7 @@
 import appMain from './components/AppMain/index.vue'
 import AppNavbar from './components/AppNavbar/index.vue'
 import AppSidebar from './components/AppSidebar/index.vue'
-import { systemStore } from '@/store/modules/systemStore'
+import { systemStore } from '@/store/modules/system'
 
 const systemInstance = systemStore()
 

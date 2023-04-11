@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { systemStore } from '@/store/modules/systemStore'
+import { systemStore } from '@/store/modules/system'
 import { useRouter } from 'vue-router'
 
 const systemInstance = systemStore()

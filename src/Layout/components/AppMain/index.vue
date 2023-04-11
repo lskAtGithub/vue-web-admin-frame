@@ -3,7 +3,11 @@
 
 <template>
   <div class="app-main">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" :key="$route.fullPath" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 

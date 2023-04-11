@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/Layout/index.vue'
 
 import pages from './modules/pages'
 
-export const constantRoutes = [
+export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,
@@ -20,7 +21,7 @@ export const constantRoutes = [
   {
     path: '/userInfo',
     component: Layout,
-    hidden: true,
+    meta: { hidden: true },
     children: [
       {
         path: '/userInfo',
@@ -36,14 +37,13 @@ export const constantRoutes = [
   },
   {
     path: '/login',
-    meta: { title: '登录' },
-    hidden: true,
+    meta: { title: '登录', hidden: true },
     component: () => import('@/views/login/index.vue')
   },
   {
     path: '/redirect',
     component: Layout,
-    hidden: true,
+    meta: { hidden: true },
     children: [
       {
         meta: { noTagView: true },
@@ -54,13 +54,13 @@ export const constantRoutes = [
   },
 ]
 
-export const asyncRoutes: any = [
+export const asyncRoutes: Array<RouteRecordRaw> = [
   pages
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: constantRoutes.concat(asyncRoutes),
+  routes: constantRoutes,
 })
 
 export default router

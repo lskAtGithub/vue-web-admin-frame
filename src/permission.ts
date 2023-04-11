@@ -5,6 +5,7 @@ import { ElMessage } from 'element-plus'
 import { userStore } from '@/store/modules/userStore'
 import { routerStore } from '@/store/modules/routerStore'
 import { tabStore } from '@/store/modules/tabStore'
+import type { RouteRecordRaw } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -44,7 +45,10 @@ router.beforeEach(async (to: any, from: any, next: any) => {
       } else {
         try {
           await user.getUserInfo()
-          await routeStore.setRoutes()
+          const res = await routeStore.setRoutes()
+          // res.data.map((item: RouteRecordRaw) => {
+          //   router.addRoute(item)
+          // })
           next({ ...to, replace: true })
         } catch (error: any) {
           routeStore.resetRoutes()

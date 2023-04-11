@@ -51,16 +51,16 @@ const handleCommand = (command: string | number | object) => {
   switch (command) {
     case 'userInfo':
       onGotoUserInfo()
-      break;
+      break
     case 'changePwd':
       onChangePwd()
-      break;
+      break
     case 'logout':
       onLogout()
-      break;
+      break
 
     default:
-      break;
+      break
   }
 }
 </script>

@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { tabStore } from '@/store/modules/tabStore'
-import { useRoute, useRouter } from 'vue-router'
-import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
-import type { ITagItem } from '@/Types/TagView'
+  import { computed } from 'vue'
+  import { tabStore } from '@/store/modules/tabStore'
+  import { useRoute, useRouter } from 'vue-router'
+  import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
+  import type { ITagItem } from '@/Types/TagView'
 
-const route = useRoute()
-const router = useRouter()
-const tabInstance = tabStore()
+  const route = useRoute()
+  const router = useRouter()
+  const tabInstance = tabStore()
 
-const tabList = computed(() => tabInstance.tabList)
-const tabValue = computed(() => {
-  return route.meta.noTagView ? route.meta.activeMenu : route.path
-})
-const isBack = computed(() => {
-  const currentRoute = route.matched[route.matched.length - 1]
-  if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
-    return false
+  const tabList = computed(() => tabInstance.tabList)
+  const tabValue = computed(() => {
+    return route.meta.noTagView ? route.meta.activeMenu : route.path
+  })
+  const isBack = computed(() => {
+    const currentRoute = route.matched[route.matched.length - 1]
+    if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
+      return false
+    }
+    return true
+  })
+
+  const removeTab = (targetName: string) => {
+    tabInstance.removeTabControl(targetName)
+    const endRoute = tabInstance.tabList[tabInstance.tabList.length - 1] as ITagItem
+    router.push({
+      path: endRoute.path
+    })
   }
-  return true
-})
 
-const removeTab = (targetName: string) => {
-  tabInstance.removeTabControl(targetName)
-  const endRoute = tabInstance.tabList[tabInstance.tabList.length - 1] as ITagItem
-  router.push({
-    path: endRoute.path
-  })
-}
+  const handleClickItem = (targetName: string) => {
+    router.push({
+      path: targetName
+    })
+  }
 
-const handleClickItem = (targetName: string) => {
-  router.push({
-    path: targetName
-  })
-}
+  const handleGoBack = () => {
+    router.go(-1)
+  }
 
-const handleGoBack = () => {
-  router.go(-1)
-}
-
-const handleRefresh = () => {
-  route.meta.noTagview = true;
-  router.replace({
-    path: '/redirect' + route.fullPath
-  })
-  route.meta.noTagview = false;
-}
+  const handleRefresh = () => {
+    route.meta.noTagview = true
+    router.replace({
+      path: '/redirect' + route.fullPath
+    })
+    route.meta.noTagview = false
+  }
 </script>
 
 <template>

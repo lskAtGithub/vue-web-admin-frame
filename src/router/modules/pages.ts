@@ -1,7 +1,7 @@
 import Layout from '@/Layout/index.vue'
-import type { IRoute } from '@/Types/Route'
+import type { RouteRecordRaw } from 'vue-router'
 
-const routes: IRoute = {
+const routes: RouteRecordRaw = {
   path: '/manage',
   meta: { title: '页面管理' },
   component: Layout,

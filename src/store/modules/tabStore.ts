@@ -3,7 +3,7 @@ import type { ITagItem } from '@/Types/TagView'
 
 function hasIncludeTab(item: ITagItem, arr: Array<ITagItem>): boolean | ITagItem {
   for (let index = 0; index < arr.length; index++) {
-    const element = arr[index];
+    const element = arr[index]
     if (element.path === item.path) return item
   }
   return false
@@ -18,7 +18,7 @@ const defalutTabList: Array<ITagItem> = [{
 export const tabStore = defineStore('tabStore', {
   state: () => {
     return {
-      tabList: defalutTabList as Array<ITagItem>
+      tabList: defalutTabList
     }
   },
   actions: {

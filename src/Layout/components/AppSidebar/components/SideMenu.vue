@@ -12,8 +12,8 @@ const route = useRoute()
 const rouetrIntance = useRouter()
 const systemInstance = systemStore()
 
-const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length === 1))
-const childRoute: any = computed(() => routeStore.routes.filter(item => !item.hidden && item.children?.length !== 1))
+const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
+const childRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length !== 1))
 
 const currentOpenMenu = () => {
   if (route.meta?.activeMenu) {

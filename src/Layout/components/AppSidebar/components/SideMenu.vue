@@ -43,7 +43,7 @@ function handleFirstMenuRoute(item: RouteRecordRaw) {
       </template>
     </el-menu-item>
 
-    <el-sub-menu v-for="item in childRoute" :index="item.path || item.redirect" :key="item.children[0].path">
+    <el-sub-menu v-for="item in childRoute" :index="item.path || item.redirect" :key="item.children[0]?.path">
       <template #title>
         <el-icon>
           <component :is="item.meta?.icon" />

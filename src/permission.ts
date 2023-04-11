@@ -45,10 +45,10 @@ router.beforeEach(async (to: any, from: any, next: any) => {
       } else {
         try {
           await user.getUserInfo()
-          const res = await routeStore.setRoutes()
-          // res.data.map((item: RouteRecordRaw) => {
-          //   router.addRoute(item)
-          // })
+          const asyncRouter = await routeStore.setRoutes()
+          asyncRouter.map(item => {
+            router.addRoute(item)
+          })
           next({ ...to, replace: true })
         } catch (error: any) {
           routeStore.resetRoutes()

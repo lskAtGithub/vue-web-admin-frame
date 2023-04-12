@@ -1,11 +1,11 @@
-<script lang="ts" setup></script>
-
+<script lang="ts" setup>
+</script>
 
 <template>
   <div class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive>
-        <component :is="Component" :key="$route.fullPath" />
+        <component :is="Component" />
       </keep-alive>
     </router-view>
   </div>

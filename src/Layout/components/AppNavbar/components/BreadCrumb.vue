@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+  import { computed } from 'vue'
+  import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const list = computed(() => {
-  const { matched } = router.currentRoute.value
-  return matched.filter((item) => item.meta.title && !item.meta.noBreadCrumbs)
-});
+  const router = useRouter()
+  const list = computed(() => {
+    const { matched } = router.currentRoute.value
+    return matched.filter((item) => item.meta.title && !item.meta.noBreadCrumbs)
+  })
 </script>
 
 <template>

@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import appMain from './components/AppMain/index.vue'
-import AppNavbar from './components/AppNavbar/index.vue'
-import AppSidebar from './components/AppSidebar/index.vue'
-import { systemStore } from '@/store/modules/system'
+  import appMain from './components/AppMain/index.vue'
+  import AppNavbar from './components/AppNavbar/index.vue'
+  import AppSidebar from './components/AppSidebar/index.vue'
+  import useStore from '@/store/index'
+  import { storeToRefs } from 'pinia'
 
-const systemInstance = systemStore()
+  const { system } = useStore()
+  const { isCollapse } = storeToRefs(system)
 
 </script>
 
 <template>
   <div class="main-box">
-    <div class="side-box" :class="{ 'is-collapse': systemInstance.isCollapse }">
+    <div class="side-box" :class="{ 'is-collapse': isCollapse }">
       <app-sidebar />
     </div>
-    <div class="app-content" :class="{ 'is-collapse': systemInstance.isCollapse }">
+    <div class="app-content" :class="{ 'is-collapse': isCollapse }">
       <app-navbar></app-navbar>
       <app-main></app-main>
     </div>
@@ -53,4 +55,5 @@ const systemInstance = systemStore()
       margin-left: $--collapse-width;
     }
   }
-}</style>
+}
+</style>

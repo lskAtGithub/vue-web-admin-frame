@@ -18,12 +18,12 @@ const routes: RouteRecordRaw = {
         },
         {
           path: '/manage/table/detail',
-          meta: { activeMenu: '/manage/table/list', title: '详情', noTagView: true },
+          meta: { activeMenu: '/manage/table/list', title: '详情', noTagView: false },
           component: () => import('@/views/pagesManage/details/index.vue'),
         },
         {
           path: '/manage/table/add',
-          meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: true },
+          meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: false },
           component: () => import('@/views/pagesManage/add/index.vue'),
         }
       ]

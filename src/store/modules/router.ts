@@ -3,7 +3,7 @@ import { getMenu } from '@/api/user'
 import { constantRoutes, asyncRoutes } from '@/router/index'
 
 
-export const routerStore = defineStore('routerStore', {
+const routerStore = defineStore('routerStore', {
   state: () => {
     return {
       routes: constantRoutes,
@@ -26,3 +26,4 @@ export const routerStore = defineStore('routerStore', {
   }
 })
 
+export default routerStore

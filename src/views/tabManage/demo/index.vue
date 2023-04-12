@@ -30,23 +30,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import Container from '@/components/Container.vue'
-import {
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
-import { routerStore } from '@/store/modules/router'
+  import { ref } from 'vue'
+  import Container from '@/components/Container.vue'
+  import {
+    Location,
+    Setting,
+  } from '@element-plus/icons-vue'
 
-const routeStore = routerStore()
-
-const isCollapse = ref(true)
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+  const isCollapse = ref(true)
+  const handleOpen = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
+  const handleClose = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
 </script>
 
 <style>

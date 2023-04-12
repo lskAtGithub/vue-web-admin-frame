@@ -1,68 +1,67 @@
 <script setup lang="ts">
-import { userStore } from '@/store/modules/user'
-import { ElMessage, ElMessageBox } from 'element-plus'
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+  import useStore from '@/store/index'
+  import { ElMessage, ElMessageBox } from 'element-plus'
+  import { useRouter } from 'vue-router'
+  import { storeToRefs } from 'pinia'
 
-const user = userStore()
-const router = useRouter()
+  const { user } = useStore()
+  const router = useRouter()
+  const userInfo = storeToRefs(user) as any
 
-const userInfo = computed(() => user.userInfo)
+  const onGotoUserInfo = () => {
+    router.push({
+      path: '/userInfo'
+    })
+  }
 
-const onGotoUserInfo = () => {
-  router.push({
-    path: '/userInfo'
-  })
-}
+  const onChangePwd = () => {
+    router.push({
+      path: '/changePwd'
+    })
+  }
 
-const onChangePwd = () => {
-  router.push({
-    path: '/changePwd'
-  })
-}
-
-const onLogout = () => {
-  ElMessageBox.confirm(
-    '您正在执行退出登录操作，是否继续?',
-    '提示',
-    {
-      confirmButtonText: '确 认',
-      cancelButtonText: '取 消',
-      type: 'warning',
-    }
-  )
-    .then(() => {
-      user.userLogout().then(() => {
-        ElMessage.success("已退出登录")
-        router.push({
-          path: '/login'
+  const onLogout = () => {
+    ElMessageBox.confirm(
+      '您正在执行退出登录操作，是否继续?',
+      '提示',
+      {
+        confirmButtonText: '确 认',
+        cancelButtonText: '取 消',
+        type: 'warning',
+      }
+    )
+      .then(() => {
+        user.userLogout().then(() => {
+          ElMessage.success("已退出登录")
+          router.push({
+            path: '/login'
+          })
         })
       })
-    })
-    .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: '已取消操作',
+      .catch(() => {
+        ElMessage({
+          type: 'info',
+          message: '已取消操作',
+        })
       })
-    })
-}
-
-const handleCommand = (command: string | number | object) => {
-  switch (command) {
-    case 'userInfo':
-      onGotoUserInfo()
-      break
-    case 'changePwd':
-      onChangePwd()
-      break
-    case 'logout':
-      onLogout()
-      break
-
-    default:
-      break
   }
-}
+
+  const handleCommand = (command: string | number | object) => {
+    switch (command) {
+      case 'userInfo':
+        onGotoUserInfo()
+        break
+      case 'changePwd':
+        onChangePwd()
+        break
+      case 'logout':
+        onLogout()
+        break
+
+      default:
+        break
+    }
+  }
 </script>
 
 <template>

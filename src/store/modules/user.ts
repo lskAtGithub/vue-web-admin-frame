@@ -3,7 +3,7 @@ import { getToken, getUserInfo } from '@/api/user'
 import Cookies from 'js-cookie'
 import type { ILoginParam } from '@/api/user/types'
 
-export const userStore = defineStore('userStore', {
+const userStore = defineStore('userStore', {
   state: () => {
     return {
       userInfo: {
@@ -51,3 +51,5 @@ export const userStore = defineStore('userStore', {
     }
   }
 })
+
+export default userStore

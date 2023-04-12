@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { routerStore } from '@/store/modules/router'
-import { systemStore } from '@/store/modules/system'
-import AppLink from './AppLink.vue'
-import Logo from './Logo.vue'
-import type { RouteRecordRaw } from 'vue-router'
+  import { computed } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { useRoute, useRouter } from 'vue-router'
+  import useStore from '@/store'
+  import AppLink from './AppLink.vue'
+  import Logo from './Logo.vue'
+  import type { RouteRecordRaw } from 'vue-router'
 
-const routeStore = routerStore()
-const route = useRoute()
-const rouetrIntance = useRouter()
-const systemInstance = systemStore()
+  const { routeStore, system } = useStore()
+  const route = useRoute()
+  const rouetrIntance = useRouter()
+  const { isCollapse } = storeToRefs(system)
 
-const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
-const childRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length !== 1))
+  const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
+  const childRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length !== 1))
 
-const currentOpenMenu = () => {
-  if (route.meta?.activeMenu) {
-    return route.meta?.activeMenu
+  const currentOpenMenu = () => {
+    if (route.meta?.activeMenu) {
+      return route.meta?.activeMenu
+    }
+    return route.fullPath
   }
-  return route.fullPath
-}
 
-function handleFirstMenuRoute(item: RouteRecordRaw) {
-  rouetrIntance.push({
-    path: item.path
-  })
-}
+  function handleFirstMenuRoute(item: RouteRecordRaw) {
+    rouetrIntance.push({
+      path: item.path
+    })
+  }
 
 </script>
 
 <template>
-  <el-menu :collapse="systemInstance.isCollapse" background-color="#545c64" text-color="#fff"
-    :default-active="currentOpenMenu()" class="el-menu-vertical">
+  <el-menu :collapse="isCollapse" background-color="#545c64" text-color="#fff" :default-active="currentOpenMenu()"
+    class="el-menu-vertical">
     <logo></logo>
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">
       <el-icon @click="handleFirstMenuRoute(item)">

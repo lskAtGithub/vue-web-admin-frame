@@ -1,59 +1,73 @@
 <script setup lang="ts">
+  import { useRouter } from 'vue-router'
+  import Container from '@/components/Container.vue'
+  import { onMounted } from 'vue'
 
-import { useRouter } from 'vue-router'
-import Container from '@/components/Container.vue'
-import { onMounted } from 'vue'
+  onMounted(() => {
+    console.log("执行了11")
+  })
+  const router = useRouter()
 
-onMounted(() => {
-  console.log("执行了11")
-})
-const router = useRouter()
-const handleClick = () => {
-  router.push('/manage/table/detail')
-}
-
-const handleAdd = () => {
-  router.push('/manage/table/add')
-}
-
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-    tag: 'Home',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-    tag: 'Home',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-    tag: 'Office',
+  const handleClick = (item: any) => {
+    router.push({
+      path: '/manage/table/detail?id=' + item.id,
+      query: {
+        id: item.id
+      }
+    })
   }
-]
+
+  const handleAdd = () => {
+    router.push({
+      path: '/manage/table/add',
+      query: {
+        id: 1
+      }
+    })
+  }
+
+  const tableData = [
+    {
+      id: 1,
+      date: '2016-05-03',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      id: 2,
+      date: '2016-05-02',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Office',
+    },
+    {
+      id: 3,
+      date: '2016-05-04',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      id: 4,
+      date: '2016-05-01',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Office',
+    }
+  ]
 </script>
 
 <template>
@@ -68,8 +82,8 @@ const tableData = [
       <el-table-column prop="address" label="Address" />
       <el-table-column prop="zip" label="Zip" width="120" />
       <el-table-column fixed="right" label="Operations" width="120">
-        <template #default>
-          <el-button link type="primary" size="small" @click="handleClick">Detail</el-button>
+        <template #default="{ row }">
+          <el-button link type="primary" size="small" @click="handleClick(row)">Detail</el-button>
           <el-button link type="primary" size="small">Edit</el-button>
         </template>
       </el-table-column>
@@ -77,4 +91,5 @@ const tableData = [
   </container>
 </template>
 
-<style scoped lang='scss'></style>
+<style scoped lang='scss'></style> -->
+

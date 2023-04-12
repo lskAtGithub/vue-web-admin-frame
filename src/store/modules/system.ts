@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const systemStore = defineStore('systemStore', {
+const systemStore = defineStore('systemStore', {
   state: () => {
     return {
       isCollapse: false
@@ -12,3 +12,5 @@ export const systemStore = defineStore('systemStore', {
     }
   }
 })
+
+export default systemStore

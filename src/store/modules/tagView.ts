@@ -15,7 +15,7 @@ const defalutTabList: Array<ITagItem> = [{
   defalut: true
 }]
 
-export const tabStore = defineStore('tabStore', {
+const tagViewStore = defineStore('tagViewStore', {
   state: () => {
     return {
       tagViewList: defalutTabList
@@ -42,3 +42,5 @@ export const tabStore = defineStore('tabStore', {
     }
   }
 })
+
+export default tagViewStore

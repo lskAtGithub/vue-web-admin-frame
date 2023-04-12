@@ -1,11 +1,12 @@
 <script setup lang="ts">
-
+  import Container from '@/components/Container.vue'
+  import { onMounted } from 'vue';
 </script>
 
 <template>
-  <div style="margin: 20px 30px;">
+  <container>
     details
-  </div>
+  </container>
 </template>
 
 <style scoped lang='scss'></style>

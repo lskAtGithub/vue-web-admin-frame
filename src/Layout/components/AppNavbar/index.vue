@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import ToggleSwitch from './components/ToggleSwitch.vue'
-import BreadCrumb from './components/BreadCrumb.vue'
-import Avatar from './components/Avatar.vue'
-import TagView from './components/TagView.vue'
+  import ToggleSwitch from './components/ToggleSwitch.vue'
+  import BreadCrumb from './components/BreadCrumb.vue'
+  import Avatar from './components/Avatar.vue'
+  import TagView from './components/TagView.vue'
 
 </script>
 

@@ -1,37 +1,39 @@
 <script setup lang="ts">
-import { getMenu } from '@/api/user/index'
-import { onMounted } from 'vue'
-import { userStore } from '@/store/modules/user'
-import { useRouter } from 'vue-router'
+  import { getMenu } from '@/api/user/index'
+  import { onMounted } from 'vue'
+  import useStore from '@/store'
 
-const router = useRouter()
+  import { useRouter } from 'vue-router'
 
-const user = {
-  account: 'admin',
-  password: 'admin'
-}
+  const router = useRouter()
+  const { user } = useStore()
 
-onMounted(() => {
-  getMenu().then(res => {
-    console.log(res)
+  const accoutInfo = {
+    account: 'admin',
+    password: 'admin'
+  }
+
+  onMounted(() => {
+    getMenu().then(res => {
+      console.log(res)
+    })
   })
-})
 
-function handleLogin() {
-  userStore().userLogin(user).then(()=>{
-    router.push('/home/homePage')
-  })
-}
+  function handleLogin() {
+    user.userLogin(accoutInfo).then(() => {
+      router.push('/home/homePage')
+    })
+  }
 
 </script>
 
 <template>
   <div class="login-model">
     <p>
-      <el-input v-model="user.account" placeholder="请输入账号" />
+      <el-input v-model="accoutInfo.account" placeholder="请输入账号" />
     </p>
     <p>
-      <el-input v-model="user.password" type="password" placeholder="请输入密码" show-password />
+      <el-input v-model="accoutInfo.password" type="password" placeholder="请输入密码" show-password />
     </p>
     <p>
       <el-button type="primary" plain @click="handleLogin">登录</el-button>

@@ -1,19 +1,21 @@
 <script lang="ts" setup>
-import { systemStore } from '@/store/modules/system'
+  import useStore from '@/store'
+  import { storeToRefs } from 'pinia'
 
-const systemInstance = systemStore()
+  const { system } = useStore()
+  const { isCollapse } = storeToRefs(system)
 
-function handleTogleSide() {
-  systemInstance.changeCollapse()
-}
+  function handleTogleSide() {
+    system.changeCollapse()
+  }
 </script>
 
 <template>
   <div class="scale-icon" @click="handleTogleSide">
-    <el-icon size="20px" v-show="!systemInstance.isCollapse">
+    <el-icon size="20px" v-show="!isCollapse">
       <Fold />
     </el-icon>
-    <el-icon size="20px" v-show="systemInstance.isCollapse">
+    <el-icon size="20px" v-show="isCollapse">
       <Expand />
     </el-icon>
   </div>

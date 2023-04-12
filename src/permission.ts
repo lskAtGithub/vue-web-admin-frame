@@ -1,25 +1,20 @@
 import router from './router/index'
 import PageTitleUtils from '@/utils/PageTitleUtils'
-import pinia from '@/store/index'
 import { ElMessage } from 'element-plus'
-import { userStore } from '@/store/modules/user'
-import { routerStore } from '@/store/modules/router'
-import { tabStore } from '@/store/modules/tagView'
+import useStore from '@/store/index'
+
 import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const user = userStore(pinia)
-const tab = tabStore(pinia)
-const routeStore = routerStore(pinia)
+const { user, tagview, routeStore } = useStore()
 
 const whiteList = ['/login'] // no redirect whitelist
 
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   NProgress.start()
-
   if (user.hasToken()) {
     if (to.path === '/login') {
       next({ path: '/' })
@@ -29,17 +24,18 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
       if (user.hasUserInfo()) {
         if (to.meta?.noTagView) {
           const itme = to.matched.filter((item: any) => item.path === to.meta?.activeMenu)
-          tab.addTagView({
+          tagview.addTagView({
             title: itme[0]?.meta.title as string,
             path: to.meta?.activeMenu as string
           })
         } else {
-          tab.addTagView({
+          tagview.addTagView({
             title: to.meta?.title as string,
             path: to.fullPath
           })
         }
         next()
+        NProgress.done()
       } else {
         try {
           await user.getUserInfo()
@@ -48,6 +44,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
             router.addRoute(item)
           })
           next({ ...to, replace: true })
+          NProgress.done()
         } catch (error: any) {
           routeStore.resetRoutes()
           user.resetUserInfo()
@@ -62,6 +59,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
+      NProgress.done()
     } else {
       // other pages that do not have permission to access are redirected to the login page.
       next(`/login?redirect=${to.fullPath}`)

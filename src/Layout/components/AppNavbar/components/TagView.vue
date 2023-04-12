@@ -1,15 +1,15 @@
 <script setup lang="ts">
   import { computed } from 'vue'
-  import { tabStore } from '@/store/modules/tagView'
+  import useStore from '@/store/index'
   import { useRoute, useRouter } from 'vue-router'
   import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
   import type { ITagItem } from '@/Types/TagView'
 
   const route = useRoute()
   const router = useRouter()
-  const tabInstance = tabStore()
-
-  const tagViewList = computed(() => tabInstance.tagViewList)
+  const { tagview } = useStore()
+  
+  const tagViewList = computed(() => tagview.tagViewList)
   const tabValue = computed(() => {
     return route.meta.noTagView ? route.meta.activeMenu : route.path
   })
@@ -22,8 +22,8 @@
   })
 
   const removeTab = (targetName: string) => {
-    tabInstance.removeTagView(targetName)
-    const endRoute = tabInstance.tagViewList[tabInstance.tagViewList.length - 1] as ITagItem
+    tagview.removeTagView(targetName)
+    const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
     router.push({
       path: endRoute.path
     })

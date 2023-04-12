@@ -2,7 +2,6 @@ import router from '@/router/index'
 import PageTitleUtils from '@/utils/PageTitleUtils'
 import { ElMessage } from 'element-plus'
 import useStore from '@/store/index'
-
 import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'

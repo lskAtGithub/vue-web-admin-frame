@@ -52,10 +52,11 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
+  // pages
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
-  (pages)
+  pages
 ]
 
 const router = createRouter({

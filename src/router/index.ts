@@ -52,7 +52,11 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  // pages
+  {
+    path: '/:catchAll(.*)',
+    meta: { hidden: true },
+    component: () => import('@/views/error/404.vue')
+  }
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
@@ -61,7 +65,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: constantRoutes,
+  routes: constantRoutes
 })
 
 export default router

@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
 import { getMenu } from '@/api/user'
 import { constantRoutes, asyncRoutes } from '@/router/index'
+import router from '@/router/index'
 
 
 const routerStore = defineStore('routerStore', {
   state: () => {
     return {
-      routes: constantRoutes,
-      dynamicRoutes: asyncRoutes
+      routes: constantRoutes
     }
   },
   actions: {
@@ -18,7 +18,9 @@ const routerStore = defineStore('routerStore', {
     async setRoutes() {
       const res: any = await getMenu()
       this.routes = constantRoutes.concat(res.data)
-      return this.dynamicRoutes
+      asyncRoutes.map(item => {
+        router.addRoute(item)
+      })
     },
     resetRoutes() {
       this.$reset()

@@ -21,7 +21,7 @@
 
   function handleLogin() {
     user.userLogin(accoutInfo).then(() => {
-      router.push('/home/homePage')
+      router.push('/')
     })
   }
 

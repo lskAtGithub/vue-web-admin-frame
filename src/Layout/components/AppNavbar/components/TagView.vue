@@ -8,10 +8,15 @@
   const route = useRoute()
   const router = useRouter()
   const { tagview } = useStore()
-  
+
   const tagViewList = computed(() => tagview.tagViewList)
-  const tabValue = computed(() => {
-    return route.meta.noTagView ? route.meta.activeMenu : route.path
+  const tabValue = computed({
+    get() {
+      return route.meta.noTagView ? route.meta.activeMenu : route.path
+    },
+    set() {
+      route.meta.noTagView ? route.meta.activeMenu : route.path
+    }
   })
   const isBack = computed(() => {
     const currentRoute = route.matched[route.matched.length - 1]

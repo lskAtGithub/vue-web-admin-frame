@@ -9,7 +9,7 @@
 
   const { routeStore, system } = useStore()
   const route = useRoute()
-  const rouetrIntance = useRouter()
+  const router = useRouter()
   const { isCollapse } = storeToRefs(system)
 
   const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
@@ -23,7 +23,7 @@
   }
 
   function handleFirstMenuRoute(item: RouteRecordRaw) {
-    rouetrIntance.push({
+    router.push({
       path: item.path
     })
   }
@@ -43,12 +43,12 @@
       </template>
     </el-menu-item>
 
-    <el-sub-menu v-for="item in childRoute" :index="item.path || item.redirect" :key="item.children[0]?.path">
+    <el-sub-menu v-for="item in childRoute" :index="item.path || item.redirect" :key="item.path">
       <template #title>
         <el-icon>
           <component :is="item.meta?.icon" />
         </el-icon>
-        <span>{{ item.meta.title }}</span>
+        <span>{{ item.meta?.title }}</span>
       </template>
       <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">
         <app-link :to="childItem.path"> {{ childItem.meta.title }} </app-link>

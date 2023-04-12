@@ -1,4 +1,4 @@
-import router from './router/index'
+import router from '@/router/index'
 import PageTitleUtils from '@/utils/PageTitleUtils'
 import { ElMessage } from 'element-plus'
 import useStore from '@/store/index'
@@ -39,10 +39,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
       } else {
         try {
           await user.getUserInfo()
-          const asyncRouter = await routeStore.setRoutes()
-          asyncRouter.map(item => {
-            router.addRoute(item)
-          })
+          await routeStore.setRoutes()
           next({ ...to, replace: true })
           NProgress.done()
         } catch (error: any) {

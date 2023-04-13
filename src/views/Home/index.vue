@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" name="HomePage">
   import { onMounted, ref } from 'vue'
   import Container from '@/components/Container.vue'
   const val = ref('')

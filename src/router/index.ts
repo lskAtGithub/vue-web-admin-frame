@@ -12,6 +12,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     meta: { icon: 'House', noBreadCrumbs: true },
     children: [
       {
+        name: 'HomePage',
         path: '/home/homePage',
         meta: { title: '首页', icon: 'House', keepAlive: true },
         component: () => import('@/views/Home/index.vue')

@@ -7,7 +7,7 @@
 <template>
   <div class="app-main">
     <router-view v-slot="{ Component }">
-      <keep-alive>
+      <keep-alive :include="['HomePage']">
         <component :is="Component" :key="route.fullPath" />
       </keep-alive>
     </router-view>

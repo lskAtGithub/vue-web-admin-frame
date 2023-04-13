@@ -14,7 +14,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         name: 'HomePage',
         path: '/home/homePage',
-        meta: { title: '首页', icon: 'House', keepAlive: true },
+        meta: { title: '首页', icon: 'House', cache: true },
         component: () => import('@/views/Home/index.vue')
       }
     ]
@@ -25,11 +25,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     meta: { hidden: true },
     children: [
       {
+        name: 'UserInfo',
         path: '/userInfo',
         meta: { title: '个人中心' },
         component: () => import('@/views/user/userInfo.vue')
       },
       {
+        name: 'ChangePwd',
         path: '/changePwd',
         meta: { title: '修改密码' },
         component: () => import('@/views/user/changePwd.vue')

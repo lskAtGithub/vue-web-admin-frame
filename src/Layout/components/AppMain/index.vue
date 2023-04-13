@@ -1,13 +1,17 @@
 <script lang="ts" setup>
   import { useRoute } from 'vue-router'
+  import useStore from '@/store';
+  import { storeToRefs } from 'pinia';
 
   const route = useRoute()
+  const { tagview } = useStore()
+  const { cacheList } = storeToRefs(tagview)
 </script>
 
 <template>
   <div class="app-main">
     <router-view v-slot="{ Component }">
-      <keep-alive :include="['HomePage']">
+      <keep-alive :include="cacheList">
         <component :is="Component" :key="route.fullPath" />
       </keep-alive>
     </router-view>

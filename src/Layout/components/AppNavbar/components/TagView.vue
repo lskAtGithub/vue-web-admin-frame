@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import useStore from '@/store/index'
-  import { computed, nextTick, watch } from 'vue'
+  import { computed, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
   import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
   import type { ITagItem } from '@/Types/TagView'
@@ -18,6 +18,9 @@
         query: newValue.query,
         params: newValue.params
       })
+    }
+    if (route.meta.cache && route.name) {
+      tagview.addCacheList(route.name as string)
     }
   }, { immediate: true })
 

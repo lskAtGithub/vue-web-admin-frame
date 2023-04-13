@@ -18,7 +18,8 @@ const defalutTabList: Array<ITagItem> = [{
 const tagViewStore = defineStore('tagViewStore', {
   state: () => {
     return {
-      tagViewList: defalutTabList
+      tagViewList: defalutTabList,
+      cacheList: [] as Array<string>
     }
   },
   actions: {
@@ -38,6 +39,11 @@ const tagViewStore = defineStore('tagViewStore', {
           this.tagViewList.splice(index, 1)
           return
         }
+      }
+    },
+    addCacheList(cacheName: string) {
+      if (!this.cacheList.includes(cacheName)) {
+        this.cacheList.push(cacheName)
       }
     }
   }

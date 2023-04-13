@@ -1,9 +1,10 @@
 <script setup lang="ts">
-  import { computed, watch } from 'vue'
   import useStore from '@/store/index'
+  import { computed, nextTick, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
   import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
   import type { ITagItem } from '@/Types/TagView'
+  import { Close } from '@element-plus/icons-vue'
 
   const route = useRoute()
   const router = useRouter()
@@ -19,14 +20,6 @@
   }, { immediate: true })
 
   const tagViewList = computed(() => tagview.tagViewList)
-  const tabValue = computed({
-    get() {
-      return route.meta.noTagView ? route.meta.activeMenu : route.path
-    },
-    set() {
-      route.meta.noTagView ? route.meta.activeMenu : route.path
-    }
-  })
   const isBack = computed(() => {
     const currentRoute = route.matched[route.matched.length - 1]
     if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
@@ -35,12 +28,14 @@
     return true
   })
 
-  const removeTab = (targetName: string) => {
-    tagview.removeTagView(targetName)
-    const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
-    router.push({
-      path: endRoute.path
-    })
+  const removeTab = (tag: ITagItem) => {
+    tagview.removeTagView(tag)
+    if (isActive(tag)) {
+      const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
+      router.push({
+        path: endRoute.path
+      })
+    }
   }
 
   const isActive = (tag: ITagItem): boolean => {
@@ -56,7 +51,9 @@
     router.replace({
       path: '/redirect' + route.fullPath
     })
-    route.meta.noTagview = false
+    nextTick(() => {
+      route.meta.noTagview = false
+    })
   }
 </script>
 
@@ -68,6 +65,9 @@
       <router-link class="tag-item suspension" :class="{ 'active': isActive(tag) }" v-for="(tag, index) in tagViewList"
         :key="tag.path" :to="tag.path" :params="tag.params" :query="tag.query">
         <span class="tag--title">{{ tag.title }}</span>
+        <el-icon v-if="!tag.affix" class="close--icon" @click.prevent.stop="removeTab(tag)">
+          <Close />
+        </el-icon>
       </router-link>
     </div>
   </div>
@@ -76,20 +76,40 @@
 <style scoped lang='scss'>
 @import '@/styles/variables.scss';
 
-.suspension{
-  box-shadow: 0 0 3px #ccc;
+.suspension {
+  box-shadow: 0 0 5px #ccc;
+
   &:hover {
-    box-shadow: inset 0 0 2px 0px #ccc;
+    box-shadow: inset 0 0 3px 0px #ddd;
   }
 
 }
+
 .tab-control {
   display: flex;
   align-items: center;
   padding: 1px 15px;
+  border-radius: 3px;
+
 
   .tab-box {
     margin-left: 20px;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 9px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.1);
+    }
 
     .tag-item {
       display: inline-block;
@@ -99,12 +119,37 @@
       border-radius: 5px;
       color: #666;
 
+
       &:not(.active):hover {
         color: $--theme-color;
       }
 
+      &:hover {
+        .close--icon {
+          display: inline-block;
+        }
+      }
+
       &.active {
-        box-shadow: inset 0 0 8px 0px #ddd;
+        box-shadow: inset 0 0 10px 0px #ccc;
+        color: #888;
+      }
+
+      .tag--title {
+        vertical-align: middle;
+      }
+
+      .close--icon {
+        margin-left: 8px;
+        vertical-align: middle;
+        display: none;
+        transition: display 0.3s;
+
+        &:hover {
+          color: #fff;
+          background: #ccc;
+          border-radius: 50%;
+        }
       }
     }
   }

@@ -4,5 +4,5 @@ export interface ITagItem {
   title: string,
   query?: Object,
   params?: Object,
-  defalut?: boolean
+  affix?: boolean
 }

@@ -12,7 +12,7 @@ function hasIncludeTab(item: ITagItem, arr: Array<ITagItem>): boolean | ITagItem
 const defalutTabList: Array<ITagItem> = [{
   title: '首页',
   path: '/home/homePage',
-  defalut: true
+  affix: true
 }]
 
 const tagViewStore = defineStore('tagViewStore', {
@@ -31,10 +31,10 @@ const tagViewStore = defineStore('tagViewStore', {
         }
       }
     },
-    removeTagView(tabName: String) {
+    removeTagView(tag: ITagItem) {
       for (let index = 0; index < this.tagViewList.length; index++) {
         const element = this.tagViewList[index]
-        if (element.path === tabName) {
+        if (element.path === tag.path) {
           this.tagViewList.splice(index, 1)
           return
         }

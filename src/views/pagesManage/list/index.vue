@@ -4,7 +4,6 @@
   import { onMounted } from 'vue'
 
   onMounted(() => {
-    console.log("执行了11")
   })
   const router = useRouter()
 

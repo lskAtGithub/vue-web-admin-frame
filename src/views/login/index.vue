@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { getMenu } from '@/api/user/index'
   import { onMounted } from 'vue'
   import useStore from '@/store'
 
@@ -14,9 +13,6 @@
   }
 
   onMounted(() => {
-    getMenu().then(res => {
-      console.log(res)
-    })
   })
 
   function handleLogin() {

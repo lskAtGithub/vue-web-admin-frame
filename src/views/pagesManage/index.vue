@@ -1,16 +1,15 @@
-<script setup lang="ts">
-  import { useRoute } from 'vue-router';
+<script lang="ts" setup>
+  import { useRoute } from 'vue-router'
 
   const route = useRoute()
 </script>
 
 <template>
-  <!-- <router-view></router-view> -->
-  <router-view v-slot="{ Component }">
-    <keep-alive>
-      <component :is="Component" :key="route.fullPath" />
-    </keep-alive>
-  </router-view>
+  <div class="app-main">
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" :key="route.fullPath" />
+      </keep-alive>
+    </router-view>
+  </div>
 </template>
-
-<style scoped lang='scss'></style>

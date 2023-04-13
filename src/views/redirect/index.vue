@@ -6,11 +6,12 @@
   const router = useRouter()
 
   onMounted(() => {
-
     const { params, query } = route
     const { path } = params
     nextTick(() => {
-      router.replace({ path: '/' + path, query })
+      const routerPath = '/' + path
+      console.log(routerPath)
+      router.replace({ path: routerPath, query })
     })
   })
 </script>

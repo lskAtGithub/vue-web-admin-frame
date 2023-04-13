@@ -1,11 +1,13 @@
 <script setup lang="ts">
   import { useRouter } from 'vue-router'
   import Container from '@/components/Container.vue'
-  import { onMounted } from 'vue'
+  import { onMounted, ref } from 'vue'
 
   onMounted(() => {
+    console.log("onMounted pagesManage")
   })
   const router = useRouter()
+  const val = ref('')
 
   const handleClick = (item: any) => {
     router.push({
@@ -71,6 +73,7 @@
 
 <template>
   <container>
+    <el-input v-model="val"></el-input>
     <el-button type="primary" @click="handleAdd">Add</el-button>
 
     <el-table :data="tableData" border style="width: 100%">

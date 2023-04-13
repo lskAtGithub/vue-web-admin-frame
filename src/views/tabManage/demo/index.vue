@@ -1,5 +1,6 @@
 <template>
   <container>
+    <el-input v-model="val"></el-input>
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
       <el-radio-button :label="false">expand</el-radio-button>
       <el-radio-button :label="true">collapse</el-radio-button>
@@ -30,13 +31,18 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import Container from '@/components/Container.vue'
   import {
     Location,
     Setting,
   } from '@element-plus/icons-vue'
 
+  onMounted(() => {
+    console.log("mounted: home page")
+  })
+
+  const val = ref('')
   const isCollapse = ref(true)
   const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)

@@ -11,12 +11,14 @@
   const { tagview } = useStore()
 
   watch(() => router.currentRoute.value, (newValue, oldValue) => {
-    tagview.addTagView({
-      path: newValue.path,
-      title: newValue.meta.title as string,
-      query: newValue.query,
-      params: newValue.params
-    })
+    if (!route.meta.noTagView) {
+      tagview.addTagView({
+        path: newValue.path,
+        title: newValue.meta.title as string,
+        query: newValue.query,
+        params: newValue.params
+      })
+    }
   }, { immediate: true })
 
   const tagViewList = computed(() => tagview.tagViewList)
@@ -39,6 +41,9 @@
   }
 
   const isActive = (tag: ITagItem): boolean => {
+    if (route.meta.noTagView && route.meta.activeMenu) {
+      return route.meta.activeMenu === tag.path
+    }
     return route.path === tag.path
   }
 
@@ -47,12 +52,8 @@
   }
 
   const handleRefresh = () => {
-    route.meta.noTagview = true
     router.replace({
       path: '/redirect' + route.fullPath
-    })
-    nextTick(() => {
-      route.meta.noTagview = false
     })
   }
 </script>

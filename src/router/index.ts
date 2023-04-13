@@ -13,7 +13,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/home/homePage',
-        meta: { title: '首页', icon: 'House' },
+        meta: { title: '首页', icon: 'House', keepAlive: true },
         component: () => import('@/views/Home/index.vue')
       }
     ]
@@ -43,7 +43,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/redirect',
     component: Layout,
-    meta: { hidden: true },
+    meta: { hidden: true, noTagView: true },
     children: [
       {
         meta: { noTagView: true },

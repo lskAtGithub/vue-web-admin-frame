@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, watch } from 'vue'
   import useStore from '@/store/index'
   import { useRoute, useRouter } from 'vue-router'
   import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
@@ -8,6 +8,15 @@
   const route = useRoute()
   const router = useRouter()
   const { tagview } = useStore()
+
+  watch(() => router.currentRoute.value, (newValue, oldValue) => {
+    tagview.addTagView({
+      path: newValue.path,
+      title: newValue.meta.title as string,
+      query: newValue.query,
+      params: newValue.params
+    })
+  }, { immediate: true })
 
   const tagViewList = computed(() => tagview.tagViewList)
   const tabValue = computed({
@@ -34,10 +43,8 @@
     })
   }
 
-  const handleClickItem = (targetName: string) => {
-    router.push({
-      path: targetName
-    })
+  const isActive = (tag: ITagItem): boolean => {
+    return route.path === tag.path
   }
 
   const handleGoBack = () => {
@@ -55,26 +62,51 @@
 
 <template>
   <div class="tab-control">
-    <el-button :icon="ArrowLeft" :disabled="isBack" circle size="small" @click="handleGoBack" />
-    <el-button :icon="Refresh" circle size="small" @click="handleRefresh" />
+    <el-button class="suspension" :icon="ArrowLeft" :disabled="isBack" circle size="small" @click="handleGoBack" />
+    <el-button class="suspension" :icon="Refresh" circle size="small" @click="handleRefresh" />
     <div class="tab-box">
-      <el-tabs v-model="tabValue" type="card" class="demo-tabs" @tab-change="handleClickItem" @tab-remove="removeTab">
-        <el-tab-pane v-for="item in tagViewList" :closable="!item.defalut" :key="item.path" :label="item.title"
-          :name="item.path">
-        </el-tab-pane>
-      </el-tabs>
+      <router-link class="tag-item suspension" :class="{ 'active': isActive(tag) }" v-for="(tag, index) in tagViewList"
+        :key="tag.path" :to="tag.path" :params="tag.params" :query="tag.query">
+        <span class="tag--title">{{ tag.title }}</span>
+      </router-link>
     </div>
   </div>
 </template>
 
 <style scoped lang='scss'>
+@import '@/styles/variables.scss';
+
+.suspension{
+  box-shadow: 0 0 3px #ccc;
+  &:hover {
+    box-shadow: inset 0 0 2px 0px #ccc;
+  }
+
+}
 .tab-control {
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 1px 15px;
 
   .tab-box {
     margin-left: 20px;
+
+    .tag-item {
+      display: inline-block;
+      padding: 6px 15px;
+      font-size: $--font-size;
+      margin: 3px 4px;
+      border-radius: 5px;
+      color: #666;
+
+      &:not(.active):hover {
+        color: $--theme-color;
+      }
+
+      &.active {
+        box-shadow: inset 0 0 8px 0px #ddd;
+      }
+    }
   }
 }
 

@@ -21,18 +21,6 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
     } else {
       // 确定用户是否已通过getInfo获得其权限角色
       if (user.hasUserInfo()) {
-        if (to.meta?.noTagView) {
-          const itme = to.matched.filter((item: any) => item.path === to.meta?.activeMenu)
-          tagview.addTagView({
-            title: itme[0]?.meta.title as string,
-            path: to.meta?.activeMenu as string
-          })
-        } else {
-          tagview.addTagView({
-            title: to.meta?.title as string,
-            path: to.fullPath
-          })
-        }
         next()
         NProgress.done()
       } else {

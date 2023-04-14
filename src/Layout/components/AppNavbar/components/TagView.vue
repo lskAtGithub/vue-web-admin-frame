@@ -92,8 +92,9 @@
 .tab-control {
   display: flex;
   align-items: center;
-  padding: 1px 15px;
+  padding: 2px 15px;
   border-radius: 3px;
+  height: 38px;
 
 
   .tab-box {

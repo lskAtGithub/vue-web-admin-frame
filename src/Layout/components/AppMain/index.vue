@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="AppMain">
   import { useRoute } from 'vue-router'
   import useStore from '@/store';
   import { storeToRefs } from 'pinia';

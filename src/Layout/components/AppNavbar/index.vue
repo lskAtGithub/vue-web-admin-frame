@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="AppNavbar">
   import ToggleSwitch from './components/ToggleSwitch.vue'
   import BreadCrumb from './components/BreadCrumb.vue'
   import Avatar from './components/Avatar.vue'

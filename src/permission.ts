@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const { user, tagview, routeStore } = useStore()
+const { user, routeStore } = useStore()
 
 const whiteList = ['/login'] // no redirect whitelist
 
@@ -19,7 +19,6 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
       next({ path: '/' })
       NProgress.done()
     } else {
-      // 确定用户是否已通过getInfo获得其权限角色
       if (user.hasUserInfo()) {
         next()
         NProgress.done()

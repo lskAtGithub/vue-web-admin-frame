@@ -6,7 +6,7 @@
 
   const { user } = useStore()
   const router = useRouter()
-  const userInfo = storeToRefs(user) as any
+  const { userInfo } = storeToRefs(user)
 
   const onGotoUserInfo = () => {
     router.push({
@@ -70,7 +70,7 @@
       <el-avatar :size="40" src="https://picx.zhimg.com/80/v2-8537f89e6e5710bfa33c524920c81f6d_720w.webp?source=1940ef5c">
         <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
       </el-avatar>
-      <div class="userinfo-name">{{ userInfo.name }}</div>
+      <div class="userinfo-name">{{ userInfo.nickName }}</div>
     </header>
     <template #dropdown>
       <el-dropdown-menu>

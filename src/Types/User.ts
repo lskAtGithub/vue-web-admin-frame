@@ -1,4 +1,5 @@
 export interface IUser {
-  name?: string,
+  account: string,
+  nickName?: string,
   phone?: number | string
 }

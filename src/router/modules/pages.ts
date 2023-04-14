@@ -7,12 +7,14 @@ const routes: RouteRecordRaw = {
   component: Layout,
   children: [
     {
-      meta: { title: '表格页' },
+      name: "TableManage",
+      meta: { title: '表格页', cache: true },
       path: '/manage/table/list',
       component: () => import('@/views/pagesManage/index.vue'),
       children: [
         {
-          meta: { title: '表格页', noBreadCrumbs: true },
+          name: 'TableManageList',
+          meta: { title: '表格页', noBreadCrumbs: true, cache: true },
           path: '/manage/table/list',
           component: () => import('@/views/pagesManage/list/index.vue'),
         },
@@ -22,8 +24,9 @@ const routes: RouteRecordRaw = {
           component: () => import('@/views/pagesManage/details/index.vue'),
         },
         {
+          name: 'TableManageAdd',
           path: '/manage/table/add',
-          meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: false },
+          meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: false, cache: true },
           component: () => import('@/views/pagesManage/add/index.vue'),
         }
       ]

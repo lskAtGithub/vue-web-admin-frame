@@ -1,15 +1,23 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="TableManage">
   import { useRoute } from 'vue-router'
+  import useStore from '@/store';
+  import { storeToRefs } from 'pinia';
+  import { onMounted } from 'vue';
 
   const route = useRoute()
+  const { tagview } = useStore()
+  const { cacheList } = storeToRefs(tagview)
+
+  onMounted(() => {
+    tagview.addCacheList('TableManage')
+  })
+
 </script>
 
 <template>
-  <div class="app-main">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" :key="route.fullPath" />
-      </keep-alive>
-    </router-view>
-  </div>
+  <router-view v-slot="{ Component }">
+    <keep-alive :include="cacheList">
+      <component :is="Component" :key="route.fullPath" />
+    </keep-alive>
+  </router-view>
 </template>

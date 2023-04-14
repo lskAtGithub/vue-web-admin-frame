@@ -1,10 +1,9 @@
-<script setup lang="ts">
+<script setup lang="ts" name="TableManageList">
   import { useRouter } from 'vue-router'
   import Container from '@/components/Container.vue'
   import { onMounted, ref } from 'vue'
 
   onMounted(() => {
-    console.log("onMounted pagesManage")
   })
   const router = useRouter()
   const val = ref('')

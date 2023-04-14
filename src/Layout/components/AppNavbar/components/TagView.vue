@@ -19,7 +19,6 @@
         params: newValue.params
       })
     }
-    console.log(route.name)
     if (route.meta.cache && route.name) {
       tagview.addCacheList(route.name as string)
     }

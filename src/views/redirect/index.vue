@@ -10,7 +10,6 @@
     const { path } = params
     nextTick(() => {
       const routerPath = '/' + path
-      console.log(routerPath)
       router.replace({ path: routerPath, query })
     })
   })

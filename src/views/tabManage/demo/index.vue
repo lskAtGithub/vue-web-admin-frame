@@ -39,7 +39,6 @@
   } from '@element-plus/icons-vue'
 
   onMounted(() => {
-    console.log("mounted: home page")
   })
 
   const val = ref('')

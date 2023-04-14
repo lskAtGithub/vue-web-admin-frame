@@ -2,14 +2,16 @@ import { defineStore } from 'pinia'
 import { getToken, getUserInfo } from '@/api/user'
 import Cookies from 'js-cookie'
 import type { ILoginParam } from '@/api/user/types'
+import type { IUser } from '@/Types/User'
 
 const userStore = defineStore('userStore', {
   state: () => {
     return {
       userInfo: {
-        name: '',
+        account: '',
+        nickName: '',
         phone: ''
-      },
+      } as IUser,
       token: '',
     }
   },
@@ -32,12 +34,13 @@ const userStore = defineStore('userStore', {
     },
     resetUserInfo(): void {
       this.userInfo = {
-        name: '',
+        account: '',
+        nickName: '',
         phone: ''
       }
     },
     hasUserInfo(): boolean {
-      if (this.userInfo.name) {
+      if (this.userInfo.account) {
         return true
       }
       return false

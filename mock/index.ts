@@ -31,8 +31,9 @@ Mock.mock('/mock/login','post', (options: any) => {
 Mock.mock('/mock/userInfo', {
   code: 200,
   data: {
-    name: 'admin',
-    phone: 17688899512
+    account: 'admin',
+    nickName: 'admin',
+    phone: 13975900000
   },
   msg: 'success'
 })

@@ -102,19 +102,7 @@
     white-space: nowrap;
     overflow-x: auto;
 
-    &::-webkit-scrollbar {
-      height: 9px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    &::-webkit-scrollbar-track {
-      border-radius: 0;
-      background: rgba(0, 0, 0, 0.1);
-    }
+    @include scrollbar;
 
     .tag-item {
       display: inline-block;

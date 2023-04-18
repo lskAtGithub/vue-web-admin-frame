@@ -1,10 +1,8 @@
 <script lang="ts" setup name="TableManage">
-  import { useRoute } from 'vue-router'
   import useStore from '@/store';
   import { storeToRefs } from 'pinia';
   import { onMounted } from 'vue';
 
-  const route = useRoute()
   const { tagview } = useStore()
   const { cacheList } = storeToRefs(tagview)
 

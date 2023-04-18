@@ -1,8 +1,9 @@
 <script setup lang="ts" name="TableManageAdd">
-  import { ref } from 'vue'
+  import { onMounted, ref } from 'vue'
   import Container from '@/components/Container.vue';
 
   const val = ref('')
+  onMounted(() => { console.log(11) })
 </script>
 
 <template>

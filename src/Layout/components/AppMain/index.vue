@@ -12,7 +12,7 @@
   <div class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive :include="cacheList">
-        <component :is="Component" :key="route.fullPath" />
+        <component :is="Component" />
       </keep-alive>
     </router-view>
   </div>

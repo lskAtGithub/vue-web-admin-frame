@@ -8,6 +8,7 @@
   const { tagview } = useStore()
   const { cacheList } = storeToRefs(tagview)
 
+
   onMounted(() => {
     tagview.addCacheList('TableManage')
   })
@@ -17,7 +18,7 @@
 <template>
   <router-view v-slot="{ Component }">
     <keep-alive :include="cacheList">
-      <component :is="Component" :key="route.fullPath" />
+      <component :is="Component" />
     </keep-alive>
   </router-view>
 </template>

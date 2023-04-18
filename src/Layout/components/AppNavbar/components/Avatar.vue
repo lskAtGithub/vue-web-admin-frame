@@ -67,13 +67,13 @@
 <template>
   <el-dropdown @command="handleCommand">
     <header class="avatar-box">
-      <el-avatar :size="40" :src="userInfo.avatar">
+      <el-avatar shape="square" :size="40" :src="userInfo.avatar">
         <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
       </el-avatar>
-      <div class="userinfo-name">{{ userInfo.nickName }}</div>
     </header>
     <template #dropdown>
       <el-dropdown-menu>
+        <div class="userinfo-name">{{ userInfo.nickName }}</div>
         <el-dropdown-item command="userInfo">个人中心</el-dropdown-item>
         <el-dropdown-item command="changePwd">修改密码</el-dropdown-item>
         <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
@@ -92,18 +92,23 @@
 }
 
 .avatar-box {
-  padding: 0 40px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-
-  .userinfo-name {
-    font-size: 16px;
-    margin-left: 6px;
-  }
 
   &:focus-visible {
     outline: none !important;
   }
+}
 
+.userinfo-name {
+  text-align: center;
+  padding: 2px 0;
+  margin: 5px;
+  background: #c4c5c9;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #444;
+  
 }
 </style>

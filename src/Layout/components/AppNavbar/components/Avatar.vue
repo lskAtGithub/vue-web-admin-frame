@@ -67,7 +67,7 @@
 <template>
   <el-dropdown @command="handleCommand">
     <header class="avatar-box">
-      <el-avatar :size="40" src="https://picx.zhimg.com/80/v2-8537f89e6e5710bfa33c524920c81f6d_720w.webp?source=1940ef5c">
+      <el-avatar :size="40" :src="userInfo.avatar">
         <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
       </el-avatar>
       <div class="userinfo-name">{{ userInfo.nickName }}</div>

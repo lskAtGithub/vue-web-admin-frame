@@ -33,7 +33,8 @@ Mock.mock('/mock/userInfo', {
   data: {
     account: 'admin',
     nickName: 'admin',
-    phone: 13975900000
+    phone: 13975900000,
+    avatar: 'https://picx.zhimg.com/v2-afcb9403f5e4769e411f95dc9685100f_r.jpg?source=1940ef5c'
   },
   msg: 'success'
 })

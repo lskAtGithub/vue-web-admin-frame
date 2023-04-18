@@ -10,7 +10,8 @@ const userStore = defineStore('userStore', {
       userInfo: {
         account: '',
         nickName: '',
-        phone: ''
+        phone: '',
+        avatar: ''
       } as IUser,
       token: '',
     }

@@ -11,6 +11,7 @@ import 'element-plus/dist/index.css'
 import 'normalize.css/normalize.css'
 import './permission'
 import '@/styles/index.scss'
+import IndexUtils from './utils/Index'
 
 const app = createApp(App)
 app.use(piniaStore)
@@ -23,3 +24,6 @@ app.mount('#app')
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+
+IndexUtils.windowResize()
+

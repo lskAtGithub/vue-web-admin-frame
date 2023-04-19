@@ -7,7 +7,7 @@ export default class IndexUtils {
    */
   static windowResize() {
     window.addEventListener('resize', this.debounce(() => {
-      if (window.innerWidth <= 800) {
+      if (window.innerWidth <= 900) {
         system.packCollapse()
       }
     }, 300))

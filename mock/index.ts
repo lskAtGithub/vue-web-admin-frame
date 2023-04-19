@@ -32,9 +32,12 @@ Mock.mock('/mock/userInfo', {
   code: 200,
   data: {
     account: 'admin',
-    nickName: 'admin',
+    nickName: '管理员',
     phone: 13975900000,
-    avatar: 'https://picx.zhimg.com/v2-afcb9403f5e4769e411f95dc9685100f_r.jpg?source=1940ef5c'
+    avatar: 'https://picx.zhimg.com/v2-afcb9403f5e4769e411f95dc9685100f_r.jpg?source=1940ef5c',
+    postTitle:'前端工程师',
+    email: '123456@qq.com',
+    
   },
   msg: 'success'
 })

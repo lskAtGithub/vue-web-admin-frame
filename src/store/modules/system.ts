@@ -9,6 +9,10 @@ const systemStore = defineStore('systemStore', {
   actions: {
     changeCollapse() {
       this.isCollapse = !this.isCollapse
+    },
+    packCollapse() {
+      this.isCollapse = true
+      
     }
   }
 })

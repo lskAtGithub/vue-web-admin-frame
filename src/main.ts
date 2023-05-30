@@ -12,6 +12,7 @@ import 'normalize.css/normalize.css'
 import './permission'
 import '@/styles/index.scss'
 import IndexUtils from './utils/Index'
+import SvgIcon from '@/components/SvgIcon.vue'
 
 const app = createApp(App)
 app.use(piniaStore)
@@ -19,6 +20,7 @@ app.use(router)
 app.use(ElementPlus, {
   locale: zhCn,
 })
+app.component('svg-icon', SvgIcon)
 app.mount('#app')
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

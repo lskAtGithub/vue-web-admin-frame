@@ -4,7 +4,7 @@
   import CountUp from '@/components/CountUp.vue';
 
   const numState = reactive({
-    waitNum: 1745,
+    waitNum: 458,
     overNum: 3546,
     passNum: 8851,
     rejectNum: 356
@@ -22,41 +22,48 @@
 
 <template>
   <container>
-    <div>
-      <svg-icon class-name="audit-icon" icon-class="audit"></svg-icon>
-      <el-button @click="initCount">init count up</el-button>
-    </div>
     <el-row :gutter="12">
       <el-col :span="6">
-        <el-card class="num-card wait-num" shadow="hover">
-          <span class="num-label">待审核</span>
-
-          <div>
-            <count-up ref="countUp" :end="waitNum"></count-up>
+        <el-card shadow="hover">
+          <div class="num-card wait-num">
+            <svg-icon class-name="svg-icon" icon-class="audit"></svg-icon>
+            <div class="num-wrapper">
+              <span class="num-label">待审核</span>
+              <count-up class="count-wrapper" ref="countUp" :end="waitNum"></count-up>
+            </div>
           </div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card class="num-card over-num" shadow="hover">
-          <span class="num-label">已提交</span>
-          <div>
-            <count-up ref="countUp" :end="overNum"></count-up>
+        <el-card shadow="hover">
+          <div class="num-card over-num">
+            <svg-icon class-name="svg-icon" icon-class="over"></svg-icon>
+            <div class="num-wrapper">
+              <span class="num-label">已提交</span>
+              <count-up class="count-wrapper" ref="countUp" :end="overNum"></count-up>
+            </div>
           </div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card class="num-card pass-num" shadow="hover">
-          <span class="num-label">已处理</span>
-          <div>
-            <count-up ref="countUp" :end="passNum"></count-up>
+        <el-card shadow="hover">
+          <div class="num-card pass-num">
+            <svg-icon class-name="svg-icon" icon-class="pass"></svg-icon>
+            <div class="num-wrapper">
+              <span class="num-label">已处理</span>
+              <count-up class="count-wrapper" ref="countUp" :end="passNum"></count-up>
+            </div>
           </div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card class="num-card reject-num" shadow="hover">
-          <span class="num-label">已驳回</span>
-          <div>
-            <count-up ref="countUp" :end="rejectNum"></count-up>
+        <el-card shadow="hover">
+          <div class="num-card reject-num">
+            <svg-icon class-name="svg-icon" icon-class="reject"></svg-icon>
+            <div class="num-wrapper">
+              <span class="num-label">已驳回</span>
+              <count-up class="count-wrapper" ref="countUp" :end="rejectNum"></count-up>
+            </div>
           </div>
         </el-card>
       </el-col>
@@ -65,32 +72,87 @@
 </template>
 
 <style scoped lang="scss">
+@import '@/styles/variables.scss';
+
 .num-card {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 
-  .num-label {
-    color: #999;
-    font-size: 16px;
-    display: inline-block;
-    margin-bottom: 12px;
+  .num-wrapper {
+    flex: 1;
+    text-align: left;
+    padding: 0 8px;
+
+    .num-label {
+      color: #999;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 12px;
+    }
+  }
+
+  .svg-icon {
+    font-size: 80px;
+    padding: 10px;
+  }
+
+  .count-wrapper {
+    display: block;
   }
 
   &.wait-num {
     color: #67C23A;
+
+    svg {
+      &:hover {
+        fill: #fff;
+        background-color: #67C23A;
+        cursor: pointer;
+      }
+    }
   }
 
   &.over-num {
     color: #E6A23C;
+
+    svg {
+      &:hover {
+        fill: #fff;
+        background-color: #E6A23C;
+        cursor: pointer;
+      }
+    }
   }
 
   &.pass-num {
-    color: #909399;
+    color: $--theme-color;
+
+    svg {
+      &:hover {
+        fill: #fff;
+        background-color: $--theme-color;
+        cursor: pointer;
+      }
+    }
   }
 
   &.reject-num {
     color: #F56C6C;
+
+    svg {
+      fill: #F56C6C;
+
+      &:hover {
+        fill: #fff;
+        background-color: #F56C6C;
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>

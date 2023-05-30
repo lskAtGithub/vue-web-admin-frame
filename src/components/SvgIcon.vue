@@ -1,5 +1,5 @@
 <template>
-  <svg :class="svgClass" aria-hidden="true">
+  <svg :class="svgClass" aria-hidden="true" fill="currentColor">
     <use :xlink:href="iconName" />
   </svg>
 </template>
@@ -31,7 +31,6 @@
 .svg-icon {
   width: 1em;
   height: 1em;
-  fill: currentColor;
   vertical-align: middle;
 }
 </style>

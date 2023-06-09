@@ -54,7 +54,6 @@
   .title {
     font-size: 16px;
     white-space: nowrap;
-    color: #fff;
 
     &.shrink-title {
       display: none;

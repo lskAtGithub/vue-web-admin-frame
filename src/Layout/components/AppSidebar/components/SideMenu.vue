@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <el-menu :collapse="isCollapse" background-color="#545c64" text-color="#fff" :default-active="currentOpenMenu()"
+  <el-menu :collapse="isCollapse" :default-active="currentOpenMenu()"
     class="el-menu-vertical">
     <logo></logo>
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">

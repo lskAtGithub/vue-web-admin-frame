@@ -5,12 +5,12 @@ class LoadingUtils {
   static loadingInstance: any = null
 
   static show(options?: LoadingOptions) {
-    const defalutOptions: LoadingOptions = {
+    const defaultOptions: LoadingOptions = {
       lock: true,
       text: 'Loading',
       background: 'rgba(0, 0, 0, 0.7)',
     }
-    const LoadingOptions = Object.assign(defalutOptions, options)
+    const LoadingOptions = Object.assign(defaultOptions, options)
     this.loadingInstance = ElLoading.service(LoadingOptions)
   }
 

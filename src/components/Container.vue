@@ -5,9 +5,6 @@
   后续可以通过  props  来实现扩展
  -->
 
-<script setup lang="ts">
-</script>
-
 <template>
   <div class="__common-component-container">
     <slot></slot>

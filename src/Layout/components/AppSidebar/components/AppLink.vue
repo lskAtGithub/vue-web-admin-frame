@@ -25,5 +25,6 @@ function handleTo() {
 <style scoped lang='scss'>
 .app-link {
   width: 100%;
+  user-select: none;
 }
 </style>

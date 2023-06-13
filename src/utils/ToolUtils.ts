@@ -9,10 +9,10 @@ export default class ToolUtils {
    * @description 对象的深拷贝
    */
   static deepClone(obj: KeyValueObject): KeyValueObject {
-    const newObj: KeyValueObject = {};
-    let keys = Object.keys(obj);
-    let key = null;
-    let data = null;
+    const newObj: KeyValueObject = {}
+    let keys = Object.keys(obj)
+    let key = null
+    let data = null
     for (let i = 0; i < keys.length; i++) {
       key = keys[i];
       data = (obj)[key];

@@ -21,7 +21,7 @@
     } else {
       return 'svg-icon'
     }
-  });
+  })
   const iconName = computed(() => {
     return `#icon-${props.iconClass}`
   })

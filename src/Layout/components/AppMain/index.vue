@@ -1,7 +1,7 @@
 <script lang="ts" setup name="AppMain">
   import { useRoute } from 'vue-router'
-  import useStore from '@/store';
-  import { storeToRefs } from 'pinia';
+  import useStore from '@/store'
+  import { storeToRefs } from 'pinia'
 
   const route = useRoute()
   const { tagview } = useStore()
@@ -20,6 +20,7 @@
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';
+
 .app-main {
   width: 100%;
   height: calc(100vh - 51px - 40px);

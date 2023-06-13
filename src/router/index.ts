@@ -1,8 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/Layout/index.vue'
 
 import pages from './modules/pages'
+import components from './modules/components'
 
 /**
  * @param path: 路由的访问路径
@@ -74,7 +75,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/:catchAll(.*)',
     meta: { hidden: true },
     component: () => import('@/views/error/404.vue')
-  }
+  },
+  components
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [

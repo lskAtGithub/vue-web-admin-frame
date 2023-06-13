@@ -27,4 +27,4 @@ class LoadingUtils {
   }
 }
 
-export default LoadingUtils;
+export default LoadingUtils

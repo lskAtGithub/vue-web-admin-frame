@@ -31,8 +31,7 @@
 </script>
 
 <template>
-  <el-menu :collapse="isCollapse" :default-active="currentOpenMenu()"
-    class="el-menu-vertical">
+  <el-menu :collapse="isCollapse" :default-active="currentOpenMenu()" class="el-menu-vertical">
     <logo></logo>
     <el-menu-item v-for="item in onlyChildRoute" :index="item.children[0].path" :key="item.children[0].path">
       <el-icon @click="handleFirstMenuRoute(item)">
@@ -43,14 +42,15 @@
       </template>
     </el-menu-item>
 
-    <el-sub-menu v-for="item in childRoute" :index="item.path || item.redirect" :key="item.path">
+    <el-sub-menu v-for="item in childRoute" :index="item.redirect || item.path" :key="item.path">
       <template #title>
         <el-icon>
           <component :is="item.meta?.icon" />
         </el-icon>
         <span>{{ item.meta?.title }}</span>
       </template>
-      <el-menu-item v-for="childItem in item.children" :index="childItem.path" :key="childItem.path">
+      <el-menu-item v-for="childItem in item.children" :index="childItem.redirect || childItem.path"
+        :key="childItem.path">
         <app-link :to="childItem.path"> {{ childItem.meta.title }} </app-link>
       </el-menu-item>
     </el-sub-menu>

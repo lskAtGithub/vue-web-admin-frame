@@ -6,11 +6,11 @@
   const props = defineProps({
     backgroundImg: {
       type: String,
-      defualt: ''
+      default: ''
     },
     fontSize: {
       type: String,
-      defalut: '14px'
+      default: '14px'
     }
   })
 </script>

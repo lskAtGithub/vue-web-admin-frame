@@ -5,13 +5,13 @@
   import { reactive, ref } from 'vue'
   import { ElMessage } from 'element-plus'
   import type { FormInstance, FormRules } from 'element-plus'
-  import ValidateUtils from '@/utils/ValidateUtils'
+  import VerifyUtils from '@/utils/VerifyUtils'
 
   const validatePwd = (rule: any, value: any, callback: any) => {
     if (value === '') {
       callback(new Error('密码不能为空, 请输入'))
     } else {
-      if (ValidateUtils.validatePassword(value)) {
+      if (VerifyUtils.validatePassword(value)) {
         callback()
       }
       callback(new Error('密码必须包含大小写字母,特殊字符和数字，长度为8-12位'))

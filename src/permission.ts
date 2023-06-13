@@ -28,7 +28,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
           await routeStore.setRoutes()
           next({ ...to, replace: true })
           NProgress.done()
-        } catch (error: any) {
+        } catch (error: unknown) {
           routeStore.resetRoutes()
           user.resetUserInfo()
           ElMessage.error(error || 'Has Error')
@@ -55,6 +55,6 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
 router.afterEach((to: any) => {
   NProgress.done()
   // set page title
-  const { meta }: any = to
+  const { meta } = to
   document.title = PageTitleUtils.getPageTitle(meta.title)
 })

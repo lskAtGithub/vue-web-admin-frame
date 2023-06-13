@@ -15,5 +15,18 @@
         "path": "/manage/tab/index"
       }
     ]
+  },
+  {
+    "path": "/component",
+    "meta": {
+      "icon": "Tickets",
+      "title": "组件展示"
+    },
+    "children": [
+      {
+        "path": "/component/echarts",
+        "meta": { "title": "Echarts" }
+      }
+    ]
   }
 ]

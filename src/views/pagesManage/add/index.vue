@@ -3,7 +3,6 @@
   import Container from '@/components/Container.vue';
 
   const val = ref('')
-  onMounted(() => { console.log(11) })
 </script>
 
 <template>

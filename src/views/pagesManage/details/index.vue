@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts" name="TableManageDetail">
   import Container from '@/components/Container.vue'
-  import { onMounted } from 'vue';
 </script>
 
 <template>

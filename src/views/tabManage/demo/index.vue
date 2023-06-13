@@ -5,8 +5,7 @@
       <el-radio-button :label="false">expand</el-radio-button>
       <el-radio-button :label="true">collapse</el-radio-button>
     </el-radio-group>
-    <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
-      @close="handleClose">
+    <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse">
       <el-menu-item index="4">
         <el-icon>
           <setting />
@@ -43,12 +42,6 @@
 
   const val = ref('')
   const isCollapse = ref(true)
-  const handleOpen = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
-  const handleClose = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
 </script>
 
 <style>

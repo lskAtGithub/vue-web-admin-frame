@@ -1,15 +1,16 @@
 import Layout from '@/Layout/index.vue'
 import type { RouteRecordRaw } from 'vue-router'
 
-const routes: RouteRecordRaw = {
+const route: RouteRecordRaw = {
   path: '/manage',
-  meta: { title: '页面管理' },
+  meta: { title: '组件展示', icon: 'FolderOpened' },
   component: Layout,
   children: [
     {
       name: "TableManage",
-      meta: { title: '表格页', cache: true },
-      path: '/manage/table/list',
+      meta: { cache: true, title: '表格页', },
+      path: '/manage/table',
+      redirect: '/manage/table/list',
       component: () => import('@/views/pagesManage/index.vue'),
       children: [
         {
@@ -19,8 +20,9 @@ const routes: RouteRecordRaw = {
           component: () => import('@/views/pagesManage/list/index.vue'),
         },
         {
+          name: 'TableManageDetail',
           path: '/manage/table/detail',
-          meta: { activeMenu: '/manage/table/list', title: '详情', noTagView: false },
+          meta: { title: '详情', activeMenu: '/manage/table/list', noTagView: false },
           component: () => import('@/views/pagesManage/details/index.vue'),
         },
         {
@@ -39,4 +41,4 @@ const routes: RouteRecordRaw = {
   ]
 }
 
-export default routes
+export default route

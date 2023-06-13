@@ -1,8 +1,53 @@
 import { defineStore } from 'pinia'
+import type { RouteRecordRaw } from 'vue-router'
 import { getMenu } from '@/api/user'
 import { constantRoutes, asyncRoutes } from '@/router/index'
 import router from '@/router/index'
+import VerifyUtils from '@/utils/VerifyUtils'
+import ToolUtils from '@/utils/ToolUtils'
 
+function getResDataPaths(item: RouteRecordRaw, result: Array<string>) {
+  if (VerifyUtils.isArray(item.children) && item.children?.length) {
+    result.push(item.path)
+    item.children.map(i => getResDataPaths(i, result))
+  } else {
+    result.push(item.path)
+  }
+}
+
+function hasPermission(paths: Array<String>, item: RouteRecordRaw): boolean {
+  return paths.includes(item.path) || paths.includes(item.meta?.activeMenu as string) || paths.includes(item.redirect as string)
+}
+
+function getChildrenData(paths: Array<String>, children: Array<RouteRecordRaw>): Array<RouteRecordRaw> {
+  const result: Array<RouteRecordRaw> = []
+  children.map(item => {
+    if (hasPermission(paths, item)) {
+      if (VerifyUtils.isArray(item.children) && item.children?.length) {
+        const tmp = ToolUtils.deepClone(item)
+        result.push({ ...item, ...{ children: getChildrenData(paths, item.children) } })
+      } else {
+        result.push({ ...item })
+      }
+    } else {
+      if (VerifyUtils.isArray(item.children) && item.children?.length) {
+        result.push({ ...item, ...{ children: getChildrenData(paths, item.children) } })
+      }
+    }
+  })
+
+  return result
+}
+
+function filterRoutes(arrData: Array<any>): Array<RouteRecordRaw> {
+  const paths: Array<string> = []
+  // 获取所有的 path
+  arrData.forEach(item => {
+    getResDataPaths(item, paths)
+  })
+  const result: Array<RouteRecordRaw> = getChildrenData(paths, asyncRoutes)
+  return result
+}
 
 const routerStore = defineStore('routerStore', {
   state: () => {
@@ -12,15 +57,15 @@ const routerStore = defineStore('routerStore', {
   },
   actions: {
     /**
-     * 请求到路由之后把接口返回的路由当作 Menu菜单 (即访问入口)，但是会默认添加所有的动态路由
-     * 在用户从url上输入无访问权限的路由访问页面时, 建议由接口返回无操作权限code,从而跳转异常页
+     * 动态比对添加路由权限
      */
     async setRoutes() {
       const res: any = await getMenu()
-      this.routes = constantRoutes.concat(res.data)
-      asyncRoutes.map(item => {
+      const routes = filterRoutes(res.data)
+      routes.map(item => {
         router.addRoute(item)
       })
+      this.routes = constantRoutes.concat(routes)
     },
     resetRoutes() {
       this.$reset()

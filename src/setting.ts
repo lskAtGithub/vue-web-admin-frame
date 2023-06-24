@@ -1,0 +1,1 @@
+export const title:String = 'vue web admin frame'

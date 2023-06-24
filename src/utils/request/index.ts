@@ -20,17 +20,20 @@ instance.interceptors.request.use((config) => {
   })
 
 // 添加响应拦截器
-instance.interceptors.response.use((response) => {
-  LoadingUtils.hide()
-  if (response.data.code === 200) {
-    return response.data
-  } else {
-    ElMessage.error(response.data.msg)
-  }
-},
+instance.interceptors.response.use(
+  (response) => {
+    LoadingUtils.hide()
+    if (response.data.code === 200) {
+      return response.data
+    } else {
+      ElMessage.error(response.data.msg || 'Error!!!')
+      return Promise.reject(response.data)
+    }
+  },
   (error) => {
     LoadingUtils.hide()
     return Promise.reject(error)
-  })
+  }
+)
 
 export default instance

@@ -1,14 +1,13 @@
 import router from '@/router/index'
 import PageTitleUtils from '@/utils/PageTitleUtils'
-import { ElMessage } from 'element-plus'
 import useStore from '@/store/index'
-import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const { user, routeStore } = useStore()
+const { user, routeStore, permission } = useStore()
 
 const whiteList = ['/login'] // no redirect whitelist
 
@@ -26,13 +25,13 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
         try {
           await user.getUserInfo()
           await routeStore.setRoutes()
+          await permission.getPermissions()
           next({ ...to, replace: true })
           NProgress.done()
         } catch (error: unknown) {
           routeStore.resetRoutes()
           user.resetUserInfo()
-          ElMessage.error(error || 'Has Error')
-          next(`/login?redirect=${to.fullPath}`)
+          next({ path: `/login?redirect=${to.fullPath}` })
           NProgress.done()
         }
       }

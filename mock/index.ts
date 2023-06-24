@@ -11,6 +11,12 @@ Mock.mock('/mock/getMenu', {
   msg: 'success'
 })
 
+Mock.mock('/mock/getPermission', {
+  code: 200,
+  data: ['admin'],
+  msg: 'success'
+})
+
 Mock.mock('/mock/login','post', (options: any) => {
   const body = JSON.parse(options.body)
   if (body.account !== 'admin') {

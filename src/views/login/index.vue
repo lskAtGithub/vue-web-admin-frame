@@ -3,7 +3,6 @@
   import useStore from '@/store'
   import { title } from '@/setting'
   import { useRouter } from 'vue-router'
-  import cat from '@/assets/login/cat.png'
 
   const router = useRouter()
   const { user } = useStore()
@@ -35,9 +34,9 @@
       <p>
         <el-input v-model="accoutInfo.password" size="large" type="password" placeholder="请输入密码" show-password />
       </p>
-      <p>
+      <p class="login-btn-box">
         <el-button class="login-btn" type="primary" plain @click="handleLogin">登录</el-button>
-        <img :src="cat" alt="cat">
+        <el-button type="primary" text>忘记密码？</el-button>
       </p>
     </div>
   </div>
@@ -53,8 +52,11 @@
     color: #aaa;
     font-size: 12px;
   }
-  .login-btn{
-    width: 80%;
+  .login-btn-box{
+    display: flex;
+    .login-btn{
+      width: 40%;
+    }
   }
 }
 

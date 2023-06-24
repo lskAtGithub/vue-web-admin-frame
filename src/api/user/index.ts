@@ -1,11 +1,11 @@
-import requert from '@/utils/request/index'
+import request from '@/utils/request/index'
 
 import type { ILoginParam } from './types'
 /**
  * @param 
  */
 export const getMenu = () => {
-  return requert({
+  return request({
     url: '/getMenu',
     method: 'get',
   })
@@ -15,19 +15,29 @@ export const getMenu = () => {
  * @param 
  */
 export const getUserInfo = () => {
-  return requert({
+  return request({
     url: '/userInfo',
     method: 'get',
   })
 }
 
 /**
- * @param 
+ * @param data
  */
 export const getToken = (data: ILoginParam) => {
-  return requert({
+  return request({
     url: '/login',
     method: 'post',
     data
+  })
+}
+
+/**
+ * @param 
+ */
+export const getPermission = () => {
+  return request({
+    url: '/getPermission',
+    method: 'get'
   })
 }

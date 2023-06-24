@@ -25,6 +25,9 @@ const userStore = defineStore('userStore', {
       Cookies.set('token', res.data.token)
       return res
     },
+    /**
+     * 获取用户信息
+     */
     async getUserInfo(): Promise<void> {
       const res = await getUserInfo()
       this.userInfo = res.data
@@ -41,6 +44,7 @@ const userStore = defineStore('userStore', {
         nickName: '',
         phone: ''
       }
+      this.userLogout()
     },
     hasUserInfo(): boolean {
       if (this.userInfo.account) {

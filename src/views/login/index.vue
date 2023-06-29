@@ -65,7 +65,7 @@
 
 .login-model {
   width: 500px;
-  padding: 50px 80px;
+  padding: 36px 80px;
   border-radius: 5px;
   background: #f1f1f1;
   box-shadow: 0 0 5px 0 #97c6fe;

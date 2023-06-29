@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const route: RouteRecordRaw = {
   path: '/manage',
-  meta: { title: '组件展示', icon: 'FolderOpened' },
+  meta: { title: '页面展示', icon: 'FolderOpened' },
   component: Layout,
   children: [
     {

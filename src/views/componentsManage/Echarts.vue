@@ -9,7 +9,7 @@
   </Container>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="EchartsDemo">
   import { reactive } from 'vue'
   import BaseEcharts from '@/components/BaseEcharts.vue'
   import Container from '@/components/Container.vue';

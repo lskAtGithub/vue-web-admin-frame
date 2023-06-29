@@ -44,13 +44,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'UserInfo',
         path: '/userInfo',
         meta: { title: '个人中心' },
-        component: () => import('@/views/user/userInfo.vue')
+        component: () => import('@/views/user/UserInfo.vue')
       },
       {
         name: 'ChangePwd',
         path: '/changePwd',
         meta: { title: '修改密码' },
-        component: () => import('@/views/user/changePwd.vue')
+        component: () => import('@/views/user/ChangePwd.vue')
       }
     ]
   },

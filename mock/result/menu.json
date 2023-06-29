@@ -26,6 +26,10 @@
       {
         "path": "/component/echarts",
         "meta": { "title": "Echarts" }
+      },
+      {
+        "path": "/component/countup",
+        "meta": { "title": "数字滚动" }
       }
     ]
   }

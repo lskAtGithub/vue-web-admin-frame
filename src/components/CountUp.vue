@@ -29,7 +29,7 @@
       default() {
         let options: CountUpOptions = {
           startVal: 0, // 开始的数字  一般设置0开始
-          decimalPlaces: 0, // number类型 小数位，整数自动添.00
+          decimalPlaces: 0, // number类型 小数位数
           duration: 1, // number类型 动画延迟秒数，默认值是2
           useGrouping: true, // boolean类型  是否开启逗号，默认true(1,000)false(1000)
           useEasing: true,  // boolean类型 动画缓动效果(ease),默认true

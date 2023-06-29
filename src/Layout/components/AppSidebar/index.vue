@@ -1,10 +1,9 @@
-<script setup lang="ts" name="AppSidebar">
-import SideMenu from './components/SideMenu.vue'
-</script>
-
 <template>
   <side-menu></side-menu>
 </template>
 
-<style scoped lang="scss">
-</style>
+<script setup lang="ts" name="AppSidebar">
+  import SideMenu from './components/SideMenu.vue'
+</script>
+
+<style scoped lang="scss"></style>

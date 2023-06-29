@@ -1,19 +1,3 @@
-<script setup lang="ts">
-  import Container from '@/components/Container.vue'
-  import UserAccount from './components/UserAccount.vue'
-  import TimeLine from './components/TimeLine.vue'
-  import TextPicture from '@/components/TextPicture.vue'
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia';
-  import { ref } from 'vue'
-
-  const { user } = useStore()
-  const { userInfo } = storeToRefs(user)
-
-  const activeName = ref('todo')
-
-</script>
-
 <template>
   <container>
     <div class="userinfo-container">
@@ -56,6 +40,20 @@
     </div>
   </container>
 </template>
+
+<script setup lang="ts">
+  import container from '@/components/Container.vue'
+  import UserAccount from './components/UserAccount.vue'
+  import TimeLine from './components/TimeLine.vue'
+  import TextPicture from '@/components/TextPicture.vue'
+  import useStore from '@/store'
+  import { storeToRefs } from 'pinia';
+  import { ref } from 'vue'
+
+  const { user } = useStore()
+  const { userInfo } = storeToRefs(user)
+  const activeName = ref('todo')
+</script>
 
 <style scoped lang='scss'>
 .userinfo-container {

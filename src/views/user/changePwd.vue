@@ -1,5 +1,32 @@
+<template>
+  <container>
+    <el-row justify="center" @onSubmit.stop>
+      <el-col :span="18">
+        <el-form :model="formData" status-icon ref="ruleFormRef" :rules="formRules" label-width="120px">
+          <el-form-item label="账号">
+            <el-input v-model="userInfo.nickName" disabled />
+          </el-form-item>
+          <el-form-item label="原始密码" prop="oldPassword">
+            <el-input v-model="formData.oldPassword" type="password" />
+          </el-form-item>
+          <el-form-item label="新密码" prop="password">
+            <el-input v-model="formData.password" type="password" />
+          </el-form-item>
+          <el-form-item label="再次输入" prop="newPassword">
+            <el-input v-model="formData.newPassword" type="password" />
+          </el-form-item>
+
+          <el-form-item>
+            <el-button @click="onSubmit(ruleFormRef)" type="primary">确 认</el-button>
+          </el-form-item>
+        </el-form>
+      </el-col>
+    </el-row>
+  </container>
+</template>
+
 <script setup lang="ts">
-  import Container from '@/components/Container.vue'
+  import container from '@/components/Container.vue'
   import useStore from '@/store'
   import { storeToRefs } from 'pinia'
   import { reactive, ref } from 'vue'
@@ -45,33 +72,5 @@
   const { user } = useStore()
   const { userInfo } = storeToRefs(user)
 </script>
-
-<template>
-  <container>
-    <el-row justify="center" @onSubmit.stop>
-      <el-col :span="18">
-        <el-form :model="formData" status-icon ref="ruleFormRef" :rules="formRules" label-width="120px">
-          <el-form-item label="账号">
-            <el-input v-model="userInfo.nickName" disabled />
-          </el-form-item>
-          <el-form-item label="原始密码" prop="oldPassword">
-            <el-input v-model="formData.oldPassword" type="password" />
-          </el-form-item>
-          <el-form-item label="新密码" prop="password">
-            <el-input v-model="formData.password" type="password" />
-          </el-form-item>
-          <el-form-item label="再次输入" prop="newPassword">
-            <el-input v-model="formData.newPassword" type="password" />
-          </el-form-item>
-
-          <el-form-item>
-            <el-button @click="onSubmit(ruleFormRef)" type="primary">确 认</el-button>
-          </el-form-item>
-        </el-form>
-      </el-col>
-    </el-row>
-
-  </container>
-</template>
 
 <style scoped lang='scss'></style>

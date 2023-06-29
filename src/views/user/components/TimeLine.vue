@@ -1,3 +1,14 @@
+<template>
+  <el-timeline>
+    <el-timeline-item v-for="item in state.timeLineList" :timestamp="getCurrentDay()" placement="top">
+      <el-card>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.content }}</p>
+      </el-card>
+    </el-timeline-item>
+  </el-timeline>
+</template>
+
 <script setup lang="ts">
   import { reactive } from 'vue'
 
@@ -18,16 +29,5 @@
     ]
   })
 </script>
-
-<template>
-  <el-timeline>
-    <el-timeline-item v-for="item in state.timeLineList" :timestamp="getCurrentDay()" placement="top">
-      <el-card>
-        <h4>{{ item.title }}</h4>
-        <p>{{ item.content }}</p>
-      </el-card>
-    </el-timeline-item>
-  </el-timeline>
-</template>
 
 <style scoped lang='scss'></style>

@@ -1,3 +1,7 @@
+<template>
+  <span ref="countupRef"></span>
+</template>
+
 <script setup lang="ts">
   import { CountUp } from 'countup.js'
   import type { CountUpOptions } from 'countup.js'
@@ -53,9 +57,5 @@
     initCount
   })
 </script>
-
-<template>
-  <span ref="countupRef"></span>
-</template>
 
 <style scoped lang='scss'></style>

@@ -1,13 +1,3 @@
-<script lang="ts" setup name="AppMain">
-  import { useRoute } from 'vue-router'
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia'
-
-  const route = useRoute()
-  const { tagview } = useStore()
-  const { cacheList } = storeToRefs(tagview)
-</script>
-
 <template>
   <div class="app-main">
     <router-view v-slot="{ Component }">
@@ -17,6 +7,14 @@
     </router-view>
   </div>
 </template>
+
+<script lang="ts" setup name="AppMain">
+  import useStore from '@/store'
+  import { storeToRefs } from 'pinia'
+
+  const { tagview } = useStore()
+  const { cacheList } = storeToRefs(tagview)
+</script>
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

@@ -1,15 +1,3 @@
-<script setup lang="ts" name="Layout">
-  import appMain from './components/AppMain/index.vue'
-  import AppNavbar from './components/AppNavbar/index.vue'
-  import AppSidebar from './components/AppSidebar/index.vue'
-  import useStore from '@/store/index'
-  import { storeToRefs } from 'pinia'
-
-  const { system } = useStore()
-  const { isCollapse } = storeToRefs(system)
-
-</script>
-
 <template>
   <div class="main-box">
     <div class="side-box" :class="{ 'is-collapse': isCollapse }">
@@ -22,8 +10,20 @@
   </div>
 </template>
 
+<script setup lang="ts" name="Layout">
+  import AppMain from './components/AppMain/index.vue'
+  import AppNavbar from './components/AppNavbar/index.vue'
+  import AppSidebar from './components/AppSidebar/index.vue'
+  import useStore from '@/store/index'
+  import { storeToRefs } from 'pinia'
+
+  const { system } = useStore()
+  const { isCollapse } = storeToRefs(system)
+</script>
+
+
 <style scoped lang="scss">
-@import "@/styles/variables.scss";
+@import '@/styles/variables.scss';
 
 .main-box {
   position: relative;

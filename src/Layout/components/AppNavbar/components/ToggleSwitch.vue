@@ -1,3 +1,14 @@
+<template>
+  <div class="scale-icon" @click="handleTogleSide">
+    <el-icon size="20px" v-show="!isCollapse">
+      <Fold />
+    </el-icon>
+    <el-icon size="20px" v-show="isCollapse">
+      <Expand />
+    </el-icon>
+  </div>
+</template> 
+
 <script lang="ts" setup>
   import useStore from '@/store'
   import { storeToRefs } from 'pinia'
@@ -9,17 +20,6 @@
     system.changeCollapse()
   }
 </script>
-
-<template>
-  <div class="scale-icon" @click="handleTogleSide">
-    <el-icon size="20px" v-show="!isCollapse">
-      <Fold />
-    </el-icon>
-    <el-icon size="20px" v-show="isCollapse">
-      <Expand />
-    </el-icon>
-  </div>
-</template> 
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

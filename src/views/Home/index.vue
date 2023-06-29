@@ -1,25 +1,3 @@
-<script setup lang="ts" name="HomePage">
-  import { onMounted, ref, reactive, toRefs } from 'vue'
-  import Container from '@/components/Container.vue'
-  import CountUp from '@/components/CountUp.vue';
-
-  const numState = reactive({
-    waitNum: 458,
-    overNum: 3546,
-    passNum: 8851,
-    rejectNum: 356
-  })
-  const { waitNum, overNum, passNum, rejectNum } = toRefs(numState)
-  const countUp = ref()
-  onMounted(() => {
-  })
-
-  const initCount = () => {
-    countUp.value.initCount()
-  }
-
-</script>
-
 <template>
   <container>
     <el-row :gutter="12">
@@ -70,6 +48,28 @@
     </el-row>
   </container>
 </template>
+
+<script setup lang="ts" name="HomePage">
+  import { onMounted, ref, reactive, toRefs } from 'vue'
+  import container from '@/components/Container.vue'
+  import CountUp from '@/components/CountUp.vue';
+
+  const numState = reactive({
+    waitNum: 458,
+    overNum: 3546,
+    passNum: 8851,
+    rejectNum: 356
+  })
+  const { waitNum, overNum, passNum, rejectNum } = toRefs(numState)
+  const countUp = ref()
+  onMounted(() => {
+  })
+
+  const initCount = () => {
+    countUp.value.initCount()
+  }
+
+</script>
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

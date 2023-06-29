@@ -1,8 +1,8 @@
-<script setup lang="ts">
-</script>
-
 <template>
   页面404了
 </template>
+
+<script setup lang="ts">
+</script>
 
 <style scoped lang='scss'></style>

@@ -1,35 +1,3 @@
-<script setup lang="ts">
-  import { computed } from 'vue'
-  import { storeToRefs } from 'pinia'
-  import { useRoute, useRouter } from 'vue-router'
-  import useStore from '@/store'
-  import AppLink from './AppLink.vue'
-  import Logo from './Logo.vue'
-  import type { RouteRecordRaw } from 'vue-router'
-
-  const { routeStore, system } = useStore()
-  const route = useRoute()
-  const router = useRouter()
-  const { isCollapse } = storeToRefs(system)
-
-  const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
-  const childRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length !== 1))
-
-  const currentOpenMenu = () => {
-    if (route.meta?.activeMenu) {
-      return route.meta?.activeMenu
-    }
-    return route.fullPath
-  }
-
-  function handleFirstMenuRoute(item: RouteRecordRaw) {
-    router.push({
-      path: item.path
-    })
-  }
-
-</script>
-
 <template>
   <el-menu :collapse="isCollapse" :default-active="currentOpenMenu()" class="el-menu-vertical">
     <logo></logo>
@@ -56,6 +24,38 @@
     </el-sub-menu>
   </el-menu>
 </template>
+
+<script setup lang="ts">
+  import { computed } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { useRoute, useRouter } from 'vue-router'
+  import useStore from '@/store'
+  import AppLink from './AppLink.vue'
+  import logo from './Logo.vue'
+  import type { RouteRecordRaw } from 'vue-router'
+
+  const { routeStore, system } = useStore()
+  const route = useRoute()
+  const router = useRouter()
+  const { isCollapse } = storeToRefs(system)
+
+  const onlyChildRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length === 1))
+  const childRoute: any = computed(() => routeStore.routes.filter(item => !item.meta?.hidden && item.children?.length !== 1))
+
+  const currentOpenMenu = () => {
+    if (route.meta?.activeMenu) {
+      return route.meta?.activeMenu
+    }
+    return route.fullPath
+  }
+
+  function handleFirstMenuRoute(item: RouteRecordRaw) {
+    router.push({
+      path: item.path
+    })
+  }
+
+</script>
 
 <style scoped lang="scss">
 .el-menu-vertical {

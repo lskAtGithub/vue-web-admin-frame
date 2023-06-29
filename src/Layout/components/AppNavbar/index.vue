@@ -1,11 +1,3 @@
-<script lang="ts" setup name="AppNavbar">
-  import ToggleSwitch from './components/ToggleSwitch.vue'
-  import BreadCrumb from './components/BreadCrumb.vue'
-  import Avatar from './components/Avatar.vue'
-  import TagView from './components/TagView.vue'
-
-</script>
-
 <template>
   <header class="topbar-box">
     <toggle-switch></toggle-switch>
@@ -16,6 +8,14 @@
   </header>
   <tag-view></tag-view>
 </template>
+
+<script lang="ts" setup name="AppNavbar">
+  import ToggleSwitch from './components/ToggleSwitch.vue'
+  import BreadCrumb from './components/BreadCrumb.vue'
+  import avatar from './components/Avatar.vue'
+  import TagView from './components/TagView.vue'
+
+</script>
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

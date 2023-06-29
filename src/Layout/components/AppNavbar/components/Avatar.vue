@@ -1,3 +1,21 @@
+<template>
+  <el-dropdown @command="handleCommand">
+    <header class="avatar-box">
+      <el-avatar shape="square" :size="40" :src="userInfo.avatar">
+        <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
+      </el-avatar>
+    </header>
+    <template #dropdown>
+      <el-dropdown-menu>
+        <div class="userinfo-name">{{ userInfo.nickName }}</div>
+        <el-dropdown-item command="userInfo">个人中心</el-dropdown-item>
+        <el-dropdown-item command="changePwd">修改密码</el-dropdown-item>
+        <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+</template>
+
 <script setup lang="ts">
   import useStore from '@/store/index'
   import { ElMessage, ElMessageBox } from 'element-plus'
@@ -64,24 +82,6 @@
   }
 </script>
 
-<template>
-  <el-dropdown @command="handleCommand">
-    <header class="avatar-box">
-      <el-avatar shape="square" :size="40" :src="userInfo.avatar">
-        <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
-      </el-avatar>
-    </header>
-    <template #dropdown>
-      <el-dropdown-menu>
-        <div class="userinfo-name">{{ userInfo.nickName }}</div>
-        <el-dropdown-item command="userInfo">个人中心</el-dropdown-item>
-        <el-dropdown-item command="changePwd">修改密码</el-dropdown-item>
-        <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
-</template>
-
 <style scoped lang='scss'>
 :deep(.el-dropdown:focus) {
   outline: none !important;
@@ -109,6 +109,6 @@
   font-size: 12px;
   border-radius: 3px;
   color: #444;
-  
+
 }
 </style>

@@ -1,3 +1,19 @@
+<template>
+  <div class="tab-control">
+    <el-button class="suspension" :icon="ArrowLeft" :disabled="isBack" circle size="small" @click="handleGoBack" />
+    <el-button class="suspension" :icon="Refresh" circle size="small" @click="handleRefresh" />
+    <div class="tab-box">
+      <router-link class="tag-item suspension" :class="{ 'active': isActive(tag) }" v-for="tag in tagViewList"
+        :key="tag.path" :to="tag.path" :params="tag.params" :query="tag.query">
+        <span class="tag--title">{{ tag.title }}</span>
+        <el-icon v-if="!tag.affix" class="close--icon" @click.prevent.stop="removeTab(tag)">
+          <Close />
+        </el-icon>
+      </router-link>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
   import useStore from '@/store/index'
   import { computed, watch } from 'vue'
@@ -60,22 +76,6 @@
     })
   }
 </script>
-
-<template>
-  <div class="tab-control">
-    <el-button class="suspension" :icon="ArrowLeft" :disabled="isBack" circle size="small" @click="handleGoBack" />
-    <el-button class="suspension" :icon="Refresh" circle size="small" @click="handleRefresh" />
-    <div class="tab-box">
-      <router-link class="tag-item suspension" :class="{ 'active': isActive(tag) }" v-for="(tag, index) in tagViewList"
-        :key="tag.path" :to="tag.path" :params="tag.params" :query="tag.query">
-        <span class="tag--title">{{ tag.title }}</span>
-        <el-icon v-if="!tag.affix" class="close--icon" @click.prevent.stop="removeTab(tag)">
-          <Close />
-        </el-icon>
-      </router-link>
-    </div>
-  </div>
-</template>
 
 <style scoped lang='scss'>
 @import '@/styles/variables.scss';

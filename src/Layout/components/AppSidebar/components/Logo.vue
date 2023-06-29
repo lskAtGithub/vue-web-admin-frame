@@ -1,20 +1,3 @@
-<script setup lang="ts">
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia'
-  import { useRouter } from 'vue-router'
-  import { title } from '@/setting'
-
-  const { system } = useStore()
-  const { isCollapse } = storeToRefs(system)
-  const router = useRouter()
-
-  function handleToHome() {
-    router.push({
-      path: '/'
-    })
-  }
-</script>
-
 <template>
   <div class="logo-box" :class="{ 'is-collapse': isCollapse }" @click="handleToHome">
     <svg t="1680519318217" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +14,23 @@
     <h1 class="title" :class="{ 'shrink-title': isCollapse }">{{ title }}</h1>
   </div>
 </template>
+
+<script setup lang="ts">
+  import useStore from '@/store'
+  import { storeToRefs } from 'pinia'
+  import { useRouter } from 'vue-router'
+  import { title } from '@/setting'
+
+  const { system } = useStore()
+  const { isCollapse } = storeToRefs(system)
+  const router = useRouter()
+
+  function handleToHome() {
+    router.push({
+      path: '/'
+    })
+  }
+</script>
 
 <style scoped lang='scss'>
 @import '@/styles/variables.scss';

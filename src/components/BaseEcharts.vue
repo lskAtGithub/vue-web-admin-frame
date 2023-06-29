@@ -1,3 +1,9 @@
+<template>
+  <div class="echarts-box">
+    <div ref="echartsRef" :style="{ width: props.width, height: props.height }"></div>
+  </div>
+</template>
+
 <script setup lang="ts">
   import { ref, reactive, onMounted, onUnmounted, watch } from 'vue'
   import * as echarts from "echarts"
@@ -46,10 +52,5 @@
   }
 </script>
 
-<template>
-  <div class="echarts-box">
-    <div ref="echartsRef" :style="{ width: props.width, height: props.height }"></div>
-  </div>
-</template>
 
 <style scoped lang='scss'></style>

@@ -16,16 +16,6 @@
     },
     options: {
       type: Object,
-      validator(option: Object) {
-        let keys = ['startVal', 'decimalPlaces', 'duration', 'useGrouping', 'useEasing', 'smartEasingThreshold', 'smartEasingAmount', 'separator', 'decimal', 'prefix', 'suffix', 'numerals']
-        for (const key in option) {
-          if (!keys.includes(key)) {
-            console.error(" CountUp 传入的 options 值不符合 CountUpOptions")
-            return false
-          }
-        }
-        return true
-      },
       default() {
         let options: CountUpOptions = {
           startVal: 0, // 开始的数字  一般设置0开始

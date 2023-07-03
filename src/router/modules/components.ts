@@ -18,6 +18,12 @@ const route: RouteRecordRaw = {
       path: '/component/countup',
       component: () => import('@/views/componentsManage/Countup.vue'),
     },
+    {
+      name: 'CountUpDemo',
+      meta: { title: '表格组件' },
+      path: '/component/pagerTable',
+      component: () => import('@/views/componentsManage/pagerTable.vue'),
+    },
   ]
 }
 

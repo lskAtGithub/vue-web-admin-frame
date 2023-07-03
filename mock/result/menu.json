@@ -30,6 +30,10 @@
       {
         "path": "/component/countup",
         "meta": { "title": "数字滚动" }
+      },
+      {
+        "path": "/component/pagerTable",
+        "meta": { "title": "表格组件" }
       }
     ]
   }

@@ -20,8 +20,8 @@ export default class VerifyUtils {
   }
 
   /**
-   * @param {Array} arg
-   * @returns {Boolean}
+   * @param {array} arg
+   * @returns {boolean}
    * @description 校验传入值是否为数组
    */
   static isArray(arg: any): boolean {
@@ -32,7 +32,7 @@ export default class VerifyUtils {
   }
 
   /**
-   * @param {String} password
+   * @param {string} password
    * @returns {Boolean}
    * @description 传入值是否为密码，必须包含大小写字母,特殊字符和数字，长度为8-12位
    */

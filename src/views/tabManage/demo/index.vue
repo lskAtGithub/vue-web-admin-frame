@@ -15,7 +15,7 @@
       <el-sub-menu index="1">
         <template #title>
           <el-icon>
-            <location />
+            <Location />
           </el-icon>
           <span>Navigator One</span>
         </template>
@@ -31,7 +31,7 @@
 
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue'
-  import Container from '@/components/Container.vue'
+  import container from '@/components/Container.vue'
   import {
     Location,
     Setting,

@@ -2,7 +2,7 @@ import { ElLoading, type LoadingOptions } from 'element-plus'
 
 
 class LoadingUtils {
-  static loadings: String[] = []
+  static loadings: string[] = []
   static loadingInstance: any = null
 
   static show(options?: LoadingOptions) {

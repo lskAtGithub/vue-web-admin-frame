@@ -1,5 +1,5 @@
 <script setup lang="ts" name="TableManageDetail">
-  import Container from '@/components/Container.vue'
+  import container from '@/components/Container.vue'
 </script>
 
 <template>

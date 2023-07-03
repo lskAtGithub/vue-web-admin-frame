@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, reactive, onMounted, onUnmounted, watch } from 'vue'
+  import { ref, onMounted, onUnmounted, watch } from 'vue'
   import * as echarts from "echarts"
 
   onMounted(() => {

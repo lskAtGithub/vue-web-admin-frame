@@ -15,11 +15,11 @@ function getResDataPaths(item: RouteRecordRaw, result: Array<string>) {
   }
 }
 
-function hasPermission(paths: Array<String>, item: RouteRecordRaw): boolean {
+function hasPermission(paths: Array<string>, item: RouteRecordRaw): boolean {
   return paths.includes(item.path) || paths.includes(item.meta?.activeMenu as string) || paths.includes(item.redirect as string)
 }
 
-function getChildrenData(paths: Array<String>, children: Array<RouteRecordRaw>): Array<RouteRecordRaw> {
+function getChildrenData(paths: Array<string>, children: Array<RouteRecordRaw>): Array<RouteRecordRaw> {
   const result: Array<RouteRecordRaw> = []
   children.map(item => {
     if (hasPermission(paths, item)) {

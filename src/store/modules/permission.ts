@@ -4,7 +4,7 @@ import { getPermission } from '@/api/user'
 const permissionStore = defineStore('permissionStore', {
   state: () => {
     return {
-      permissions: [] as Array<String>
+      permissions: [] as Array<string>
     }
   },
   actions: {

@@ -1,4 +1,4 @@
 export interface ILoginParam {
-  account: String,
-  password: String
+  account: string,
+  password: string
 }

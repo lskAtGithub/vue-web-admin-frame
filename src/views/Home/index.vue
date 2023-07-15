@@ -7,7 +7,7 @@
             <svg-icon class-name="svg-icon" icon-class="audit"></svg-icon>
             <div class="num-wrapper">
               <span class="num-label">待审核</span>
-              <count-up class="count-wrapper" ref="countUp" :end="waitNum"></count-up>
+              <count-up class="count-wrapper" ref="countUpRef" :end="waitNum"></count-up>
             </div>
           </div>
         </el-card>
@@ -61,12 +61,12 @@
     rejectNum: 356
   })
   const { waitNum, overNum, passNum, rejectNum } = toRefs(numState)
-  const countUp = ref()
+  const countUpRef = ref()
   onMounted(() => {
   })
 
   const initCount = () => {
-    countUp.value.initCount()
+    countUpRef.value.initCount()
   }
 
 </script>

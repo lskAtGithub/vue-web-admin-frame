@@ -19,7 +19,7 @@ const route: RouteRecordRaw = {
       component: () => import('@/views/componentsManage/Countup.vue'),
     },
     {
-      name: 'CountUpDemo',
+      name: 'pagerTableDemo',
       meta: { title: '表格组件' },
       path: '/component/pagerTable',
       component: () => import('@/views/componentsManage/pagerTable.vue'),

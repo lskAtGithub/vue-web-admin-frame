@@ -20,7 +20,7 @@
   </container>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="PagerTableDemo">
   import { ref, reactive } from 'vue'
   import PagerTable from '@/components/PagerTable/index.vue'
   import container from '@/components/Container.vue'

@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Login">
   import { onMounted } from 'vue'
   import useStore from '@/store'
   import { title } from '@/setting'

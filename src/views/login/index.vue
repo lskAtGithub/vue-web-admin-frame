@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="login-model">
-      <h2>{{ title }} </h2>
+      <h2 class="title">{{ title }} </h2>
       <p class="desc">开箱即用的后台管理系统框架</p>
       <p>
         <el-input v-model="accoutInfo.account" size="large" placeholder="请输入账号" />
@@ -46,12 +46,16 @@
 .container {
   width: 100vw;
   height: 100vh;
-  padding: 200px 0;
+  padding: 160px 0;
   background: linear-gradient(to right, #97c6fe, #f2f5ff);
 
   .desc {
     color: #aaa;
     font-size: 12px;
+  }
+
+  .title {
+    font-size: 32px;
   }
 
   .login-btn-box {
@@ -72,4 +76,5 @@
   margin: 0 auto;
   background: url('../../assets/login/login_background.jpg') no-repeat;
   background-size: cover;
-}</style>
+}
+</style>

@@ -1,3 +1,7 @@
+<template>
+  <!-- @empty -->
+</template>
+
 <script lang="ts" setup>
   import { nextTick, onMounted } from 'vue'
   import { useRoute, useRouter } from 'vue-router'

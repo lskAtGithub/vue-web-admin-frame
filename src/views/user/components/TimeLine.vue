@@ -21,11 +21,10 @@
 
   const state = reactive({
     timeLineList: [
-      { title: '立项', content: '为新项目立项，准备接下来的开发工作' },
-      { title: '项目框架选型', content: '找了很多Vue3 + TS 的框架，最后发现vue-web-admin-frame还不错，准备研究一下，当作本次项目的基础框架去做二次开发' },
-      { title: '框架上手', content: '基本上明白vue-web-admin-frame是怎么使用了' },
-      { title: '框架改动', content: '基于目前项目的业务，修改了框架，用于二次开发' },
-      { title: '开会', content: '普及业务' }
+      { title: '上班', content: '开始今天的工作吧' },
+      { title: '开会', content: '需求评审，准备开始新的项目' },
+      { title: '研发', content: '工作中...' },
+      { title: '下班', content: '劳逸结合，打工人的下班时间' }
     ]
   })
 </script>

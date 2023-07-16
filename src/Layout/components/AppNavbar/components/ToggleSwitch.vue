@@ -1,5 +1,5 @@
 <template>
-  <div class="scale-icon" @click="handleTogleSide">
+  <div class="scale-icon" @click="handleToggleSide">
     <el-icon size="20px" v-show="!isCollapse">
       <Fold />
     </el-icon>
@@ -16,7 +16,7 @@
   const { system } = useStore()
   const { isCollapse } = storeToRefs(system)
 
-  function handleTogleSide() {
+  function handleToggleSide() {
     system.changeCollapse()
   }
 </script>

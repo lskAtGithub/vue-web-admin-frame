@@ -28,7 +28,7 @@
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/js-cookie": "^3.0.3",
     "@types/mockjs": "^1.0.7",
-    "@types/node": "^18.15.12",
+    "@types/node": "^18.16.19",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",

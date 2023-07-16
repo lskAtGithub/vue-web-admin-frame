@@ -51,8 +51,8 @@
           { value: 1048, name: 'Engine' },
           { value: 735, name: 'Direct' },
           { value: 580, name: 'Email' },
-          { value: 484, name: 'Union Ads' },
-          { value: 300, name: 'Video Ads' }
+          { value: 484, name: 'Union' },
+          { value: 300, name: 'Video' }
         ]
       }
     ]
@@ -62,11 +62,11 @@
     Object.assign(option, {
       series: {
         data: [
-          { value: 350, name: 'Search Engine' },
+          { value: 350, name: 'Engine' },
           { value: 340, name: 'Direct' },
           { value: 986, name: 'Email' },
-          { value: 750, name: 'Union Ads' },
-          { value: 460, name: 'Video Ads' }
+          { value: 750, name: 'Union' },
+          { value: 460, name: 'Video' }
         ]
       }
     })

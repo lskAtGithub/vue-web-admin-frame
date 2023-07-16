@@ -22,7 +22,7 @@ const route: RouteRecordRaw = {
       name: 'pagerTableDemo',
       meta: { title: '表格组件' },
       path: '/component/pagerTable',
-      component: () => import('@/views/componentsManage/pagerTable.vue'),
+      component: () => import('@/views/componentsManage/PagerTable.vue'),
     },
   ]
 }

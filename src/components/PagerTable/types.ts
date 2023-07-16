@@ -30,7 +30,8 @@ export interface pagerTableColumn {
   filterMethod?: Function
   filteredValue?: Array<any>
   /* ------------- */
-  slotName?: string
+  slotName?: string,
+  columns?: Array<pagerTableColumn>
 }
 
 export interface propsType {
@@ -76,7 +77,7 @@ export interface propsType {
   flexible?: boolean
 }
 
-interface pager {
+export interface pager {
   currentPage: string | number
   total: string | number
   pageSizes: Array<number>

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <img class="icon" src="../../assets/login/login_icon.png" alt="icon">
     <div class="login-model">
       <h2 class="title">{{ title }} </h2>
       <p class="desc">开箱即用的后台管理系统框架</p>
@@ -49,6 +50,13 @@
   padding: 160px 0;
   background: linear-gradient(to right, #97c6fe, #f2f5ff);
 
+  .icon {
+    position: absolute;
+    width: 360px;
+    left: 60px;
+    top: 45px;
+  }
+
   .desc {
     color: #aaa;
     font-size: 12px;
@@ -73,7 +81,7 @@
   border-radius: 5px;
   background: #f1f1f1;
   box-shadow: 0 0 5px 0 #97c6fe;
-  margin: 0 auto;
+  margin: 0 50vw;
   background: url('../../assets/login/login_background.jpg') no-repeat;
   background-size: cover;
 }

@@ -9,7 +9,7 @@
     <el-popover placement="bottom" :width="300" trigger="hover">
       <template #reference>
         <el-badge :is-dot="true">
-          <el-icon class="icon-box">
+          <el-icon class="icon-box message-icon">
             <Message />
           </el-icon>
         </el-badge>
@@ -62,6 +62,10 @@
 
     &:hover {
       color: $--theme-color
+    }
+
+    &.message-icon {
+      margin-top: 6px;
     }
   }
 

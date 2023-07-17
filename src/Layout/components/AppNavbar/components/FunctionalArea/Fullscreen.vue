@@ -6,8 +6,9 @@
 <script lang="ts" setup>
   import { ref, onMounted, onUnmounted } from 'vue'
   import screenfull from 'screenfull'
+  import type { Ref } from 'vue'
 
-  let isFullscreen = ref(true)
+  let isFullscreen: Ref<boolean> = ref(true)
 
   const onToggleScreen = () => {
     screenfull.toggle()

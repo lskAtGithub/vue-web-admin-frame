@@ -95,6 +95,7 @@
   padding: 0 20px;
   display: flex;
   align-items: center;
+  margin-right: 12px;
 
   &:focus-visible {
     outline: none !important;

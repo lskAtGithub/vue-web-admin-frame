@@ -2,7 +2,7 @@
 <template>
   <div>
     <el-table v-bind="attrs" ref="ElTableRef">
-      <el-table-column v-for="item in attrs.columns || []" v-bind="item" :align="item.align || 'center'">
+      <el-table-column v-for="(item, index) in attrs.columns || []" :key="index" v-bind="item" :align="item.align || 'center'">
         <template #default="scope" v-if="item.type !== 'selection'">
           <div v-if="item.slotName" class="el-td-box">
             <slot :name="item.slotName" :row="scope.row" />

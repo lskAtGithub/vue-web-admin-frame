@@ -26,7 +26,8 @@ const userStore = defineStore('userStore', {
       return res
     },
     /**
-     * 获取用户信息
+     * @param
+     * @description 获取用户信息
      */
     async getUserInfo(): Promise<void> {
       const res = await getUserInfo()

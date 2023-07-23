@@ -64,7 +64,8 @@ const routerStore = defineStore('routerStore', {
   },
   actions: {
     /**
-     * 动态比对添加路由权限
+     * @param
+     * @description 动态比对添加路由权限
      */
     async setRoutes() {
       const res: any = await getMenu()

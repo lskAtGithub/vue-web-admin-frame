@@ -9,7 +9,8 @@ const permissionStore = defineStore('permissionStore', {
   },
   actions: {
     /**
-     * 获取控件权限
+     * @param
+     * @description 获取控件权限
      */
     async getPermissions() {
       const res = await getPermission()

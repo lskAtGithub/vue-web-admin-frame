@@ -3,6 +3,7 @@ import request from '@/utils/request/index'
 import type { ILoginParam } from './types'
 /**
  * @param
+ * @description 获取路由
  */
 export const getMenu = () => {
   return request({
@@ -13,6 +14,7 @@ export const getMenu = () => {
 
 /**
  * @param
+ * @description 获取个人信息
  */
 export const getUserInfo = () => {
   return request({
@@ -23,6 +25,7 @@ export const getUserInfo = () => {
 
 /**
  * @param data
+ * @description 获取Token
  */
 export const getToken = (data: ILoginParam) => {
   return request({
@@ -34,6 +37,7 @@ export const getToken = (data: ILoginParam) => {
 
 /**
  * @param
+ * @description 获取控件权限
  */
 export const getPermission = () => {
   return request({

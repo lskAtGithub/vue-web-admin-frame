@@ -66,11 +66,12 @@ const querySearch = (keyword: string, cb: Function) => {
       return rawItem
     }
   })
-  const result = routes.map((item) => {
+  const noFilterRoute = routes.map((item) => {
     const rawItem = JSON.parse(JSON.stringify(item))
     rawItem.value = rawItem.meta.title
     return rawItem
   })
+  const result = noFilterRoute.filter((item) => item.meta && !item.meta.redirect)
   cb(result)
 }
 
@@ -94,10 +95,8 @@ onMounted(() => {
 <style scoped lang="scss">
 @import '@/styles/variables.scss';
 
-::v-deep {
-  .el-input__wrapper {
-    box-shadow: none !important;
-  }
+:deep(.el-input__wrapper) {
+  box-shadow: none !important;
 }
 
 .container {

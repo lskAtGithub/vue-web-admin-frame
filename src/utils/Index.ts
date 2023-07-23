@@ -1,4 +1,5 @@
 import useStore from '@/store'
+import ToolUtils from '@/utils/ToolUtils'
 
 const { system } = useStore()
 export default class IndexUtils {
@@ -8,7 +9,7 @@ export default class IndexUtils {
   static windowResize() {
     window.addEventListener(
       'resize',
-      this.debounce(() => {
+      ToolUtils.debounce(() => {
         if (window.innerWidth <= 900) {
           system.packCollapse()
         }
@@ -17,20 +18,11 @@ export default class IndexUtils {
   }
 
   /**
-   * @param {Function} fn 目标函数
-   * @param {Number} timeout 延迟执行毫秒数
-   * @description 防抖函数
+   * @description 判断当前环境是否为 development （本地开发环境）
+   * @returns boolean
    */
-  static debounce(fn: Function, timeout: number = 600) {
-    let timer = null as any
-    return function () {
-      if (timer) {
-        clearTimeout(timer)
-      }
-      timer = setTimeout(() => {
-        // @ts-ignore
-        fn.apply(this, arguments)
-      }, timeout)
-    }
+  static isDevelopment() {
+    console.log(import.meta.env)
+    return import.meta.env.MODE === 'development'
   }
 }

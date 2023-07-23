@@ -71,7 +71,9 @@ const querySearch = (keyword: string, cb: Function) => {
     rawItem.value = rawItem.meta.title
     return rawItem
   })
-  const result = noFilterRoute.filter((item) => item.meta && !item.meta.redirect)
+  const result = noFilterRoute.filter(
+    (item) => item.meta && !item.meta.redirect && !item.meta.activeMenu
+  )
   cb(result)
 }
 
@@ -82,6 +84,7 @@ const handleSelect = (route: RouteRecordRaw) => {
 
 const onSearchRoutes = () => {
   isSearch.value = true
+  // wait animation running time
   setTimeout(() => {
     autoInputRef.value.focus()
   }, 500)

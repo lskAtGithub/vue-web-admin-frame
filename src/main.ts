@@ -6,10 +6,9 @@ import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import '../mock'
-
+import './permission'
 import 'element-plus/dist/index.css'
 import 'normalize.css/normalize.css'
-import './permission'
 import '@/styles/index.scss'
 import IndexUtils from './utils/Index'
 import SvgIcon from '@/components/SvgIcon.vue'
@@ -17,8 +16,8 @@ import registerDirectives from '@/directives/index'
 import errorHandler from './errorHandler'
 
 const app = createApp(App)
-app.use(piniaStore)
 app.use(router)
+app.use(piniaStore)
 app.use(ElementPlus, {
   locale: zhCn
 })

@@ -2,10 +2,9 @@
 @import './variables.scss';
 
 @font-face {
-  font-family: "阿里巴巴普惠体 2.0 55 Regular";
+  font-family: '阿里巴巴普惠体 2.0 55 Regular';
   font-weight: 400;
-  src: url("../assets/font/alibaba.woff2"),
-    url("../assets/font/alibaba.woff");
+  src: url('../assets/font/alibaba.woff2'), url('../assets/font/alibaba.woff');
   font-display: swap;
   font-size: $--font-size;
 }
@@ -21,8 +20,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: "阿里巴巴普惠体 2.0 55 Regular", 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-family: '阿里巴巴普惠体 2.0 55 Regular', 'Helvetica Neue', Helvetica, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
 *,

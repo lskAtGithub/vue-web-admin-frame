@@ -11,7 +11,12 @@
       <el-tabs v-model="activeName" class="demo-tabs" stretch>
         <el-tab-pane label="未读" name="wait">
           <el-collapse accordion>
-            <el-collapse-item v-for="(item, index) in messageList" :key="index" :title="item.title" :name="index">
+            <el-collapse-item
+              v-for="(item, index) in messageList"
+              :key="index"
+              :title="item.title"
+              :name="index"
+            >
               <div class="message-content">
                 {{ item.content }}
               </div>
@@ -27,16 +32,16 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  let activeName = ref('wait')
-  const messageList = ref([
-    { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
-    { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
-    { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
-    { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
-    { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
-  ])
+let activeName = ref('wait')
+const messageList = ref([
+  { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
+  { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
+  { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
+  { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' },
+  { title: 'Message Title', content: 'This is a notification message. Please reply upon receipt' }
+])
 </script>
 
 <style scoped lang="scss">
@@ -47,7 +52,7 @@
   cursor: pointer;
 
   &:hover {
-    color: $--theme-color
+    color: $--theme-color;
   }
 
   &.message-icon {

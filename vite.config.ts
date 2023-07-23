@@ -8,12 +8,7 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    VueSetupExtend(),
-    createSvg('./src/icons/svg/')
-  ],
+  plugins: [vue(), vueJsx(), VueSetupExtend(), createSvg('./src/icons/svg/')],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

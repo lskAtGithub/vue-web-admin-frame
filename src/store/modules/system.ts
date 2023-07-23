@@ -12,7 +12,6 @@ const systemStore = defineStore('systemStore', {
     },
     packCollapse() {
       this.isCollapse = true
-      
     }
   }
 })

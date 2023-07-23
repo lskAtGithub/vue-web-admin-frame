@@ -2,7 +2,14 @@
   <container>
     <section class="chunk">
       <h2>pager-table 基础用法</h2>
-      <pager-table v-loading="requestLoading" stripe :pager="pager" border :data="list" :columns="columns">
+      <pager-table
+        v-loading="requestLoading"
+        stripe
+        :pager="pager"
+        border
+        :data="list"
+        :columns="columns"
+      >
         <template #address="{ row }">
           这里使用了slot name： <span style="color: green"> {{ row.address }} </span>
         </template>
@@ -33,73 +40,94 @@
 
     <section class="chunk">
       <h2>pager-table 多选表格</h2>
-      <pager-table v-loading="requestLoading" stripe :pager="pager" border :data="list" :columns="columns2"
-        @selection-change="handleSelectionChange" />
+      <pager-table
+        v-loading="requestLoading"
+        stripe
+        :pager="pager"
+        border
+        :data="list"
+        :columns="columns2"
+        @selection-change="handleSelectionChange"
+      />
     </section>
   </container>
 </template>
 
 <script setup lang="ts" name="PagerTableDemo">
-  import { ref, reactive, onMounted, watch, toRaw } from 'vue'
-  import type { Ref } from 'vue'
-  import PagerTable from '@/components/PagerTable/index.vue'
-  import container from '@/components/Container.vue'
-  import type { pagerTableColumn } from '@/components/PagerTable/types'
-  import { ElMessage } from 'element-plus'
+import { ref, reactive, onMounted, watch, toRaw } from 'vue'
+import type { Ref } from 'vue'
+import PagerTable from '@/components/PagerTable/index.vue'
+import container from '@/components/Container.vue'
+import type { pagerTableColumn } from '@/components/PagerTable/types'
+import { ElMessage } from 'element-plus'
 
-  let columns: Array<pagerTableColumn> = [
-    { label: 'name', prop: 'name', width: '120px' },
-    { label: 'date', formatter: (item: any) => 'formatter -> (' + item.date + ')', headerAlign: 'left' },
-    { label: 'address', slotName: 'address', minWidth: '200px' },
-    { label: 'operation', slotName: 'operation', width: '200px', fixed: 'right' }
-  ]
-  let columns2: Array<pagerTableColumn> = [
-    { type: 'selection' },
-    { label: 'name', prop: 'name', width: '120px' },
-    { label: 'date', formatter: (item: any) => 'formatter -> (' + item.date + ')', headerAlign: 'left' },
-    { label: 'address', prop: 'address', minWidth: '200px' }
-  ]
+let columns: Array<pagerTableColumn> = [
+  { label: 'name', prop: 'name', width: '120px' },
+  {
+    label: 'date',
+    formatter: (item: any) => 'formatter -> (' + item.date + ')',
+    headerAlign: 'left'
+  },
+  { label: 'address', slotName: 'address', minWidth: '200px' },
+  { label: 'operation', slotName: 'operation', width: '200px', fixed: 'right' }
+]
+let columns2: Array<pagerTableColumn> = [
+  { type: 'selection' },
+  { label: 'name', prop: 'name', width: '120px' },
+  {
+    label: 'date',
+    formatter: (item: any) => 'formatter -> (' + item.date + ')',
+    headerAlign: 'left'
+  },
+  { label: 'address', prop: 'address', minWidth: '200px' }
+]
 
-  let requestLoading: Ref<boolean> = ref(false)
-  const pager = reactive({
-    total: 100,
-    pageSize: 10,
-    currentPage: 1
-  })
-  let list: Ref<any> = ref([])
+let requestLoading: Ref<boolean> = ref(false)
+const pager = reactive({
+  total: 100,
+  pageSize: 10,
+  currentPage: 1
+})
+let list: Ref<any> = ref([])
 
-  onMounted(() => {
-    requestLoading.value = true
-    setTimeout(() => {
-      const data = [
-        { date: '2016-05-03', name: 'Tom', address: 'O.o', },
-        { date: '2016-05-02', name: 'Jack', address: 'No. 189, Grove St, Los Angeles', },
-        { date: '2016-05-04', name: 'Rose', address: 'No. 189, Grove St, Los Angeles', },
-        { date: '2016-05-01', name: 'Jason', address: 'No. 189, Grove St, Los Angeles', }
-      ]
-      list.value = data
-      requestLoading.value = false
-    }, 2000)
-  })
+onMounted(() => {
+  requestLoading.value = true
+  setTimeout(() => {
+    const data = [
+      { date: '2016-05-03', name: 'Tom', address: 'O.o' },
+      { date: '2016-05-02', name: 'Jack', address: 'No. 189, Grove St, Los Angeles' },
+      { date: '2016-05-04', name: 'Rose', address: 'No. 189, Grove St, Los Angeles' },
+      { date: '2016-05-01', name: 'Jason', address: 'No. 189, Grove St, Los Angeles' }
+    ]
+    list.value = data
+    requestLoading.value = false
+  }, 2000)
+})
 
-  const handleClick = (row: any) => {
-    ElMessage.success(`Hi, ${row.name}`)
+const handleClick = (row: any) => {
+  ElMessage.success(`Hi, ${row.name}`)
+}
+
+const handleSelectionChange = (selector: Array<any>) => {
+  const arr = selector.map((item) => toRaw(item).name)
+  if (arr && arr.length) {
+    ElMessage.success(`当前选中了 ${arr.join('、')}`)
+  } else {
+    ElMessage.warning(`当前没有任何选中`)
   }
+}
 
-  const handleSelectionChange = (selector: Array<any>) => {
-    const arr = selector.map(item => toRaw(item).name)
-    if (arr && arr.length) {
-      ElMessage.success(`当前选中了 ${arr.join('、')}`)
-    } else {
-      ElMessage.warning(`当前没有任何选中`)
-    }
-  }
-
-  watch(() => pager.currentPage, () => ElMessage.success('当前页码是' + pager.currentPage))
-  watch(() => pager.pageSize, () => ElMessage.success('当前分页大小是' + pager.pageSize))
+watch(
+  () => pager.currentPage,
+  () => ElMessage.success('当前页码是' + pager.currentPage)
+)
+watch(
+  () => pager.pageSize,
+  () => ElMessage.success('当前分页大小是' + pager.pageSize)
+)
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .chunk {
   padding: 36px 0;
 

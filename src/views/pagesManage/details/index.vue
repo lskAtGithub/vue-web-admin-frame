@@ -1,11 +1,9 @@
 <script setup lang="ts" name="TableManageDetail">
-  import container from '@/components/Container.vue'
+import container from '@/components/Container.vue'
 </script>
 
 <template>
-  <container>
-    details
-  </container>
+  <container> details </container>
 </template>
 
-<style scoped lang='scss'></style>
+<style scoped lang="scss"></style>

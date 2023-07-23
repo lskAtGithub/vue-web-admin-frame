@@ -1,34 +1,44 @@
 <template>
-  <svg-icon v-show="!isFullscreen" class-name="svg-icon" icon-class="fullscreen-exit" @click="onToggleScreen"></svg-icon>
-  <svg-icon v-show="isFullscreen" class-name="svg-icon" icon-class="fullscreen" @click="onToggleScreen"></svg-icon>
+  <svg-icon
+    v-show="!isFullscreen"
+    class-name="svg-icon"
+    icon-class="fullscreen-exit"
+    @click="onToggleScreen"
+  />
+  <svg-icon
+    v-show="isFullscreen"
+    class-name="svg-icon"
+    icon-class="fullscreen"
+    @click="onToggleScreen"
+  />
 </template>
 
 <script lang="ts" setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
-  import screenfull from 'screenfull'
-  import type { Ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import screenfull from 'screenfull'
+import type { Ref } from 'vue'
 
-  let isFullscreen: Ref<boolean> = ref(true)
+let isFullscreen: Ref<boolean> = ref(true)
 
-  const onToggleScreen = () => {
-    screenfull.toggle()
+const onToggleScreen = () => {
+  screenfull.toggle()
+  isFullscreen.value = screenfull.isFullscreen
+}
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && screenfull.isFullscreen) {
+    onToggleScreen()
     isFullscreen.value = screenfull.isFullscreen
   }
+}
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && screenfull.isFullscreen) {
-      onToggleScreen()
-      isFullscreen.value = screenfull.isFullscreen
-    }
-  }
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyDown)
+})
 
-  onMounted(() => {
-    document.addEventListener('keydown', handleKeyDown)
-  })
-
-  onUnmounted(() => {
-    document.removeEventListener('keydown', handleKeyDown)
-  })
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyDown)
+})
 </script>
 
 <style scoped lang="scss">

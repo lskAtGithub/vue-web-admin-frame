@@ -30,18 +30,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, onMounted } from 'vue'
-  import container from '@/components/Container.vue'
-  import {
-    Location,
-    Setting,
-  } from '@element-plus/icons-vue'
+import { ref, onMounted } from 'vue'
+import container from '@/components/Container.vue'
+import { Location, Setting } from '@element-plus/icons-vue'
 
-  onMounted(() => {
-  })
+onMounted(() => {})
 
-  const val = ref('')
-  const isCollapse = ref(true)
+const val = ref('')
+const isCollapse = ref(true)
 </script>
 
 <style>

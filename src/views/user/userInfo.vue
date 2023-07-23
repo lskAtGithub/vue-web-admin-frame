@@ -6,8 +6,11 @@
           <div class="avatar-wrapper">
             <el-avatar :size="120" :src="userInfo.avatar" />
           </div>
-          <text-picture font-size="28px" style="margin: 12px 0;"
-            background-img="https://s.cn.bing.net/th?id=OHR.MPPUnesco_ZH-CN8076198158_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&qlt=50">
+          <text-picture
+            font-size="28px"
+            style="margin: 12px 0"
+            background-img="https://s.cn.bing.net/th?id=OHR.MPPUnesco_ZH-CN8076198158_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&qlt=50"
+          >
             {{ userInfo.nickName }}
           </text-picture>
           <div class="flex-row">
@@ -42,20 +45,20 @@
 </template>
 
 <script setup lang="ts">
-  import container from '@/components/Container.vue'
-  import UserAccount from './components/UserAccount.vue'
-  import TimeLine from './components/TimeLine.vue'
-  import TextPicture from '@/components/TextPicture.vue'
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia';
-  import { ref } from 'vue'
+import container from '@/components/Container.vue'
+import UserAccount from './components/UserAccount.vue'
+import TimeLine from './components/TimeLine.vue'
+import TextPicture from '@/components/TextPicture.vue'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+import { ref } from 'vue'
 
-  const { user } = useStore()
-  const { userInfo } = storeToRefs(user)
-  const activeName = ref('todo')
+const { user } = useStore()
+const { userInfo } = storeToRefs(user)
+const activeName = ref('todo')
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .userinfo-container {
   display: flex;
 
@@ -84,7 +87,7 @@
           flex-shrink: 0;
 
           &::after {
-            content: ":";
+            content: ':';
             margin: 0 3px;
           }
         }

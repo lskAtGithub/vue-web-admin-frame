@@ -9,11 +9,13 @@ function hasIncludeTab(item: ITagItem, arr: Array<ITagItem>): boolean | ITagItem
   return false
 }
 
-const defaultTabList: Array<ITagItem> = [{
-  title: '首页',
-  path: '/home/homePage',
-  affix: true
-}]
+const defaultTabList: Array<ITagItem> = [
+  {
+    title: '首页',
+    path: '/home/homePage',
+    affix: true
+  }
+]
 
 const tagViewStore = defineStore('tagViewStore', {
   state: () => {

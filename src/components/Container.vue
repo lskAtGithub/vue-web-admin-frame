@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .__common-component-container {
   margin: 15px;
   background: #fff;

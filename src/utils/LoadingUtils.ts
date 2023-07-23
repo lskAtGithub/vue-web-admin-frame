@@ -1,6 +1,5 @@
 import { ElLoading, type LoadingOptions } from 'element-plus'
 
-
 class LoadingUtils {
   static loadings: string[] = []
   static loadingInstance: any = null
@@ -12,7 +11,7 @@ class LoadingUtils {
       const defaultOptions: LoadingOptions = {
         lock: true,
         text: 'Loading',
-        background: 'rgba(0, 0, 0, 0.7)',
+        background: 'rgba(0, 0, 0, 0.7)'
       }
       const LoadingOptions = Object.assign(defaultOptions, options)
       if (this.loadingInstance === null) this.loadingInstance = ElLoading.service(LoadingOptions)

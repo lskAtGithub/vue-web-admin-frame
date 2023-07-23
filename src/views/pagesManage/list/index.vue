@@ -1,73 +1,72 @@
 <script setup lang="ts" name="TableManageList">
-  import { useRouter } from 'vue-router'
-  import container from '@/components/Container.vue'
-  import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import container from '@/components/Container.vue'
+import { onMounted, ref } from 'vue'
 
-  onMounted(() => {
-  })
-  const router = useRouter()
-  const val = ref('')
+onMounted(() => {})
+const router = useRouter()
+const val = ref('')
 
-  const handleClick = (item: any) => {
-    router.push({
-      path: '/manage/table/detail?id=' + item.id,
-      query: {
-        id: item.id
-      }
-    })
-  }
-
-  const handleAdd = () => {
-    router.push({
-      path: '/manage/table/add',
-      query: {
-        id: 1
-      }
-    })
-  }
-
-  const tableData = [
-    {
-      id: 1,
-      date: '2016-05-03',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
-      tag: 'Home',
-    },
-    {
-      id: 2,
-      date: '2016-05-02',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
-      tag: 'Office',
-    },
-    {
-      id: 3,
-      date: '2016-05-04',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
-      tag: 'Home',
-    },
-    {
-      id: 4,
-      date: '2016-05-01',
-      name: 'Tom',
-      state: 'California',
-      city: 'Los Angeles',
-      address: 'No. 189, Grove St, Los Angeles',
-      zip: 'CA 90036',
-      tag: 'Office',
+const handleClick = (item: any) => {
+  router.push({
+    path: '/manage/table/detail?id=' + item.id,
+    query: {
+      id: item.id
     }
-  ]
+  })
+}
+
+const handleAdd = () => {
+  router.push({
+    path: '/manage/table/add',
+    query: {
+      id: 1
+    }
+  })
+}
+
+const tableData = [
+  {
+    id: 1,
+    date: '2016-05-03',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home'
+  },
+  {
+    id: 2,
+    date: '2016-05-02',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Office'
+  },
+  {
+    id: 3,
+    date: '2016-05-04',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home'
+  },
+  {
+    id: 4,
+    date: '2016-05-01',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Office'
+  }
+]
 </script>
 
 <template>
@@ -92,5 +91,5 @@
   </container>
 </template>
 
-<style scoped lang='scss'></style> -->
-
+<style scoped lang="scss"></style>
+-->

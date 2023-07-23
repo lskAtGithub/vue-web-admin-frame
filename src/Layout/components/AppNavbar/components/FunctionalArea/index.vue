@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts" setup name="FunctionalArea">
-  import Fullscreen from './Fullscreen.vue'
-  import Message from './Message.vue'
-  import SearchMenu from './SearchMenu.vue'
+import Fullscreen from './Fullscreen.vue'
+import Message from './Message.vue'
+import SearchMenu from './SearchMenu.vue'
 </script>
 
 <style scoped lang="scss">

@@ -11,12 +11,11 @@
 </template>
 
 <script lang="ts" setup name="AppNavbar">
-  import ToggleSwitch from './components/ToggleSwitch.vue'
-  import BreadCrumb from './components/BreadCrumb.vue'
-  import avatar from './components/Avatar.vue'
-  import TagView from './components/TagView.vue'
-  import FunctionalArea from './components/FunctionalArea/index.vue'
-
+import ToggleSwitch from './components/ToggleSwitch.vue'
+import BreadCrumb from './components/BreadCrumb.vue'
+import avatar from './components/Avatar.vue'
+import TagView from './components/TagView.vue'
+import FunctionalArea from './components/FunctionalArea/index.vue'
 </script>
 
 <style scoped lang="scss">

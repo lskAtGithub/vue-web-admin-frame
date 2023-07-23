@@ -9,11 +9,11 @@
 </template>
 
 <script lang="ts" setup name="AppMain">
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
 
-  const { tagview } = useStore()
-  const { cacheList } = storeToRefs(tagview)
+const { tagview } = useStore()
+const { cacheList } = storeToRefs(tagview)
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,8 @@
 <script setup lang="ts" name="TableManageAdd">
-  import { ref } from 'vue'
-  import container from '@/components/Container.vue';
+import { ref } from 'vue'
+import container from '@/components/Container.vue'
 
-  const val = ref('')
+const val = ref('')
 </script>
 
 <template>
@@ -11,4 +11,4 @@
   </container>
 </template>
 
-<style scoped lang='scss'></style>
+<style scoped lang="scss"></style>

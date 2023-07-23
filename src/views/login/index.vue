@@ -1,14 +1,20 @@
 <template>
   <div class="container">
-    <img class="icon" src="../../assets/login/login_icon.png" alt="icon">
+    <img class="icon" src="../../assets/login/login_icon.png" alt="icon" />
     <div class="login-model">
-      <h2 class="title">{{ title }} </h2>
+      <h2 class="title">{{ title }}</h2>
       <p class="desc">开箱即用的后台管理系统框架</p>
       <p>
         <el-input v-model="accoutInfo.account" size="large" placeholder="请输入账号" />
       </p>
       <p>
-        <el-input v-model="accoutInfo.password" size="large" type="password" placeholder="请输入密码" show-password />
+        <el-input
+          v-model="accoutInfo.password"
+          size="large"
+          type="password"
+          placeholder="请输入密码"
+          show-password
+        />
       </p>
       <p class="login-btn-box">
         <el-button class="login-btn" type="primary" plain @click="handleLogin">登录</el-button>
@@ -19,28 +25,26 @@
 </template>
 
 <script setup lang="ts" name="Login">
-  import { onMounted } from 'vue'
-  import useStore from '@/store'
-  import { title } from '@/setting'
-  import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
+import useStore from '@/store'
+import { title } from '@/setting'
+import { useRouter } from 'vue-router'
 
-  const router = useRouter()
-  const { user } = useStore()
+const router = useRouter()
+const { user } = useStore()
 
-  const accoutInfo = {
-    account: 'admin',
-    password: 'admin'
-  }
+const accoutInfo = {
+  account: 'admin',
+  password: 'admin'
+}
 
-  onMounted(() => {
+onMounted(() => {})
+
+function handleLogin() {
+  user.userLogin(accoutInfo).then(() => {
+    router.push('/')
   })
-
-  function handleLogin() {
-    user.userLogin(accoutInfo).then(() => {
-      router.push('/')
-    })
-  }
-
+}
 </script>
 
 <style lang="scss" scoped>

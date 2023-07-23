@@ -1,16 +1,14 @@
 <script lang="ts" setup name="TableManage">
-  import useStore from '@/store';
-  import { storeToRefs } from 'pinia';
-  import { onMounted } from 'vue';
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 
-  const { tagview } = useStore()
-  const { cacheList } = storeToRefs(tagview)
+const { tagview } = useStore()
+const { cacheList } = storeToRefs(tagview)
 
-
-  onMounted(() => {
-    tagview.addCacheList('TableManage')
-  })
-
+onMounted(() => {
+  tagview.addCacheList('TableManage')
+})
 </script>
 
 <template>

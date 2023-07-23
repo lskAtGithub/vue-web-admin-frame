@@ -3,16 +3,16 @@
  -->
 
 <script setup lang="ts">
-  const props = defineProps({
-    backgroundImg: {
-      type: String,
-      default: ''
-    },
-    fontSize: {
-      type: String,
-      default: '14px'
-    }
-  })
+const props = defineProps({
+  backgroundImg: {
+    type: String,
+    default: ''
+  },
+  fontSize: {
+    type: String,
+    default: '14px'
+  }
+})
 </script>
 
 <template>
@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .text-picture {
   display: inline-block;
   background-clip: text;

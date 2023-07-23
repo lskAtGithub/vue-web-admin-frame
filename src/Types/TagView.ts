@@ -1,8 +1,7 @@
-
 export interface ITagItem {
-  path: string,
-  title: string,
-  query?: Object,
-  params?: Object,
+  path: string
+  title: string
+  query?: Object
+  params?: Object
   affix?: boolean
 }

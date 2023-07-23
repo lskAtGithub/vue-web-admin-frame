@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts" name="AppSidebar">
-  import SideMenu from './components/SideMenu.vue'
+import SideMenu from './components/SideMenu.vue'
 </script>
 
 <style scoped lang="scss"></style>

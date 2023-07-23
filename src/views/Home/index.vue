@@ -50,25 +50,23 @@
 </template>
 
 <script setup lang="ts" name="HomePage">
-  import { onMounted, ref, reactive, toRefs } from 'vue'
-  import container from '@/components/Container.vue'
-  import CountUp from '@/components/CountUp.vue'
+import { onMounted, ref, reactive, toRefs } from 'vue'
+import container from '@/components/Container.vue'
+import CountUp from '@/components/CountUp.vue'
 
-  const numState = reactive({
-    waitNum: 458,
-    overNum: 3546,
-    passNum: 8851,
-    rejectNum: 356
-  })
-  const { waitNum, overNum, passNum, rejectNum } = toRefs(numState)
-  const countUpRef = ref()
-  onMounted(() => {
-  })
+const numState = reactive({
+  waitNum: 458,
+  overNum: 3546,
+  passNum: 8851,
+  rejectNum: 356
+})
+const { waitNum, overNum, passNum, rejectNum } = toRefs(numState)
+const countUpRef = ref()
+onMounted(() => {})
 
-  const initCount = () => {
-    countUpRef.value.initCount()
-  }
-
+const initCount = () => {
+  countUpRef.value.initCount()
+}
 </script>
 
 <style scoped lang="scss">
@@ -106,24 +104,24 @@
   }
 
   &.wait-num {
-    color: #67C23A;
+    color: #67c23a;
 
     svg {
       &:hover {
         fill: #fff;
-        background-color: #67C23A;
+        background-color: #67c23a;
         cursor: pointer;
       }
     }
   }
 
   &.over-num {
-    color: #E6A23C;
+    color: #e6a23c;
 
     svg {
       &:hover {
         fill: #fff;
-        background-color: #E6A23C;
+        background-color: #e6a23c;
         cursor: pointer;
       }
     }
@@ -142,14 +140,14 @@
   }
 
   &.reject-num {
-    color: #F56C6C;
+    color: #f56c6c;
 
     svg {
-      fill: #F56C6C;
+      fill: #f56c6c;
 
       &:hover {
         fill: #fff;
-        background-color: #F56C6C;
+        background-color: #f56c6c;
         cursor: pointer;
       }
     }

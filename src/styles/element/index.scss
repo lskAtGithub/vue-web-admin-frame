@@ -3,11 +3,10 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
-      'base': #7e9cff,
-    ),
-  ),
+      'base': #7e9cff
+    )
+  )
 );
 // 如果只是按需导入，则可以忽略以下内容。
 // 如果你想导入所有样式:
-@use "element-plus/theme-chalk/src/index.scss" as *;
-
+@use 'element-plus/theme-chalk/src/index.scss' as *;

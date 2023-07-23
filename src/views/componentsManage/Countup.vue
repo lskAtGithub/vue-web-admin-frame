@@ -31,30 +31,30 @@
 </template>
 
 <script lang="ts" setup name="CountUpDemo">
-  import { ref, reactive } from 'vue'
-  import container from '@/components/Container.vue'
-  import CountUp from '@/components/CountUp.vue'
+import { ref, reactive } from 'vue'
+import container from '@/components/Container.vue'
+import CountUp from '@/components/CountUp.vue'
 
-  let options = reactive({
-    startVal: 0, // 开始的数字  一般设置0开始
-    endValue: 500,
-    decimalPlaces: 0, // number类型 小数位数
-    duration: 2, // number类型 动画延迟秒数，默认值是2
-    useGrouping: true, // boolean类型  是否开启逗号，默认true(1,000)false(1000)
-    useEasing: true,  // boolean类型 动画缓动效果(ease),默认true
-    smartEasingThreshold: 300, // number类型 大于这个数值的值开启平滑缓动
-    smartEasingAmount: 300, // number类型
-    separator: ',',// string 类型 分割用的符号
-    decimal: '.', // string 类型  小数分割符合
-    prefix: '', // string 类型  数字开头添加固定字符
-    suffix: '', // string类型 数字末尾添加固定字符
-    numerals: []  // Array类型 替换从0到9对应的字，也就是自定数字字符了,数组存储
-  })
-  const CountUpRef = ref(null) as any
+let options = reactive({
+  startVal: 0, // 开始的数字  一般设置0开始
+  endValue: 500,
+  decimalPlaces: 0, // number类型 小数位数
+  duration: 2, // number类型 动画延迟秒数，默认值是2
+  useGrouping: true, // boolean类型  是否开启逗号，默认true(1,000)false(1000)
+  useEasing: true, // boolean类型 动画缓动效果(ease),默认true
+  smartEasingThreshold: 300, // number类型 大于这个数值的值开启平滑缓动
+  smartEasingAmount: 300, // number类型
+  separator: ',', // string 类型 分割用的符号
+  decimal: '.', // string 类型  小数分割符合
+  prefix: '', // string 类型  数字开头添加固定字符
+  suffix: '', // string类型 数字末尾添加固定字符
+  numerals: [] // Array类型 替换从0到9对应的字，也就是自定数字字符了,数组存储
+})
+const CountUpRef = ref(null) as any
 
-  const onStart = () => {
-    CountUpRef.value.initCount()
-  }
+const onStart = () => {
+  CountUpRef.value.initCount()
+}
 </script>
 
 <style scoped lang="scss">

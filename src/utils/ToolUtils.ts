@@ -14,12 +14,12 @@ export default class ToolUtils {
     let key = null
     let data = null
     for (let i = 0; i < keys.length; i++) {
-      key = keys[i];
-      data = (obj)[key];
+      key = keys[i]
+      data = obj[key]
       if (data && typeof data === 'object') {
         newObj[key] = this.deepClone(data)
       } else {
-        newObj[key] = data;
+        newObj[key] = data
       }
     }
     return newObj

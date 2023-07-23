@@ -79,9 +79,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   components
 ]
 
-export const asyncRoutes: Array<RouteRecordRaw> = [
-  pages
-]
+export const asyncRoutes: Array<RouteRecordRaw> = [pages]
 
 const router = createRouter({
   history: createWebHistory(),

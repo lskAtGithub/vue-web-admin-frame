@@ -19,7 +19,7 @@ const app = createApp(App)
 app.use(piniaStore)
 app.use(router)
 app.use(ElementPlus, {
-  locale: zhCn,
+  locale: zhCn
 })
 app.component('svg-icon', SvgIcon)
 app.mount('#app')
@@ -31,4 +31,3 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 registerDirectives(app)
 
 IndexUtils.windowResize()
-

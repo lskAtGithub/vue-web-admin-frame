@@ -9,7 +9,7 @@ function checkPermission(el: Element, binding: { value: any }) {
   if (value && value instanceof Array) {
     if (value.length > 0) {
       const permissionRoles = value
-      const hasPermission = permissions.some(role => {
+      const hasPermission = permissions.some((role) => {
         return permissionRoles.includes(role)
       })
       if (!hasPermission) {

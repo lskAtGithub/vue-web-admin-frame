@@ -13,9 +13,9 @@ const userStore = defineStore('userStore', {
         phone: '',
         avatar: '',
         email: '',
-        postTitle: '',
+        postTitle: ''
       } as IUser,
-      token: '',
+      token: ''
     }
   },
   actions: {

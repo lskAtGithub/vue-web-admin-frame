@@ -2,22 +2,22 @@ import request from '@/utils/request/index'
 
 import type { ILoginParam } from './types'
 /**
- * @param 
+ * @param
  */
 export const getMenu = () => {
   return request({
     url: '/getMenu',
-    method: 'get',
+    method: 'get'
   })
 }
 
 /**
- * @param 
+ * @param
  */
 export const getUserInfo = () => {
   return request({
     url: '/userInfo',
-    method: 'get',
+    method: 'get'
   })
 }
 
@@ -33,7 +33,7 @@ export const getToken = (data: ILoginParam) => {
 }
 
 /**
- * @param 
+ * @param
  */
 export const getPermission = () => {
   return request({

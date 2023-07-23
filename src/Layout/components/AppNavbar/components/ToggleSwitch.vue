@@ -7,18 +7,18 @@
       <Expand />
     </el-icon>
   </div>
-</template> 
+</template>
 
 <script lang="ts" setup>
-  import useStore from '@/store'
-  import { storeToRefs } from 'pinia'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
 
-  const { system } = useStore()
-  const { isCollapse } = storeToRefs(system)
+const { system } = useStore()
+const { isCollapse } = storeToRefs(system)
 
-  function handleToggleSide() {
-    system.changeCollapse()
-  }
+function handleToggleSide() {
+  system.changeCollapse()
+}
 </script>
 
 <style scoped lang="scss">

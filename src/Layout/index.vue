@@ -11,16 +11,15 @@
 </template>
 
 <script setup lang="ts" name="Layout">
-  import AppMain from './components/AppMain/index.vue'
-  import AppNavbar from './components/AppNavbar/index.vue'
-  import AppSidebar from './components/AppSidebar/index.vue'
-  import useStore from '@/store/index'
-  import { storeToRefs } from 'pinia'
+import AppMain from './components/AppMain/index.vue'
+import AppNavbar from './components/AppNavbar/index.vue'
+import AppSidebar from './components/AppSidebar/index.vue'
+import useStore from '@/store/index'
+import { storeToRefs } from 'pinia'
 
-  const { system } = useStore()
-  const { isCollapse } = storeToRefs(system)
+const { system } = useStore()
+const { isCollapse } = storeToRefs(system)
 </script>
-
 
 <style scoped lang="scss">
 @import '@/styles/variables.scss';

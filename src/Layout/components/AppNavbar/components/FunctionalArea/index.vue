@@ -3,6 +3,7 @@
     <search-menu />
     <fullscreen />
     <message />
+    <error-handler />
   </div>
 </template>
 
@@ -10,6 +11,8 @@
 import Fullscreen from './Fullscreen.vue'
 import Message from './Message.vue'
 import SearchMenu from './SearchMenu.vue'
+import ErrorHandler from './ErrorHandler.vue'
+import IndexUtils from '@/utils/Index'
 </script>
 
 <style scoped lang="scss">

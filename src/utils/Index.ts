@@ -1,12 +1,12 @@
 import useStore from '@/store'
 import ToolUtils from '@/utils/ToolUtils'
 
-const { system } = useStore()
 export default class IndexUtils {
   /**
    * @description 监听窗口的变化 ，处理侧边菜单的展开收缩
    */
   static windowResize() {
+    const { system } = useStore()
     window.addEventListener(
       'resize',
       ToolUtils.debounce(() => {
@@ -22,7 +22,6 @@ export default class IndexUtils {
    * @returns boolean
    */
   static isDevelopment() {
-    console.log(import.meta.env)
     return import.meta.env.MODE === 'development'
   }
 }

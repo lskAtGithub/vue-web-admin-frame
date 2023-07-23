@@ -1,12 +1,15 @@
 <template>
-  <el-badge :is-dot="errorInfo.isNewError">
-    <svg-icon class-name="svg-icon" icon-class="bug" @click="showBug" />
-  </el-badge>
+  <div v-if="IndexUtils.isDevelopment()">
+    <el-badge :is-dot="errorInfo.isNewError">
+      <svg-icon class-name="svg-icon" icon-class="bug" @click="showBug" />
+    </el-badge>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import useStore from '@/store/index'
+import IndexUtils from '@/utils/Index'
 
 const { errorInfo } = useStore()
 let bugListVisible: Ref<boolean> = ref(false)

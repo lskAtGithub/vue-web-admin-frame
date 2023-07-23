@@ -24,4 +24,22 @@ export default class ToolUtils {
     }
     return newObj
   }
+
+  /**
+   * @param {Function} fn 目标函数
+   * @param {Number} timeout 延迟执行毫秒数
+   * @description 防抖函数
+   */
+  static debounce(fn: Function, timeout: number = 600) {
+    let timer = null as any
+    return function () {
+      if (timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(() => {
+        // @ts-ignore
+        fn.apply(this, arguments)
+      }, timeout)
+    }
+  }
 }

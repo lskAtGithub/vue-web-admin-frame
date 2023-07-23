@@ -14,6 +14,7 @@ import '@/styles/index.scss'
 import IndexUtils from './utils/Index'
 import SvgIcon from '@/components/SvgIcon.vue'
 import registerDirectives from '@/directives/index'
+import errorHandler from './errorHandler'
 
 const app = createApp(App)
 app.use(piniaStore)
@@ -22,12 +23,17 @@ app.use(ElementPlus, {
   locale: zhCn
 })
 app.component('svg-icon', SvgIcon)
-app.mount('#app')
-
+// 注册指令
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-// 注册指令
 registerDirectives(app)
+
+app.mount('#app')
+
+// 全局错误监听
+app.config.errorHandler = (err, vm, info) => {
+  errorHandler(err, vm, info)
+}
 
 IndexUtils.windowResize()

@@ -48,7 +48,6 @@ const messageList = ref([
 @import '@/styles/variables.scss';
 
 .icon-box {
-  margin-right: 12px;
   cursor: pointer;
 
   &:hover {

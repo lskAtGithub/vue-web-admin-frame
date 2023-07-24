@@ -17,19 +17,19 @@ const route: RouteRecordRaw = {
           name: 'TableManageList',
           meta: { title: '表格页', noBreadCrumbs: true, cache: true },
           path: '/manage/table/list',
-          component: () => import('@/views/pagesManage/list/index.vue')
+          component: () => import('@/views/pagesManage/manage/list/index.vue')
         },
         {
           name: 'TableManageDetail',
           path: '/manage/table/detail',
           meta: { title: '详情', activeMenu: '/manage/table/list', noTagView: false },
-          component: () => import('@/views/pagesManage/details/index.vue')
+          component: () => import('@/views/pagesManage/manage/details/index.vue')
         },
         {
           name: 'TableManageAdd',
           path: '/manage/table/add',
           meta: { title: '新增', activeMenu: '/manage/table/list', noTagView: false, cache: true },
-          component: () => import('@/views/pagesManage/add/index.vue')
+          component: () => import('@/views/pagesManage/manage/add/index.vue')
         }
       ]
     }

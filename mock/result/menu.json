@@ -11,8 +11,8 @@
         "meta": { "title": "表格页" }
       },
       {
-        "meta": { "title": "tab示例" },
-        "path": "/manage/tab/index"
+        "meta": { "title": "全局错误监听" },
+        "path": "/manage/error/page"
       }
     ]
   },

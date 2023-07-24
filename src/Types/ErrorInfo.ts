@@ -1,7 +1,9 @@
 import type { ComponentPublicInstance } from 'vue'
 
 export interface IErrorItem {
-  err: unknown | Error
+  id?: number
+  url: string
+  title: string
   info: string
-  vm?: ComponentPublicInstance
+  createTime: string
 }

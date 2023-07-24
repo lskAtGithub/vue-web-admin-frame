@@ -7,11 +7,17 @@ const route: RouteRecordRaw = {
   component: Layout,
   children: [
     {
+      name: 'ErrorPage',
+      meta: { title: '全局错误监听' },
+      path: '/manage/error/page',
+      component: () => import('@/views/pagesManage/error/index.vue'),
+    },
+    {
       name: 'TableManage',
       meta: { cache: true, title: '表格页' },
       path: '/manage/table',
       redirect: '/manage/table/list',
-      component: () => import('@/views/pagesManage/index.vue'),
+      component: () => import('@/views/pagesManage/manage/index.vue'),
       children: [
         {
           name: 'TableManageList',

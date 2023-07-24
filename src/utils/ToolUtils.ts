@@ -2,6 +2,8 @@ interface KeyValueObject {
   [key: string]: any
 }
 
+type FormatType = 'Time' | 'DateTime' | 'Date'
+
 export default class ToolUtils {
   /**
    * @param {object} obj
@@ -41,5 +43,39 @@ export default class ToolUtils {
         fn.apply(this, arguments)
       }, timeout)
     }
+  }
+
+  /**
+   * @param {String} FormatType 返回格式类型【日期 + 时间，日期， 时间】
+   * @description 前端获取当前的日期
+   * @returns String 返回客户端当前的中文时间
+   */
+
+  static getNowDateTimeCn(formatter: FormatType = 'DateTime') {
+    let result
+    const now: Date = new Date()
+    // 格式化日期为中文格式
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true
+    }
+    const chineseDate = now.toLocaleDateString("zh-CN", options)
+    // 格式化时间为中文格式
+    const time = now.toLocaleTimeString("zh-CN")
+    // 组合日期和时间
+
+    if (formatter === 'DateTime') {
+      result = `${chineseDate} ${time}`
+    } else if (formatter === 'Date') {
+      result = `${chineseDate}`
+    } else {
+      result = `${time}`
+    }
+    return result
   }
 }

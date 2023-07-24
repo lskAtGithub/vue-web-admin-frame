@@ -1,33 +1,22 @@
 import type { ComponentPublicInstance } from 'vue'
+import useStore from './store'
+import type { IErrorItem } from '@/Types/ErrorInfo'
+import ToolUtils from './utils/ToolUtils'
 
+const { errorInfo } = useStore()
 const errorHandler = (err: unknown, vm: ComponentPublicInstance | null, info: string) => {
   if (err instanceof Error) {
-    const errorMessage = err.message
-
+    const title = err.message
     // 获取堆栈跟踪信息
     const stackTrace = err.stack as string
-    // 从堆栈跟踪中提取组件名
-    const componentName = extractComponentNameFromStackTrace(stackTrace)
-    // 获取报错的文件
-    const errorFile = info ? info.split('\n')[1]?.trim().replace(/^at /, '') : ''
-
-    console.error('Error:', errorMessage)
-    console.error('Stack Trace:', stackTrace)
-    console.error('Error File:', componentName)
+    const createTime: string = ToolUtils.getNowDateTimeCn()
+    const url = window.location.href
+    const errItem: IErrorItem = { createTime, title, info: stackTrace, url }
+    // 添加到错误数组
+    errorInfo.addError(errItem)
   }
-}
-
-const extractComponentNameFromStackTrace = (stackTrace: string): string => {
-  const regex = /at\s+Component\.\w+\s+\((.+)\)/
-  const match = stackTrace.match(regex)
-
-  if (match && match.length > 1) {
-    const componentInfo = match[1]
-    const componentName = componentInfo.split('/').pop() || ''
-    return componentName
-  }
-
-  return ''
+  // 错误继续往下走
+  throw err
 }
 
 export default errorHandler

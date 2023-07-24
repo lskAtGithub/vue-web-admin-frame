@@ -32,11 +32,6 @@ const route: RouteRecordRaw = {
           component: () => import('@/views/pagesManage/add/index.vue')
         }
       ]
-    },
-    {
-      meta: { title: 'tab示例' },
-      path: '/manage/tab/index',
-      component: () => import('@/views/tabManage/demo/index.vue')
     }
   ]
 }

@@ -50,6 +50,7 @@ let PaginationRef = ref(null)
 const attrs: propsType = useAttrs()
 
 const isShowPager = computed((): boolean => {
+  console.log(attrs.pager)
   return !!attrs.pager?.currentPage && !!attrs.pager?.pageSize
 })
 

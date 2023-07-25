@@ -1,6 +1,8 @@
 import axios from 'axios'
 import LoadingUtils from '@/utils/LoadingUtils'
 import { ElMessage } from 'element-plus'
+import useStore from '@/store'
+import ToolUtils from '../ToolUtils'
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -33,7 +35,11 @@ instance.interceptors.response.use(
     }
   },
   (error) => {
+    const { errorStore } = useStore()
     LoadingUtils.hide()
+    const createTime: string = ToolUtils.getNowDateTimeCn()
+    const info = JSON.stringify(error)
+    errorStore.addError({ id: 0, url: window.location.href, title: error, info, createTime })
     return Promise.reject(error)
   }
 )

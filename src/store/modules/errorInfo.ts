@@ -6,33 +6,36 @@ const errorInfoStore = defineStore('errorInfoStore', {
     return {
       errorInfo: [] as Array<IErrorItem>,
       isNewError: false as boolean,
-      isShowBugHandler: true as boolean
+      isShowBugHandler: true as boolean,
+      errorSize: 0 as number
     }
   },
   actions: {
-    /**
-     * @param boolean
-     * @description 更改错误信息的已读状态
-     */
-    changeErrReadStatus(status: boolean) {
-      this.isNewError = status
-    },
-
     /**
      * @param
      * @description 添加一条错误信息
      */
     addError(errItem: IErrorItem) {
-      this.errorInfo.push(errItem)
-      console.log(this.errorInfo)
+      this.errorInfo.unshift({ ...errItem, id: this.errorInfo.length + 1 })
+      this.toggleReadStatus(true)
+      this.errorSize++
     },
 
     /**
-     * @param
+     * @param id
      * @description 删除某个错误信息
      */
-    removeError(index: number) {
-      this.errorInfo.splice(index, 1)
+    removeError(id: number) {
+      this.errorInfo = this.errorInfo.filter((item) => item.id !== id)
+      this.errorSize--
+    },
+
+    /**
+     * @param { Boolean }
+     * @description 更改是否已读信息
+     */
+    toggleReadStatus(status: boolean) {
+      this.isNewError = status
     }
   }
 })

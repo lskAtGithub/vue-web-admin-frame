@@ -15,6 +15,6 @@ export default function useStore() {
     tagview: tagViewStore(pinia),
     user: userStore(pinia),
     permission: permissionStore(pinia),
-    errorInfo: errorInfoStore(pinia)
+    errorStore: errorInfoStore(pinia)
   }
 }

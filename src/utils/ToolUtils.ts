@@ -56,17 +56,17 @@ export default class ToolUtils {
     const now: Date = new Date()
     // 格式化日期为中文格式
     const options: Intl.DateTimeFormatOptions = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
       hour12: true
     }
-    const chineseDate = now.toLocaleDateString("zh-CN", options)
+    const chineseDate = now.toLocaleDateString('zh-CN', options)
     // 格式化时间为中文格式
-    const time = now.toLocaleTimeString("zh-CN")
+    const time = now.toLocaleTimeString('zh-CN')
     // 组合日期和时间
 
     if (formatter === 'DateTime') {
@@ -77,5 +77,18 @@ export default class ToolUtils {
       result = `${time}`
     }
     return result
+  }
+
+  /**
+   * @param {String} text 要复制的文本
+   * @description 复制文本函数
+   */
+  static copyText(text: string) {
+    const textarea = document.createElement('textarea')
+    textarea.value = text
+    document.body.appendChild(textarea)
+    textarea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textarea)
   }
 }

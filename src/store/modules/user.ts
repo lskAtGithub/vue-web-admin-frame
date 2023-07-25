@@ -19,6 +19,11 @@ const userStore = defineStore('userStore', {
     }
   },
   actions: {
+    /**
+     * @param ILoginParam 
+     * @description 登录
+     * @returns res
+     */
     async userLogin(ILoginParam: ILoginParam) {
       const res = await getToken(ILoginParam)
       this.token = res.data.token

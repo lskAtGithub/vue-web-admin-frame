@@ -24,6 +24,7 @@ const errorInfoStore = defineStore('errorInfoStore', {
      */
     addError(errItem: IErrorItem) {
       this.errorInfo.push(errItem)
+      console.log(this.errorInfo)
     },
 
     /**

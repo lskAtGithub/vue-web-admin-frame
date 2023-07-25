@@ -25,6 +25,11 @@ const tagViewStore = defineStore('tagViewStore', {
     }
   },
   actions: {
+    /**
+     * @param item 
+     * @param index 
+     * @description 添加 tag view 信息
+     */
     addTagView(item: ITagItem, index?: number) {
       if (!hasIncludeTab(item, this.tagViewList)) {
         if (index != undefined) {
@@ -34,6 +39,10 @@ const tagViewStore = defineStore('tagViewStore', {
         }
       }
     },
+    /**
+     * @param tag 
+     * @description 删除 tag view
+     */
     removeTagView(tag: ITagItem) {
       for (let index = 0; index < this.tagViewList.length; index++) {
         const element = this.tagViewList[index]
@@ -43,6 +52,10 @@ const tagViewStore = defineStore('tagViewStore', {
         }
       }
     },
+    /**
+     * @param cacheName 
+     * @description 添加 keep-alive 缓存
+     */
     addCacheList(cacheName: string) {
       if (!this.cacheList.includes(cacheName)) {
         this.cacheList.push(cacheName)

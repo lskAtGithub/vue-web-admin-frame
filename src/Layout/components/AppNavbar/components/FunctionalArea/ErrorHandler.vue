@@ -4,7 +4,7 @@
       <svg-icon class-name="svg-icon" icon-class="bug" @click="showBug" />
     </el-badge>
 
-    <el-dialog v-model="bugListVisible" title="错误监听列表" width="980">
+    <el-dialog v-model="bugListVisible" title="bug日志中心" width="980">
       <pager-table :data="errorInfo" :columns="columns">
         <template #empty>
           <el-empty description="暂无数据" />

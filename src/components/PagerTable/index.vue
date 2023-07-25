@@ -2,6 +2,14 @@
 <template>
   <div>
     <el-table v-bind="attrs" ref="ElTableRef">
+      <!-- 插槽支持 -->
+      <template #empty>
+        <slot name="empty"></slot>
+      </template>
+      <template #append>
+        <slot name="append"></slot>
+      </template>
+
       <el-table-column
         v-for="(item, index) in attrs.columns || []"
         :key="index"

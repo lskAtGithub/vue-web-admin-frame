@@ -33,9 +33,9 @@ import type { IErrorItem } from '@/Types/ErrorInfo'
 let columns = [
   { label: '序号', prop: 'id', width: 60 },
   { label: '标题', prop: 'title', width: 180 },
-  { label: 'url', prop: 'url', width: 180 },
+  { label: 'url', prop: 'url', width: 120 },
   { label: '创建时间', prop: 'createTime', width: 180 },
-  { label: '详细信息', prop: 'info', width: 580, 'show-overflow-tooltip': true },
+  { label: '详细信息', prop: 'info', width: 380, 'show-overflow-tooltip': true },
   { label: '操作', slotName: 'operation', fixed: 'right', width: 180 }
 ]
 

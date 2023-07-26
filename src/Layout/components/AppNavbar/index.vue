@@ -22,7 +22,6 @@ import FunctionalArea from './components/FunctionalArea/index.vue'
 @import '@/styles/variables.scss';
 
 .topbar-box {
-  background-color: #fff;
   height: 51px;
   border-bottom: 1px solid $--border-color;
   margin-bottom: 1px;

@@ -2,7 +2,9 @@
   <div class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive :include="cacheList">
-        <component :is="Component" />
+        <transition name="el-fade-in-linear">
+          <component :is="Component" />
+        </transition>
       </keep-alive>
     </router-view>
   </div>

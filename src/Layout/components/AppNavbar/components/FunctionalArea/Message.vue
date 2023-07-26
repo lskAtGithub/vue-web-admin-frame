@@ -1,5 +1,5 @@
 <template>
-  <el-popover placement="bottom" :width="300" trigger="hover">
+  <el-popover placement="bottom" :width="300" trigger="click">
     <template #reference>
       <el-badge :is-dot="true">
         <el-icon class="icon-box message-icon">

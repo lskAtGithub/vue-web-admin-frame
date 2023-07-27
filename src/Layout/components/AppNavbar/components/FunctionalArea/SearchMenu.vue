@@ -99,7 +99,8 @@ const onSearchRoutes = () => {
 
   .icon-box {
     cursor: pointer;
-
+    margin-right: 0;
+    
     &:hover {
       color: $--theme-color;
     }

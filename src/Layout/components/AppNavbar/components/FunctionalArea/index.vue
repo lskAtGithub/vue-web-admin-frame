@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <search-menu />
+    <theme-switcher />
     <fullscreen />
     <message />
     <error-handler />
@@ -12,6 +13,7 @@ import Fullscreen from './Fullscreen.vue'
 import Message from './Message.vue'
 import SearchMenu from './SearchMenu.vue'
 import ErrorHandler from './ErrorHandler.vue'
+import ThemeSwitcher from './ThemeSwitcher.vue'
 </script>
 
 <style scoped lang="scss">

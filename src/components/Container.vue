@@ -6,15 +6,25 @@
  -->
 
 <template>
-  <div class="__common-component-container">
+  <div class="__common-component-container" :style="dynamicTheme">
     <slot></slot>
   </div>
 </template>
 
+<script lang="ts" setup>
+import useStore from '@/store'
+import { computed } from 'vue'
+
+const { system } = useStore()
+
+const dynamicTheme = computed(() => ({
+  backgroundColor: system.isDark ? '#202020' : '#fff'
+}))
+</script>
+
 <style scoped lang="scss">
 .__common-component-container {
   margin: 15px;
-  background: #fff;
   min-height: calc(100% - 30px);
   padding: 30px 20px 20px 20px;
   border-radius: 5px;

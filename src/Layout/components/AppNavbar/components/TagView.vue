@@ -99,7 +99,7 @@ const handleRefresh = () => {
 @import '@/styles/variables.scss';
 
 .suspension {
-  box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #aaa;
 
   &:hover {
     box-shadow: inset 0 0 3px 0px #ddd;
@@ -140,7 +140,7 @@ const handleRefresh = () => {
 
       &.active {
         box-shadow: inset 0 0 10px 0px #ccc;
-        color: #888;
+        color: $--theme-color;
       }
 
       .tag--title {

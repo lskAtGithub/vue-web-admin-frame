@@ -18,7 +18,7 @@ import { computed } from 'vue'
 const { system } = useStore()
 
 const dynamicTheme = computed(() => ({
-  backgroundColor: system.isDark ? '#202020' : '#fff'
+  backgroundColor: system.isDark ? '#212121' : '#fff'
 }))
 </script>
 

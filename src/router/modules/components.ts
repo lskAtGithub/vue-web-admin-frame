@@ -24,6 +24,12 @@ const route: RouteRecordRaw = {
       meta: { title: '表格组件' },
       path: '/component/pagerTable',
       component: () => import('@/views/componentsManage/PagerTable.vue')
+    },
+    {
+      name: 'AMap',
+      meta: { title: '高德地图' },
+      path: '/component/AMap',
+      component: () => import('@/views/componentsManage/GeoMap.vue')
     }
   ]
 }

@@ -36,3 +36,8 @@ app.config.errorHandler = (err, vm, info) => {
 }
 
 IndexUtils.windowResize()
+
+// 高德地图组件密钥校验
+window._AMapSecurityConfig = {
+  securityJsCode: import.meta.env.VITE_MAP_SECRET_KEY
+}

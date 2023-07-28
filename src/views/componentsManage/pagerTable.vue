@@ -57,7 +57,7 @@
 import { ref, reactive, onMounted, watch, toRaw } from 'vue'
 import type { Ref } from 'vue'
 import PagerTable from '@/components/PagerTable/index.vue'
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import type { pagerTableColumn } from '@/components/PagerTable/types'
 import { ElMessage } from 'element-plus'
 

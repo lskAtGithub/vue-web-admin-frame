@@ -1,6 +1,6 @@
 <script setup lang="ts" name="TableManageAdd">
 import { ref } from 'vue'
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 
 const val = ref('')
 </script>

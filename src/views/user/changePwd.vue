@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import useStore from '@/store'
 import { storeToRefs } from 'pinia'
 import { reactive, ref } from 'vue'

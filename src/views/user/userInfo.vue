@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import UserAccount from './components/UserAccount.vue'
 import TimeLine from './components/TimeLine.vue'
 import TextPicture from '@/components/TextPicture.vue'

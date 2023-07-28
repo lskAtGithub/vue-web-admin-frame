@@ -32,7 +32,7 @@
 
 <script lang="ts" setup name="CountUpDemo">
 import { ref, reactive } from 'vue'
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import CountUp from '@/components/CountUp.vue'
 
 let options = reactive({

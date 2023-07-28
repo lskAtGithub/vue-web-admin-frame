@@ -51,7 +51,7 @@
 
 <script setup lang="ts" name="HomePage">
 import { onMounted, ref, reactive, toRefs } from 'vue'
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import CountUp from '@/components/CountUp.vue'
 
 const numState = reactive({

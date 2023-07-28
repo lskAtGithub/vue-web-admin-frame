@@ -1,6 +1,6 @@
 <script setup lang="ts" name="TableManageList">
 import { useRouter } from 'vue-router'
-import container from '@/components/Container.vue'
+import Container from '@/components/Container.vue'
 import { onMounted, ref } from 'vue'
 
 onMounted(() => {})

@@ -5,11 +5,11 @@
       <h2 class="title">{{ title }}</h2>
       <p class="desc">开箱即用的后台管理系统框架</p>
       <p>
-        <el-input v-model="accoutInfo.account" size="large" placeholder="请输入账号" />
+        <el-input v-model="accountInfo.account" size="large" placeholder="请输入账号" />
       </p>
       <p>
         <el-input
-          v-model="accoutInfo.password"
+          v-model="accountInfo.password"
           size="large"
           type="password"
           placeholder="请输入密码"
@@ -33,7 +33,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const { user } = useStore()
 
-const accoutInfo = {
+const accountInfo = {
   account: 'admin',
   password: 'admin'
 }
@@ -41,7 +41,7 @@ const accoutInfo = {
 onMounted(() => {})
 
 function handleLogin() {
-  user.userLogin(accoutInfo).then(() => {
+  user.userLogin(accountInfo).then(() => {
     router.push('/')
   })
 }

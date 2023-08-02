@@ -111,7 +111,7 @@ const handleRefresh = () => {
   align-items: center;
   padding: 2px 15px;
   border-radius: 3px;
-  height: 38px;
+  height: 40px;
 
   .tab-box {
     margin-left: 20px;

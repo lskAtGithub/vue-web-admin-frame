@@ -51,7 +51,7 @@ watch(
         params: newValue.params
       })
     }
-    if (route.meta.cache && route.name) {
+    if (route.meta.keepAlive && route.name) {
       tagview.addCacheList(route.name as string)
     }
   },

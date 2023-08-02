@@ -8,6 +8,7 @@ const { cacheList } = storeToRefs(tagview)
 
 onMounted(() => {
   tagview.addCacheList('TableManage')
+  
 })
 </script>
 

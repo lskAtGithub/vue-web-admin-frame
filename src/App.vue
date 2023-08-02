@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive :include="cacheList">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { provide } from 'vue'
-import { useDark } from '@vueuse/core'
+import useStore from '@/store'
+import { storeToRefs } from 'pinia'
 
-const isDark = useDark({
-  storageKey: 'vue-admin-frame-vueuse-theme-key',
-  valueDark: 'dark',
-  valueLight: 'light'
-})
-
-provide('isDark', isDark)
+const { tagview, system } = useStore()
+const { cacheList } = storeToRefs(tagview)
 </script>

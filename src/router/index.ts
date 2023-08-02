@@ -13,7 +13,7 @@ import components from './modules/components'
  *    @param icon: 图标
  *    @param title 标题，对应侧边栏显示和面包屑显示
  *    @param noBreadCrumbs: 是否显示面包屑， 默认显示， 如果false则不会显示改路由的层级
- *    @param cache: 是否开始缓存，默认不缓存
+ *    @param keepAlive: 是否开始缓存，默认不缓存
  *    @param noTagView: 是否不显示tagView， 默认都会显示
  *    @param activeMenu: 接受一个路由路径，对应左侧激活的菜单栏， 同时也会影响到动态加载的路由
  * }
@@ -30,7 +30,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         name: 'HomePage',
         path: '/home/homePage',
-        meta: { title: '首页', icon: 'House', cache: true },
+        meta: { title: '首页', icon: 'House', keepAlive: true },
         component: () => import('@/views/Home/index.vue')
       }
     ]

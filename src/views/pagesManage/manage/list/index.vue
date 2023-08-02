@@ -1,11 +1,8 @@
 <script setup lang="ts" name="TableManageList">
 import { useRouter } from 'vue-router'
 import Container from '@/components/Container.vue'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
-onMounted(() => {
-  console.log('is all????')
-})
 const router = useRouter()
 const val = ref('')
 

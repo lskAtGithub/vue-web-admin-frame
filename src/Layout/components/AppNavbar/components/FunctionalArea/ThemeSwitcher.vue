@@ -8,16 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useDark, useToggle } from '@vueuse/core'
+import { isDark, toggleDark } from '@/composables'
 import useStore from '@/store'
-
-const isDark = useDark({
-  storageKey: 'vue-admin-frame-vueuse-theme-key',
-  valueDark: 'dark',
-  valueLight: 'light'
-})
-
-const toggleDark = useToggle(isDark)
 
 const { system } = useStore()
 

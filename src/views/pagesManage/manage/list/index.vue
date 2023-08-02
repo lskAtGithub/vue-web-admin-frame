@@ -3,7 +3,9 @@ import { useRouter } from 'vue-router'
 import Container from '@/components/Container.vue'
 import { onMounted, ref } from 'vue'
 
-onMounted(() => {})
+onMounted(() => {
+  console.log('is all????')
+})
 const router = useRouter()
 const val = ref('')
 

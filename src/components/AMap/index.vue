@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts" name="AMapComponents">
-import { ref, onMounted, defineExpose, shallowRef, onUnmounted, reactive } from 'vue'
+import { ref, onMounted, shallowRef, onUnmounted, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import AMapLoader from '@amap/amap-jsapi-loader'
 import type { Ref } from 'vue'

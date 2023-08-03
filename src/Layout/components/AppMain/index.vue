@@ -1,12 +1,10 @@
 <template>
   <div class="app-main" :style="dynamicTheme">
-    <transition name="el-fade-in-linear">
-      <router-view v-slot="{ Component }">
-        <keep-alive :include="cacheList">
-          <component :is="Component" />
-        </keep-alive>
-      </router-view>
-    </transition>
+    <router-view v-slot="{ Component }">
+      <keep-alive :include="cacheList">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 

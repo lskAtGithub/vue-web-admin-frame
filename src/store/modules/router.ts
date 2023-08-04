@@ -91,7 +91,7 @@ function filterRoutes(arrData: Array<any>): Array<RouteRecordRaw> {
 const routerStore = defineStore('routerStore', {
   state: () => {
     return {
-      routes: constantRoutes,
+      routes: constantRoutes as RouteRecordRaw[],
       flattenRouters: [] as RouteRecordRaw[]
     }
   },

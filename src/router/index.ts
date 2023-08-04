@@ -16,6 +16,7 @@ import components from './modules/components'
  *    @param keepAlive: 是否开始缓存，默认不缓存
  *    @param noTagView: 是否不显示tagView， 默认都会显示
  *    @param activeMenu: 接受一个路由路径，对应左侧激活的菜单栏， 同时也会影响到动态加载的路由
+ *    @param hidden 是否在菜单栏显示
  * }
  * @param children: 子路由，多级路由通过children实现
  */

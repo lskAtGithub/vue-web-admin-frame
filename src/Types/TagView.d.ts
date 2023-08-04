@@ -1,7 +1,9 @@
+import type { LocationQueryRaw, RouteParamsRaw } from 'vue-router'
+
 export interface ITagItem {
   path: string
   title: string
-  query?: Object
-  params?: Object
+  query?: LocationQueryRaw
+  params?: RouteParamsRaw
   affix?: boolean
 }

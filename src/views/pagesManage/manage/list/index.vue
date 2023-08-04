@@ -65,7 +65,6 @@ const onAdd = () => {
 }
 
 const onEdit = (row: ListItem) => {
-  alert(1)
   router.push({
     path: `/manage/table/edit/${row.id}`
   })

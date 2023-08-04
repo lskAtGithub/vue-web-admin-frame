@@ -5,7 +5,6 @@
   </container>
 </template>
 <script setup lang="ts" name="TableManageEdit">
-import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import Container from '@/components/Container.vue'
 import { useTableData } from '../hooks/index'
@@ -13,8 +12,6 @@ import { useTableData } from '../hooks/index'
 const route = useRoute()
 
 const data = useTableData[Number(route.params.id) - 1]
-
-onMounted(() => console.log(1))
 </script>
 
 <style scoped lang="scss"></style>

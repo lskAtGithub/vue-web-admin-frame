@@ -68,11 +68,10 @@ const isActive = (tag: ITagItem): boolean => {
 }
 
 const getToPath = (tag: ITagItem) => {
-  console.log(11)
   const ITag = JSON.parse(JSON.stringify(tag))
   const result = { path: ITag.path }
   if (ToolUtils.isEmptyObject(ITag.query)) Object.assign(result, { query: ITag.query })
-  if (ToolUtils.isEmptyObject(ITag.params)) Object.assign(result, { params: ITag.params })
+  // if (ToolUtils.isEmptyObject(ITag.params)) Object.assign(result, { params: ITag.params })
   return result
 }
 </script>

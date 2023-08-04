@@ -6,7 +6,7 @@
       :index="item.children[0].path"
       :key="item.children[0].path"
     >
-      <el-icon @click="handleFirstMenuRoute(item)">
+      <el-icon @click="handleToPath(item)">
         <component :is="item.meta?.icon" />
       </el-icon>
       <template #title>
@@ -26,7 +26,7 @@
         :index="childItem.redirect || childItem.path"
         :key="childItem.path"
       >
-        <app-link :to="childItem.path"> {{ childItem.meta.title }} </app-link>
+        <app-link :to="childItem.path"> {{ getTitle(childItem) }} </app-link>
       </el-menu-item>
     </el-sub-menu>
   </el-menu>
@@ -60,10 +60,18 @@ const currentOpenMenu = () => {
   return route.fullPath
 }
 
-function handleFirstMenuRoute(item: RouteRecordRaw) {
+const handleToPath = (item: RouteRecordRaw) => {
   router.push({
     path: item.path
   })
+}
+
+const getTitle = (item: RouteRecordRaw) => {
+  if (item.children && item.children.length > 1) {
+    let showItem = item.children.filter((i) => !i.meta!.hidden)[0]
+    return showItem.meta!.title
+  }
+  return item.meta!.title
 }
 </script>
 

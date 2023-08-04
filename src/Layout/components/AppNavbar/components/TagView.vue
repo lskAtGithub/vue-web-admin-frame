@@ -1,23 +1,12 @@
 <template>
   <div class="tab-control">
-    <el-button
-      class="suspension"
-      :icon="ArrowLeft"
-      :disabled="isBack"
-      circle
-      size="small"
-      @click="handleGoBack"
-    />
-    <el-button class="suspension" :icon="Refresh" circle size="small" @click="handleRefresh" />
     <div class="tab-box">
       <router-link
         class="tag-item suspension"
         :class="{ active: isActive(tag) }"
         v-for="tag in tagViewList"
         :key="tag.path"
-        :to="tag.path"
-        :params="tag.params"
-        :query="tag.query"
+        :to="getToPath(tag)"
       >
         <span class="tag--title">{{ tag.title }}</span>
         <el-icon v-if="!tag.affix" class="close--icon" @click.prevent.stop="removeTab(tag)">
@@ -33,8 +22,10 @@ import useStore from '@/store/index'
 import { computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
-import type { ITagItem } from '@/Types/TagView'
 import { Close } from '@element-plus/icons-vue'
+import ToolUtils from '@/utils/ToolUtils'
+
+import type { ITagItem } from '@/Types/TagView'
 
 const route = useRoute()
 const router = useRouter()
@@ -58,7 +49,7 @@ watch(
   { immediate: true }
 )
 
-const tagViewList = computed(() => tagview.tagViewList)
+const tagViewList = computed<ITagItem[]>(() => tagview.tagViewList)
 const isBack = computed(() => {
   const currentRoute = route.matched[route.matched.length - 1]
   if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
@@ -84,14 +75,12 @@ const isActive = (tag: ITagItem): boolean => {
   return route.path === tag.path
 }
 
-const handleGoBack = () => {
-  router.go(-1)
-}
-
-const handleRefresh = () => {
-  router.replace({
-    path: '/redirect' + route.fullPath
-  })
+const getToPath = (tag: ITagItem) => {
+  const ITag = JSON.parse(JSON.stringify(tag))
+  const result = { path: ITag.path }
+  if (ToolUtils.isEmptyObject(ITag.query)) Object.assign(result, { query: ITag.query })
+  if (ToolUtils.isEmptyObject(ITag.params)) Object.assign(result, { params: ITag.params })
+  return result
 }
 </script>
 
@@ -99,7 +88,7 @@ const handleRefresh = () => {
 @import '@/styles/variables.scss';
 
 .suspension {
-  box-shadow: 0 0 5px #aaa;
+  box-shadow: 0 0 5px #ccc;
 
   &:hover {
     box-shadow: inset 0 0 3px 0px #ddd;
@@ -111,10 +100,9 @@ const handleRefresh = () => {
   align-items: center;
   padding: 2px 15px;
   border-radius: 3px;
-  height: 40px;
+  height: 46px;
 
   .tab-box {
-    margin-left: 20px;
     white-space: nowrap;
     overflow-x: auto;
 
@@ -124,7 +112,7 @@ const handleRefresh = () => {
       display: inline-block;
       padding: 6px 15px;
       font-size: $--font-size;
-      margin: 3px 4px;
+      margin: 3px 6px;
       border-radius: 5px;
       color: #666;
 
@@ -139,7 +127,7 @@ const handleRefresh = () => {
       }
 
       &.active {
-        box-shadow: inset 0 0 10px 0px #ccc;
+        box-shadow: inset 0 0 3px 0px #ddd;
         color: $--theme-color;
       }
 

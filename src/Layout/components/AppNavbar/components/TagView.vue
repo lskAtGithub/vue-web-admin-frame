@@ -21,7 +21,6 @@
 import useStore from '@/store/index'
 import { computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ArrowLeft, Refresh } from '@element-plus/icons-vue'
 import { Close } from '@element-plus/icons-vue'
 import ToolUtils from '@/utils/ToolUtils'
 
@@ -50,13 +49,6 @@ watch(
 )
 
 const tagViewList = computed<ITagItem[]>(() => tagview.tagViewList)
-const isBack = computed(() => {
-  const currentRoute = route.matched[route.matched.length - 1]
-  if (currentRoute.meta?.activeMenu && currentRoute.meta?.noTagView) {
-    return false
-  }
-  return true
-})
 
 const removeTab = (tag: ITagItem) => {
   tagview.removeTagView(tag)

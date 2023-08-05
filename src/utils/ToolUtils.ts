@@ -97,7 +97,7 @@ export default class ToolUtils {
    * @description 判断传入的值是否为{} 且 {}上有定义的属性
    * @returns {boolean}
    */
-  static isEmptyObject(obj: any) {
+  static notEmptyObject(obj: any) {
     if(typeof obj !== 'object') return false
     let result:number = 0
     for (const key in obj) {

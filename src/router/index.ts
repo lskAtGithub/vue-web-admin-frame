@@ -11,12 +11,13 @@ import components from './modules/components'
  * @param redirect: 重定向地址,如果包含了children,那么这个路径是必填且对应children中的路径,否则会影响动态加载
  * @param meta: {
  *    @param icon: 图标
- *    @param title 标题，对应侧边栏显示和面包屑显示
+ *    @param title: 标题，对应侧边栏显示和面包屑显示
  *    @param noBreadCrumbs: 是否显示面包屑， 默认显示， 如果false则不会显示改路由的层级
  *    @param keepAlive: 是否开始缓存，默认不缓存
- *    @param noTagView: 是否不显示tagView， 默认都会显示
+ *    @param noTagView: 是否不显示tagView， 默认为false， 即开启 tagview
+ *    @param affix: 是否固定在tagview, 设置 affix: true 则 noTagView 不能为 true
  *    @param activeMenu: 接受一个路由路径，对应左侧激活的菜单栏， 同时也会影响到动态加载的路由
- *    @param hidden 是否在菜单栏显示
+ *    @param hidden: 是否在菜单栏显示
  * }
  * @param children: 子路由，多级路由通过children实现
  */
@@ -31,7 +32,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         name: 'HomePage',
         path: '/home/homePage',
-        meta: { title: '首页', icon: 'House', keepAlive: true },
+        meta: { title: '首页', icon: 'House', keepAlive: true, affix: true },
         component: () => import('@/views/Home/index.vue')
       }
     ]
@@ -59,18 +60,6 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/login',
     meta: { title: '登录', hidden: true },
     component: () => import('@/views/login/index.vue')
-  },
-  {
-    path: '/redirect',
-    component: Layout,
-    meta: { hidden: true, noTagView: true },
-    children: [
-      {
-        meta: { noTagView: true },
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index.vue')
-      }
-    ]
   },
   {
     path: '/:catchAll(.*)',

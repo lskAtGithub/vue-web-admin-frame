@@ -45,20 +45,20 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         name: 'UserInfo',
         path: '/userInfo',
-        meta: { title: '个人中心' },
+        meta: { title: '个人中心', keepAlive: false },
         component: () => import('@/views/user/UserInfo.vue')
       },
       {
         name: 'ChangePwd',
         path: '/changePwd',
-        meta: { title: '修改密码' },
+        meta: { title: '修改密码', keepAlive: false },
         component: () => import('@/views/user/ChangePwd.vue')
       }
     ]
   },
   {
     path: '/login',
-    meta: { title: '登录', hidden: true },
+    meta: { title: '登录', hidden: true, noTagView: true },
     component: () => import('@/views/login/index.vue')
   },
   {

@@ -45,7 +45,7 @@ const route: RouteRecordRaw = {
             activeMenu: '/manage/table/list',
             hidden: true,
             noTagView: false,
-            keepAlive: true
+            keepAlive: false
           },
           component: () => import('@/views/pagesManage/manage/add/index.vue')
         },

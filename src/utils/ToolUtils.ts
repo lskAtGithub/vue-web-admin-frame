@@ -4,6 +4,10 @@ interface KeyValueObject {
 
 type FormatType = 'Time' | 'DateTime' | 'Date'
 
+interface CommonObject<T> {
+  [key: string]: T
+}
+
 export default class ToolUtils {
   /**
    * @param {object} obj
@@ -93,17 +97,37 @@ export default class ToolUtils {
   }
 
   /**
-   * @param {Object} obj 
+   * @param {Object} obj
    * @description 判断传入的值是否为{} 且 {}上有定义的属性
    * @returns {boolean}
    */
   static notEmptyObject(obj: any) {
-    if(typeof obj !== 'object') return false
-    let result:number = 0
+    if (typeof obj !== 'object') return false
+    let result: number = 0
     for (const key in obj) {
       result++
     }
 
     return !!result
+  }
+
+  /**
+   * @param {Object} obj
+   * @param {Object} obj
+   * @description 判断传入的两个对象是否值一致
+   * @returns {boolean}
+   */
+  static objectIsEqual(obj1: CommonObject<Object>, obj2: CommonObject<Object>): boolean {
+    const arr1 = Object.keys(obj1)
+    const arr2 = Object.keys(obj2)
+    // 比较两个数组长度是否一致， 不一致则不相等
+    if (arr1.length != arr2.length) return false
+    // 遍历对象，看对象的值是否相等
+    for (const k in obj1) {
+      if (typeof obj1[k] == 'object' && typeof obj1[k] == 'object') {
+        return this.objectIsEqual(obj1[k] as CommonObject<Object>, obj2[k] as CommonObject<Object>)
+      } else if (obj1[k] !== obj2[k]) return false
+    }
+    return true
   }
 }

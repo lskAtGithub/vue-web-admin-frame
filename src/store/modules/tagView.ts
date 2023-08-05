@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import ToolUtils from '@/utils/ToolUtils'
 
 import type { ITagItem } from '@/Types/TagView'
 import type { RouteRecordRaw } from 'vue-router'
@@ -60,7 +61,22 @@ const tagViewStore = defineStore('tagViewStore', {
       if (!result) {
         this.tagViewList.push(item)
       } else {
-        this.tagViewList[(result as IResult).index] = { ...(result as IResult) }
+        // 判断当前修改 params 是否为同一个， 如果不是的话需要重载
+        const obj1 = JSON.parse(
+          JSON.stringify(this.tagViewList[(result as IResult).index].params || {})
+        )
+        const obj2 = JSON.parse(JSON.stringify((result as IResult).params || {}))
+        if (ToolUtils.notEmptyObject(obj2)) {
+          if (!ToolUtils.objectIsEqual(obj1, obj2)) {
+            const name: string = (result as IResult).name
+            const index = this.cacheList.indexOf(name)
+            this.cacheList.splice(index, 1)
+            this.tagViewList[(result as IResult).index] = { ...(result as IResult) }
+            setTimeout(() => {
+              this.cacheList.push(name)
+            }, 500)
+          }
+        }
       }
     },
     /**

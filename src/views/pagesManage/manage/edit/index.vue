@@ -1,12 +1,11 @@
 <template>
   <container>
     <h2>hi, {{ data.name }}</h2>
-    <input type="text">
-    <p>页面通过 query 来传id, 每次打开都是一个新的tagview</p>
+    <el-input type="text" v-model="value" />
   </container>
 </template>
 <script setup lang="ts" name="TableManageEdit">
-import { onActivated, reactive } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Container from '@/components/Container.vue'
 import { useTableData } from '../hooks/index'
@@ -14,6 +13,7 @@ import { useTableData } from '../hooks/index'
 import type { ListItem } from '../hooks/type'
 
 const route = useRoute()
+let value = ref('')
 const data = reactive<ListItem>({
   id: '',
   date: '',
@@ -24,11 +24,7 @@ const data = reactive<ListItem>({
   age: '',
   tag: ''
 })
-
-onActivated(() => {
-  const listitem = useTableData[Number(route.params.id) - 1]
-  Object.assign(data, listitem)
-})
+onMounted(() => console.log(1234))
 </script>
 
 <style scoped lang="scss"></style>

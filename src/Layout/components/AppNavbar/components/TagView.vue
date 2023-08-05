@@ -33,6 +33,9 @@ const { tagview } = useStore()
 watch(
   () => router.currentRoute.value,
   (newValue) => {
+    if (route.meta.keepAlive && route.name) {
+      tagview.addCacheList(route.name as string)
+    }
     if (!route.meta.noTagView) {
       let path = newValue.path
       if (ToolUtils.notEmptyObject(newValue.params)) {
@@ -45,9 +48,6 @@ watch(
         query: newValue.query,
         params: newValue.params
       })
-    }
-    if (route.meta.keepAlive && route.name) {
-      tagview.addCacheList(route.name as string)
     }
   },
   { immediate: true }

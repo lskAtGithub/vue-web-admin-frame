@@ -75,6 +75,10 @@ const isActive = (tag: ITagItem): boolean => {
   if (route.meta.noTagView && route.meta.activeMenu) {
     return route.meta.activeMenu === tag.path
   }
+  if(ToolUtils.notEmptyObject(tag)) {
+    let path = route.matched[route.matched.length - 1].path
+    return path === tag.path
+  }
   return route.path === tag.path
 }
 

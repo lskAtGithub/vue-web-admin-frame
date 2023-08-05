@@ -3,10 +3,14 @@ import { defineStore } from 'pinia'
 import type { ITagItem } from '@/Types/TagView'
 import type { RouteRecordRaw } from 'vue-router'
 
-function hasIncludeTab(item: ITagItem, arr: Array<ITagItem>): boolean | ITagItem {
+interface IResult extends ITagItem {
+  index: number
+}
+
+function hasIncludeTab(item: ITagItem, arr: Array<ITagItem>): boolean | IResult {
   for (let index = 0; index < arr.length; index++) {
     const element = arr[index]
-    if (element.path === item.path) return item
+    if (element.path === item.path) return { ...item, index }
   }
   return false
 }
@@ -15,8 +19,8 @@ function getAffix(arr: RouteRecordRaw[], result: ITagItem[]): ITagItem[] {
   arr.map((item) => {
     if (item.meta?.affix) {
       let current = JSON.parse(JSON.stringify(item))
-      console.log(current)
       result.push({
+        name: current,
         path: current.path,
         title: current.meta.title,
         query: current.query,
@@ -44,7 +48,6 @@ const tagViewStore = defineStore('tagViewStore', {
      */
     initTagViewList(router: RouteRecordRaw[]) {
       getAffix(router, this.tagViewList)
-      console.log(this.tagViewList)
     },
 
     /**
@@ -52,13 +55,12 @@ const tagViewStore = defineStore('tagViewStore', {
      * @param index
      * @description 添加 tag view 信息
      */
-    addTagView(item: ITagItem, index?: number) {
-      if (!hasIncludeTab(item, this.tagViewList)) {
-        if (index != undefined) {
-          this.tagViewList.splice(index, 0, item)
-        } else {
-          this.tagViewList.push(item)
-        }
+    addTagView(item: ITagItem) {
+      const result = hasIncludeTab(item, this.tagViewList)
+      if (!result) {
+        this.tagViewList.push(item)
+      } else {
+        this.tagViewList[(result as IResult).index] = { ...(result as IResult) }
       }
     },
     /**

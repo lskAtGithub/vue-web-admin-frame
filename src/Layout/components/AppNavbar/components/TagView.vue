@@ -34,8 +34,13 @@ watch(
   () => router.currentRoute.value,
   (newValue) => {
     if (!route.meta.noTagView) {
+      let path = newValue.path
+      if (ToolUtils.notEmptyObject(newValue.params)) {
+        path = newValue.matched[newValue.matched.length - 1].path
+      }
       tagview.addTagView({
-        path: newValue.path,
+        name: newValue.name as string,
+        path,
         title: newValue.meta.title as string,
         query: newValue.query,
         params: newValue.params
@@ -54,7 +59,7 @@ const removeTab = (tag: ITagItem) => {
   tagview.removeTagView(tag)
   if (isActive(tag)) {
     const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
-    if(endRoute) {
+    if (endRoute) {
       router.push({
         path: endRoute.path
       })
@@ -74,10 +79,16 @@ const isActive = (tag: ITagItem): boolean => {
 }
 
 const getToPath = (tag: ITagItem) => {
-  const ITag = JSON.parse(JSON.stringify(tag))
-  const result = { path: ITag.path }
-  if (ToolUtils.isEmptyObject(ITag.query)) Object.assign(result, { query: ITag.query })
-  return result
+  if (ToolUtils.notEmptyObject(tag.params)) {
+    return {
+      name: tag.name,
+      params: tag.params
+    }
+  }
+  return {
+    path: tag.path,
+    query: tag.query
+  }
 }
 </script>
 

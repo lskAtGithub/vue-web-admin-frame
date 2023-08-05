@@ -1,7 +1,7 @@
 <template>
   <container>
     <h2>嵌套多层 keep-alive 示例</h2>
-    <p> 详情每次都是再同一个 tagview 打开， 编辑会新打开一个tagview </p>
+    <p> 详情通过query传递id, 编辑通过params动态路由传递id </p>
     <el-row :gutter="20" class="search-box">
       <el-col :span="6">
         <el-input v-model="val1" placeholder="本页面已被缓存"></el-input>

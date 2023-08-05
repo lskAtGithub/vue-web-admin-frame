@@ -32,7 +32,7 @@ const { tagview } = useStore()
 
 watch(
   () => router.currentRoute.value,
-  (newValue, oldValue) => {
+  (newValue) => {
     if (!route.meta.noTagView) {
       tagview.addTagView({
         path: newValue.path,
@@ -54,9 +54,15 @@ const removeTab = (tag: ITagItem) => {
   tagview.removeTagView(tag)
   if (isActive(tag)) {
     const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
-    router.push({
-      path: endRoute.path
-    })
+    if(endRoute) {
+      router.push({
+        path: endRoute.path
+      })
+    } else {
+      router.push({
+        path: '/'
+      })
+    }
   }
 }
 

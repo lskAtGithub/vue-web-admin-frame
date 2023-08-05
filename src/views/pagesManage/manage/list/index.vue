@@ -1,10 +1,10 @@
 <template>
   <container>
     <h2>嵌套多层 keep-alive 示例</h2>
-    <p>详情每次都是再同一个 tagview 打开， 编辑会新打开一个tagview </p>
+    <p> 详情每次都是再同一个 tagview 打开， 编辑会新打开一个tagview </p>
     <el-row :gutter="20" class="search-box">
       <el-col :span="6">
-        <el-input v-model="val1" placeholder="输入的内容会被缓存"></el-input>
+        <el-input v-model="val1" placeholder="本页面已被缓存"></el-input>
       </el-col>
       <el-col :span="6">
         <el-input v-model="val2" placeholder="可以在此输入内容后"></el-input>
@@ -42,7 +42,7 @@ import { ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useTableData } from '../hooks/index'
 
-import type { ListItem } from './type'
+import type { ListItem } from '../hooks/type'
 
 const router = useRouter()
 const val1 = ref('')
@@ -71,7 +71,7 @@ const onEdit = (row: ListItem) => {
 }
 
 const onRemove = () => {
-  ElMessageBox.confirm('正在执行删除操作，是否继续?', 'Warning', {
+  ElMessageBox.confirm('正在执行删除操作，是否继续?', '提示', {
     confirmButtonText: '确 认',
     cancelButtonText: '取 消',
     type: 'warning'

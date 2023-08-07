@@ -132,6 +132,7 @@ export default class ToolUtils {
     }
     return true
   }
+  
   /**
    * @description 获取一个唯一id（uuid）
    * @returns {string}

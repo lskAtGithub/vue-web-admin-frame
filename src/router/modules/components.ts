@@ -30,6 +30,12 @@ const route: RouteRecordRaw = {
       meta: { title: '高德地图' },
       path: '/component/AMap',
       component: () => import('@/views/componentsManage/GeoMap.vue')
+    },
+    {
+      name: 'Tinymce',
+      meta: { title: '富文本' },
+      path: '/component/tinymce',
+      component: () => import('@/views/componentsManage/Tinymce.vue')
     }
   ]
 }

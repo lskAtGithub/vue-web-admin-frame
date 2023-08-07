@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 interface KeyValueObject {
   [key: string]: any
 }
@@ -105,5 +107,12 @@ export default class ToolUtils {
     }
 
     return !!result
+  }
+  /**
+   * @description 获取一个唯一id（uuid）
+   * @returns {string}
+   */
+  static getKey(): string {
+    return uuidv4()
   }
 }

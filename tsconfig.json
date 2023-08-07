@@ -2,7 +2,7 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
     "env.d.ts",
-    "global.d.ts",
+    "window.d.ts",
     "src/**/*",
     "src/**/*.vue",
     "mock"

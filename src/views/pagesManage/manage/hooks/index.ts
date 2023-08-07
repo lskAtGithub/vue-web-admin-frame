@@ -1,4 +1,4 @@
-import type { ListItem } from '../list/type'
+import type { ListItem } from './type'
 
 const useTableData: ListItem[] = [
   {

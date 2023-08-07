@@ -1,17 +1,30 @@
 <template>
   <container>
     <h2>hi, {{ data.name }}</h2>
-    <p>页面通过 query 来传id, 每次打开都是一个新的tagview</p>
+    <el-input type="text" v-model="value" />
   </container>
 </template>
 <script setup lang="ts" name="TableManageEdit">
+import { onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Container from '@/components/Container.vue'
 import { useTableData } from '../hooks/index'
 
-const route = useRoute()
+import type { ListItem } from '../hooks/type'
 
-const data = useTableData[Number(route.params.id) - 1]
+const route = useRoute()
+let value = ref('')
+const data = reactive<ListItem>({
+  id: '',
+  date: '',
+  name: '',
+  state: '',
+  city: '',
+  address: '',
+  age: '',
+  tag: ''
+})
+onMounted(() => console.log(1234))
 </script>
 
 <style scoped lang="scss"></style>

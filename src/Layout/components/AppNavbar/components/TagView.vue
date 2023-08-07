@@ -32,17 +32,22 @@ const { tagview } = useStore()
 
 watch(
   () => router.currentRoute.value,
-  (newValue, oldValue) => {
+  (newValue) => {
+    if (route.meta.keepAlive && route.name) {
+      tagview.addCacheList(route.name as string)
+    }
     if (!route.meta.noTagView) {
+      let path = newValue.path
+      if (ToolUtils.notEmptyObject(newValue.params)) {
+        path = newValue.matched[newValue.matched.length - 1].path
+      }
       tagview.addTagView({
-        path: newValue.path,
+        name: newValue.name as string,
+        path,
         title: newValue.meta.title as string,
         query: newValue.query,
         params: newValue.params
       })
-    }
-    if (route.meta.keepAlive && route.name) {
-      tagview.addCacheList(route.name as string)
     }
   },
   { immediate: true }
@@ -54,9 +59,15 @@ const removeTab = (tag: ITagItem) => {
   tagview.removeTagView(tag)
   if (isActive(tag)) {
     const endRoute = tagview.tagViewList[tagview.tagViewList.length - 1] as ITagItem
-    router.push({
-      path: endRoute.path
-    })
+    if (endRoute) {
+      router.push({
+        path: endRoute.path
+      })
+    } else {
+      router.push({
+        path: '/'
+      })
+    }
   }
 }
 
@@ -64,14 +75,24 @@ const isActive = (tag: ITagItem): boolean => {
   if (route.meta.noTagView && route.meta.activeMenu) {
     return route.meta.activeMenu === tag.path
   }
+  if(ToolUtils.notEmptyObject(tag)) {
+    let path = route.matched[route.matched.length - 1].path
+    return path === tag.path
+  }
   return route.path === tag.path
 }
 
 const getToPath = (tag: ITagItem) => {
-  const ITag = JSON.parse(JSON.stringify(tag))
-  const result = { path: ITag.path }
-  if (ToolUtils.isEmptyObject(ITag.query)) Object.assign(result, { query: ITag.query })
-  return result
+  if (ToolUtils.notEmptyObject(tag.params)) {
+    return {
+      name: tag.name,
+      params: tag.params
+    }
+  }
+  return {
+    path: tag.path,
+    query: tag.query
+  }
 }
 </script>
 

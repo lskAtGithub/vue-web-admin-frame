@@ -14,14 +14,14 @@ const route: RouteRecordRaw = {
     },
     {
       name: 'TableManage',
-      meta: { keepAlive: true, title: '增删改查' },
+      meta: { keepAlive: true, title: '表格示例' },
       path: '/manage/table',
       redirect: '/manage/table/list',
       component: () => import('@/views/pagesManage/manage/index.vue'),
       children: [
         {
           name: 'TableManageList',
-          meta: { title: '嵌套多层 keep-alive', noBreadCrumbs: true, keepAlive: true },
+          meta: { title: '业务场景', noBreadCrumbs: true, keepAlive: true },
           path: '/manage/table/list',
           component: () => import('@/views/pagesManage/manage/list/index.vue')
         },
@@ -45,7 +45,7 @@ const route: RouteRecordRaw = {
             activeMenu: '/manage/table/list',
             hidden: true,
             noTagView: false,
-            keepAlive: true
+            keepAlive: false
           },
           component: () => import('@/views/pagesManage/manage/add/index.vue')
         },

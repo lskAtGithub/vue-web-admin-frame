@@ -9,7 +9,7 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const { user, routeStore, permission, tagview } = useStore()
 
-const whiteList = ['/login'] // no redirect whitelist
+const whiteList = ['/login', '/component/AMap'] // no redirect whitelist
 
 router.beforeEach(
   async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {

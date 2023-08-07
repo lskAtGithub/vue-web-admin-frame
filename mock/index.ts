@@ -5,19 +5,19 @@ Mock.setup({
   timeout: 600
 })
 
-Mock.mock('/mock/getMenu', {
+Mock.mock('/mockJs/getMenu', {
   code: 200,
   data: Menu,
   msg: 'success'
 })
 
-Mock.mock('/mock/getPermission', {
+Mock.mock('/mockJs/getPermission', {
   code: 200,
   data: ['admin'],
   msg: 'success'
 })
 
-Mock.mock('/mock/login','post', (options: any) => {
+Mock.mock('/mockJs/login','post', (options: any) => {
   const body = JSON.parse(options.body)
   if (body.account !== 'admin') {
     return { code: 400, data: null, msg: '账号有误' }
@@ -34,7 +34,7 @@ Mock.mock('/mock/login','post', (options: any) => {
   }
 })
 
-Mock.mock('/mock/userInfo', {
+Mock.mock('/mockJs/userInfo', {
   code: 200,
   data: {
     account: 'admin',

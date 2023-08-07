@@ -7,7 +7,7 @@ import type { RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const { user, routeStore, permission } = useStore()
+const { user, routeStore, permission, tagview } = useStore()
 
 const whiteList = ['/login'] // no redirect whitelist
 
@@ -25,12 +25,14 @@ router.beforeEach(
         } else {
           try {
             await user.getUserInfo()
-            await routeStore.setRoutes()
+            const router = await routeStore.setRoutes()
             await permission.getPermissions()
+            tagview.initTagViewList(router)
             next({ ...to, replace: true })
             NProgress.done()
           } catch (error: unknown) {
             routeStore.resetRoutes()
+            tagview.resetTagViewList()
             user.resetUserInfo()
             next({ path: `/login?redirect=${to.fullPath}` })
             NProgress.done()

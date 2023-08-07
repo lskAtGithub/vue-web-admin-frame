@@ -91,7 +91,7 @@ function filterRoutes(arrData: Array<any>): Array<RouteRecordRaw> {
 const routerStore = defineStore('routerStore', {
   state: () => {
     return {
-      routes: constantRoutes,
+      routes: constantRoutes as RouteRecordRaw[],
       flattenRouters: [] as RouteRecordRaw[]
     }
   },
@@ -99,6 +99,7 @@ const routerStore = defineStore('routerStore', {
     /**
      * @param
      * @description 动态比对添加路由权限
+     * @returns RouteRecordRaw[]
      */
     async setRoutes() {
       const res: any = await getMenu()
@@ -108,6 +109,7 @@ const routerStore = defineStore('routerStore', {
       })
       this.routes = constantRoutes.concat(routes)
       this.setFlattenRouters()
+      return this.routes
     },
 
     /**

@@ -6,7 +6,7 @@
   </div>
 </template>
 <script setup lang="ts" name="TinymceComponents">
-import { ref, onMounted, watchEffect, nextTick, onUnmounted } from 'vue'
+import { ref, onMounted, watch, nextTick, onUnmounted } from 'vue'
 import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'
@@ -15,8 +15,7 @@ import { ElMessage } from 'element-plus'
 
 import type { Ref } from 'vue'
 
-let tinymceId = ToolUtils.getKey()
-
+let tinymceId: string = ToolUtils.getKey()
 let loading: Ref<boolean> = ref(false)
 let fullscreen: Ref<boolean> = ref(false)
 let hasChange: Ref<boolean> = ref(false)
@@ -111,12 +110,14 @@ const destroyTinymce = () => {
   }
 }
 
-// watchEffect((val) => {
-//   if (hasChange.value && hasInit.value) {
-//     console.log('???')
-//     nextTick(() => window.tinymce.get(tinymceId).setContent(val || ''))
-//   }
-// })
+watch(
+  () => props.value,
+  (val) => {
+    if (hasChange.value && hasInit.value) {
+      nextTick(() => window.tinymce.get(tinymceId).setContent(val || ''))
+    }
+  }
+)
 
 onMounted(() => init())
 onUnmounted(() => destroyTinymce())

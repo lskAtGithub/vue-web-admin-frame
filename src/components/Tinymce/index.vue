@@ -6,7 +6,7 @@
   </div>
 </template>
 <script setup lang="ts" name="TinymceComponents">
-import { ref, computed, onMounted, watchEffect, nextTick } from 'vue'
+import { ref, onMounted, watchEffect, nextTick } from 'vue'
 import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'

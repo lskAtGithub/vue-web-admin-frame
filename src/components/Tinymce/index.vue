@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-loading="loading" class="tinymce-container" :style="{ width: props.width }">
+    <div
+      v-loading="loading"
+      class="tinymce-container"
+      :class="{ dark: isDark }"
+      :style="{ width: props.width }"
+    >
       <textarea :id="tinymceId" class="tinymce-textarea"></textarea>
     </div>
   </div>
@@ -12,6 +17,7 @@ import toolbar from './toolbar'
 import load from './dynamicLoadScript'
 import ToolUtils from '@/utils/ToolUtils'
 import { ElMessage } from 'element-plus'
+import { isDark } from '@/composables/dark'
 
 import type { Ref } from 'vue'
 
@@ -123,4 +129,8 @@ onMounted(() => init())
 onUnmounted(() => destroyTinymce())
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.dark {
+  filter: invert(1);
+}
+</style>

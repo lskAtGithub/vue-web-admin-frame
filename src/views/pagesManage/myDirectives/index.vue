@@ -23,12 +23,19 @@
     </section>
     <el-divider border-style="dashed" />
     <section>
+      <h3>draggable 拖拽</h3>
+      <div id="draggableBox">
+        <div class="item" v-draggable:draggableBox>仅限父元素拖拽</div>
+      </div>
+    </section>
+    <el-divider border-style="dashed" />
+    <section>
       <h3>lazyImg 图片懒加载指令</h3>
       <p class="lazy-img-box" v-for="(item, index) in imgs" :key="index">
         <img
           v-lazy-img="{
             url: item,
-            once: !!(index === 2),
+            once: !!(index !== 2),
             callback: (arg: IntersectionObserverEntry) => loadCallback(arg, index)
           }"
           class="img-item"
@@ -76,7 +83,7 @@ const reload = () => {
 const loadCallback = (arg: IntersectionObserverEntry, index: number) => {
   ElMessage.success(
     `第${index + 1}张图片出现在可视窗， 已加载, 
-    ${index !== 2 ? '每次出现在窗口都会执行一次该回调' : '该回调仅执行一次'}`
+    ${index === 2 ? '每次出现在窗口都会执行一次该回调' : '该回调仅执行一次'}`
   )
 }
 </script>
@@ -94,6 +101,20 @@ const loadCallback = (arg: IntersectionObserverEntry, index: number) => {
     padding-top: 200px;
     .img-item {
       width: 100%;
+    }
+  }
+  #draggableBox {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+    .item {
+      font-size: 12px;
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+      background-color: #f60;
+      color: #fff;
     }
   }
 }

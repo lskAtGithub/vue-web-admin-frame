@@ -1,39 +1,15 @@
 [
   {
     "path": "/manage",
-    "meta": {
-      "icon": "Tickets",
-      "title": "页面管理"
-    },
     "children": [
       {
-        "path": "/manage/table/list",
-        "meta": { "title": "表格页" }
+        "path": "/manage/table/list"
       },
       {
-        "meta": { "title": "全局错误监听" },
         "path": "/manage/error/page"
-      }
-    ]
-  },
-  {
-    "path": "/component",
-    "meta": {
-      "icon": "Tickets",
-      "title": "组件展示"
-    },
-    "children": [
-      {
-        "path": "/component/echarts",
-        "meta": { "title": "Echarts" }
       },
       {
-        "path": "/component/countup",
-        "meta": { "title": "数字滚动" }
-      },
-      {
-        "path": "/component/pagerTable",
-        "meta": { "title": "表格组件" }
+        "path": "/manage/myDirectives"
       }
     ]
   }

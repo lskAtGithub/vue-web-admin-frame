@@ -13,6 +13,12 @@ const route: RouteRecordRaw = {
       component: () => import('@/views/pagesManage/error/index.vue')
     },
     {
+      name: 'MyDirectives',
+      meta: { title: '自定义指令示例' },
+      path: '/manage/myDirectives',
+      component: () => import('@/views/pagesManage/myDirectives/index.vue')
+    },
+    {
       name: 'TableManage',
       meta: { keepAlive: true, title: '表格示例' },
       path: '/manage/table',

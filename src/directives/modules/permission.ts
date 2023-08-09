@@ -2,16 +2,21 @@ import useStore from '@/store/index'
 import type { Directive, DirectiveBinding } from 'vue'
 
 const { permission } = useStore()
-const { permissions } = permission
 
 function checkPermission(el: Element, binding: { value: any }) {
   const { value } = binding
+  const { permissions } = permission
   if (value && value instanceof Array) {
     if (value.length > 0) {
-      const permissionRoles = value
-      const hasPermission = permissions.some((role) => {
-        return permissionRoles.includes(role)
-      })
+      let index: number = 0
+      let hasPermission: boolean = false
+      while (index < value.length) {
+        if (permissions.includes(value[index])) {
+          hasPermission = true
+          break
+        }
+        index++
+      }
       if (!hasPermission) {
         el.parentNode && el.parentNode.removeChild(el)
       }
@@ -22,7 +27,7 @@ function checkPermission(el: Element, binding: { value: any }) {
 }
 
 const instance: Directive = {
-  created(el: HTMLElement, binding: DirectiveBinding) {
+  mounted(el: HTMLElement, binding: DirectiveBinding) {
     checkPermission(el, binding)
   },
   updated(el: HTMLElement, binding: DirectiveBinding) {

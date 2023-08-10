@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const route: RouteRecordRaw = {
   path: '/component',
-  meta: { title: '内置组件示例', icon: 'FolderOpened', keepAlive: false },
+  meta: { title: '组件', icon: 'component', keepAlive: false },
   redirect: '/component/echarts',
   component: Layout,
   children: [

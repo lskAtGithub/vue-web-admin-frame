@@ -16,9 +16,13 @@
 
     <el-sub-menu v-for="item in childRoute" :index="item.redirect || item.path" :key="item.path">
       <template #title>
-        <el-icon>
+        <el-icon v-if="isElIcon(item.meta?.icon)">
           <component :is="item.meta?.icon" />
         </el-icon>
+        <i v-else class="svg-box">
+          <svg-icon class-name="svg-icon" :icon-class="item.meta?.icon" />
+        </i>
+
         <span>{{ item.meta?.title }}</span>
       </template>
       <el-menu-item
@@ -40,11 +44,13 @@ import useStore from '@/store'
 import AppLink from './AppLink.vue'
 import logo from './Logo.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const { routeStore, system } = useStore()
 const route = useRoute()
 const router = useRouter()
 const { isCollapse } = storeToRefs(system)
+const elIconNames = Object.keys(ElementPlusIconsVue)
 
 const onlyChildRoute: any = computed(() =>
   routeStore.routes.filter((item) => !item.meta?.hidden && item.children?.length === 1)
@@ -73,10 +79,30 @@ const getTitle = (item: RouteRecordRaw) => {
   }
   return item.meta!.title
 }
+
+const isElIcon = (iconName: string | null): boolean => {
+  if (iconName) {
+    return elIconNames.includes(iconName)
+  }
+  return false
+}
 </script>
 
 <style scoped lang="scss">
 .el-menu-vertical {
   height: 100%;
+}
+.svg-box {
+  margin-right: 5px;
+  width: 24px;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-flex;
+  fill: currentColor;
+  align-items: center;
+  justify-content: center;
+  .svg-icon {
+    font-size: 18px;
+  }
 }
 </style>

@@ -7,18 +7,13 @@
     "src/**/*.vue",
     "mock"
   ],
-  "lib": [
-    "dom"
-  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    }
   },
   "preserveValueImports": false,
   "references": [

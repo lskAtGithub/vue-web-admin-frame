@@ -8,6 +8,6 @@ export interface IUser {
 }
 
 export interface ILoginParam {
-  userName: string
+  account: string
   password: string
 }

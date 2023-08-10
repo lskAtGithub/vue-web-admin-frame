@@ -8,8 +8,8 @@ import ToolUtils from '@/utils/ToolUtils'
 
 /**
  *
- * @param routes
- * @param parentName
+ * @param { RouteRecordRaw[] } routes
+ * @param { unknown } parentName
  * @description 数组扁平化， 同时修改路由name为[父元素name -> name]
  * @returns flattenRoutes
  */
@@ -97,7 +97,6 @@ const routerStore = defineStore('routerStore', {
   },
   actions: {
     /**
-     * @param
      * @description 动态比对添加路由权限
      * @returns RouteRecordRaw[]
      */

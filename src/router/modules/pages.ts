@@ -7,12 +7,6 @@ const route: RouteRecordRaw = {
   component: Layout,
   children: [
     {
-      name: 'ErrorPage',
-      meta: { title: '全局错误监听' },
-      path: '/manage/error/page',
-      component: () => import('@/views/pagesManage/error/index.vue')
-    },
-    {
       name: 'MyDirectives',
       meta: { title: '自定义指令示例' },
       path: '/manage/myDirectives',

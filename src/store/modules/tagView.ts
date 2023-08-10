@@ -52,8 +52,7 @@ const tagViewStore = defineStore('tagViewStore', {
     },
 
     /**
-     * @param item
-     * @param index
+     * @param { ITagItem } item
      * @description 添加 tag view 信息
      */
     addTagView(item: ITagItem) {
@@ -80,7 +79,7 @@ const tagViewStore = defineStore('tagViewStore', {
       }
     },
     /**
-     * @param tag
+     * @param { ITagItem } tag
      * @description 删除 tag view
      */
     removeTagView(tag: ITagItem) {
@@ -93,7 +92,7 @@ const tagViewStore = defineStore('tagViewStore', {
       }
     },
     /**
-     * @param cacheName
+     * @param { string } cacheName
      * @description 添加 keep-alive 缓存
      */
     addCacheList(cacheName: string) {

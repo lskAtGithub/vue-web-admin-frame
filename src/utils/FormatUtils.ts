@@ -1,8 +1,8 @@
 export default class FormatUtils {
   /**
-   * @param {Array} arr
+   * @param { Array } arr
    * @description 数组扁平化函数
-   * @returns {Array}
+   * @returns { Array }
    */
   static flattenArray(arr: Array<any>) {
     while (arr.some((i) => Array.isArray(i))) {

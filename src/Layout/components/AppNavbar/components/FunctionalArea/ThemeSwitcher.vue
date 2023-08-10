@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { isDark, toggleDark } from '@/composables'
+import { isDark, toggleDark } from '@/composables/dark'
 import useStore from '@/store'
 
 const { system } = useStore()

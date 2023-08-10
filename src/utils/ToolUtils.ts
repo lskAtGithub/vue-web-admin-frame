@@ -12,8 +12,8 @@ interface CommonObject<T> {
 
 export default class ToolUtils {
   /**
-   * @param {object} obj
-   * @returns {object} newObj
+   * @param { object } obj
+   * @returns { object } newObj
    * @description 对象的深拷贝
    */
   static deepClone(obj: KeyValueObject): KeyValueObject {

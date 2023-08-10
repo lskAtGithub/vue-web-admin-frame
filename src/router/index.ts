@@ -4,6 +4,8 @@ import Layout from '@/Layout/index.vue'
 
 import pages from './modules/pages'
 import components from './modules/components'
+import error from './modules/error'
+import nested from './modules/nested'
 
 /**
  * @param path: 路由的访问路径
@@ -38,6 +40,20 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/errorlog',
+    component: Layout,
+    redirect: '/errorlog/handle',
+    meta: { icon: 'error-handle', noBreadCrumbs: true },
+    children: [
+      {
+        name: 'ErrorHandleDemo',
+        path: '/errorlog/handle',
+        meta: { title: 'errorHandle示例', icon: 'error-handle' },
+        component: () => import('@/views/pagesManage/error/index.vue')
+      }
+    ]
+  },
+  {
     path: '/userInfo',
     component: Layout,
     meta: { hidden: true },
@@ -62,11 +78,14 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/views/login/index.vue')
   },
   {
+    name: 'error404',
     path: '/:catchAll(.*)',
     meta: { hidden: true },
     component: () => import('@/views/error/404.vue')
   },
-  components
+  components,
+  nested,
+  error
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [pages]

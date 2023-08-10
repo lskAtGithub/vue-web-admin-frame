@@ -6,9 +6,12 @@
       :index="item.children[0].path"
       :key="item.children[0].path"
     >
-      <el-icon @click="handleToPath(item)">
+      <el-icon v-if="isElIcon(item.meta?.icon)" @click="handleToPath(item)">
         <component :is="item.meta?.icon" />
       </el-icon>
+      <i v-else class="svg-box" @click="handleToPath(item)">
+        <svg-icon class-name="svg-icon" :icon-class="item.meta?.icon" />
+      </i>
       <template #title>
         <app-link :to="item.children[0].path"> {{ item.children[0].meta.title }} </app-link>
       </template>

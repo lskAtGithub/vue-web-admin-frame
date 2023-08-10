@@ -12,7 +12,7 @@ const errorInfoStore = defineStore('errorInfoStore', {
   },
   actions: {
     /**
-     * @param
+     * @param { IErrorItem } errItem
      * @description 添加一条错误信息
      */
     addError(errItem: IErrorItem) {
@@ -22,7 +22,7 @@ const errorInfoStore = defineStore('errorInfoStore', {
     },
 
     /**
-     * @param id
+     * @param { number } id
      * @description 删除某个错误信息
      */
     removeError(id: number) {

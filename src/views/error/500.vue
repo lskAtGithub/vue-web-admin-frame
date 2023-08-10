@@ -1,16 +1,17 @@
 <template>
-  <div class="container">
+  <container class="container">
     <p>
-      <img class="icon" :src="error" alt="404" />
+      <img class="icon" :src="error" alt="500" />
     </p>
-    <p class="desc">抱歉，页面找不到了，您可以返回首页或者与我们联系</p>
+    <p class="desc">抱歉，服务器内部错误，无法完成请求</p>
     <el-button type="primary" @click="onBack"> 返回首页 </el-button>
-  </div>
+  </container>
 </template>
 
-<script setup lang="ts" name="error404">
+<script setup lang="ts" name="error500">
+import Container from '@/components/Container.vue'
+import error from '@/assets/error/500.png'
 import { useRouter } from 'vue-router'
-import error from '@/assets/error/404.png'
 
 const router = useRouter()
 const onBack = () => {
@@ -20,9 +21,6 @@ const onBack = () => {
 
 <style scoped lang="scss">
 .container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   text-align: center;
 
   .desc {
@@ -30,7 +28,7 @@ const onBack = () => {
     color: #333;
   }
   .icon {
-    width: 40vw;
+    width: 35vw;
   }
 }
 </style>

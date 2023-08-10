@@ -20,18 +20,17 @@ const userStore = defineStore('userStore', {
   },
   actions: {
     /**
-     * @param ILoginParam 
+     * @param { ILoginParam } loginParam 
      * @description 登录
      * @returns res
      */
-    async userLogin(ILoginParam: ILoginParam) {
-      const res = await getToken(ILoginParam)
+    async userLogin(loginParam: ILoginParam) {
+      const res = await getToken(loginParam)
       this.token = res.data.token
       Cookies.set('token', res.data.token)
       return res
     },
     /**
-     * @param
      * @description 获取用户信息
      */
     async getUserInfo(): Promise<void> {

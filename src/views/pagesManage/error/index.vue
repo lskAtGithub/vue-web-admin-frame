@@ -7,7 +7,7 @@
   </container>
 </template>
 
-<script setup lang="ts" name="ErrorPage">
+<script setup lang="ts" name="ErrorHandleDemo">
 import Container from '@/components/Container.vue'
 import { ElMessage } from 'element-plus'
 import { errorApi } from '@/api/error/index'

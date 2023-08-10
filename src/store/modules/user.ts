@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { getToken, getUserInfo } from '@/api/user'
 import Cookies from 'js-cookie'
-import type { ILoginParam } from '@/api/user/types'
+import type { ILoginParam } from '@/Types/User'
 import type { IUser } from '@/Types/User'
 
 const userStore = defineStore('userStore', {

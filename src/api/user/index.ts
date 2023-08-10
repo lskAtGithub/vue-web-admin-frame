@@ -1,6 +1,6 @@
 import request from '@/utils/request/index'
 
-import type { ILoginParam } from './types'
+import type { ILoginParam } from '@/Types/User'
 /**
  * @param
  * @description 获取路由

@@ -14,7 +14,7 @@ const instance: Directive = {
   mounted(el: HTMLImageElementWithObserver, binding: DirectiveBinding<IBinding>) {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        el.src = binding.value.url
+        if (el.src !== binding.value.url) el.src = binding.value.url
         if (binding.value.once) observer.disconnect()
         if (binding.value.callback) binding.value.callback(entries[0])
       }

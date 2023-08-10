@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts" name="Login">
-import { onMounted } from 'vue'
 import useStore from '@/store'
 import { title } from '@/setting'
 import { useRouter } from 'vue-router'
+import { ElNotification } from 'element-plus'
 
 const router = useRouter()
 const { user } = useStore()
@@ -38,16 +38,42 @@ const accountInfo = {
   password: 'admin'
 }
 
-onMounted(() => {})
-
 function handleLogin() {
   user.userLogin(accountInfo).then(() => {
     router.push('/')
+    ElNotification({
+      title: title,
+      message: `登录成功`,
+      type: 'success'
+    })
   })
 }
 </script>
 
 <style lang="scss" scoped>
+@keyframes grow {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 340px;
+  }
+
+  100% {
+    border-right: 0;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right-color: #eee;
+  }
+
+  to {
+    border-right-color: #222;
+  }
+}
 .container {
   width: 100vw;
   height: 100vh;
@@ -67,7 +93,13 @@ function handleLogin() {
   }
 
   .title {
+    width: 340px;
+    border-right: 2px solid #eee;
     font-size: 32px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: grow 2s steps(11) 1s normal both, blink 0.5s steps(22) infinite normal;
   }
 
   .login-btn-box {

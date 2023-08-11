@@ -10,11 +10,22 @@
 
 <script setup lang="ts" name="error500">
 import Container from '@/components/Container.vue'
-import error from '@/assets/error/500.png'
-import { useRouter } from 'vue-router'
+import error from '@/assets/error/403.png'
+import { useRoute, useRouter } from 'vue-router'
+import type { ITagItem } from '@/Types/TagView'
+import useStore from '@/store'
 
 const router = useRouter()
+const route = useRoute()
+const { tagview } = useStore()
+
 const onBack = () => {
+  const tagItem: ITagItem = {
+    path: route.path,
+    name: 'error500',
+    title: ''
+  }
+  tagview.removeTagView(tagItem)
   router.push('/')
 }
 </script>

@@ -26,6 +26,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.33",
     "screenfull": "^6.0.2",
+    "typeit": "^8.7.1",
     "uuid": "^9.0.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

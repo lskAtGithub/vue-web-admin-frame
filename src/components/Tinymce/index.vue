@@ -17,7 +17,7 @@ import toolbar from './toolbar'
 import load from './dynamicLoadScript'
 import ToolUtils from '@/utils/ToolUtils'
 import { ElMessage } from 'element-plus'
-import { isDark } from '@/composables/dark'
+import { isDark } from '@/composables/useDark'
 
 import type { Ref } from 'vue'
 

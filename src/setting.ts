@@ -1,1 +1,1 @@
-export const title: string = 'Vue Web Admin Frame'
+export const title: string = 'Web Admin Frame'

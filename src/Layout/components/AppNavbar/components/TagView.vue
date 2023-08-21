@@ -135,6 +135,8 @@ const getToPath = (tag: ITagItem) => {
       &:hover {
         .close--icon {
           display: inline-block;
+          width: 14px;
+          margin-left: 8px;
         }
       }
 
@@ -148,10 +150,9 @@ const getToPath = (tag: ITagItem) => {
       }
 
       .close--icon {
-        margin-left: 8px;
+        width: 0;
         vertical-align: middle;
-        display: none;
-        transition: display 0.3s;
+        transition: all 0.5s;
 
         &:hover {
           color: #fff;

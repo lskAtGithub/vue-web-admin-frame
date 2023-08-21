@@ -7,8 +7,15 @@
       说明: 基于 echarts 二次封装, 使用方法与echarts没有差别,
       组件只是处理了resize以及监听data数据变化时的视图更新
     </p>
-    <el-button @click="onChangeData">修改数据图表数据</el-button>
-    <base-echarts class="echarts" :options="option" width="650px" height="750px" />
+    <div class="layout-box">
+      <section>
+        <el-button @click="onChangeData">修改数据图表数据</el-button>
+        <base-echarts class="echarts" :options="option1" width="650px" height="750px" />
+      </section>
+      <section>
+        <base-echarts class="echarts" :options="option2" width="650px" height="750px" />
+      </section>
+    </div>
   </Container>
 </template>
 
@@ -17,7 +24,7 @@ import { reactive } from 'vue'
 import BaseEcharts from '@/components/BaseEcharts.vue'
 import Container from '@/components/Container.vue'
 
-let option = reactive({
+let option1 = reactive({
   tooltip: {
     trigger: 'item'
   },
@@ -61,8 +68,66 @@ let option = reactive({
   ]
 })
 
+let base = +new Date(1988, 9, 3)
+let oneDay = 24 * 3600 * 1000
+let data = [[base, Math.random() * 300]]
+for (let i = 1; i < 20000; i++) {
+  let now = new Date((base += oneDay))
+  data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])])
+}
+let option2 = reactive({
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt: any) {
+      return [pt[0], '10%']
+    }
+  },
+  title: {
+    left: 'center',
+    text: 'Large Ara Chart'
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'time',
+    boundaryGap: false
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '100%']
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+      end: 20
+    },
+    {
+      start: 0,
+      end: 20
+    }
+  ],
+  series: [
+    {
+      name: 'Fake Data',
+      type: 'line',
+      smooth: true,
+      symbol: 'none',
+      areaStyle: {},
+      data: data
+    }
+  ]
+})
+
 const onChangeData = () => {
-  Object.assign(option, {
+  Object.assign(option1, {
     series: {
       data: [
         { value: 350, name: 'Engine' },
